@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Med Escolha, o match para fechar sua decisão da especialidade médica</title>
+<meta name="description" content="O Match da Especialidade Médica do Med Escolha. Cruze 100+ pontos do seu perfil com as 55 especialidades reconhecidas no Brasil para fechar sua decisão de vez. R$ 149.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel base. Substituir 486908010162611 antes de subir. -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '486908010162611');
+  fbq('track', 'PageView');
+</script>
+
+<style>
+:root {
+  --navy: #0E1F4D;
+  --navy-deep: #081434;
+  --teal: #1FBFA8;
+  --teal-dark: #17A38F;
+  --yellow: #F4D14E;
+  --black: #000000;
+  --text: #1A2233;
+  --text-soft: #4A5468;
+  --white: #FFFFFF;
+  --offwhite: #F5F7F9;
+  --border: #E4E8EE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============ HEADER ============ */
+.site-header {
+  background: var(--white);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-header img {
+  height: 40px;
+  width: auto;
+}
+
+/* ============ SECTIONS ============ */
+section {
+  padding: 64px 0;
+}
+@media (min-width: 768px) {
+  section { padding: 96px 0; }
+}
+
+.section-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.section-navy h2, .section-navy h3 { color: var(--white); }
+
+.section-teal {
+  background: var(--teal);
+  color: var(--white);
+}
+.section-teal h2, .section-teal h3 { color: var(--white); }
+
+.section-yellow {
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.section-offwhite {
+  background: var(--offwhite);
+}
+
+/* ============ TYPOGRAPHY ============ */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: lowercase;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+@media (min-width: 768px) {
+  h1 { font-size: 38px; }
+}
+@media (min-width: 1100px) {
+  h1 { font-size: 45px; }
+}
+
+h2 {
+  font-size: 26px;
+}
+@media (min-width: 768px) {
+  h2 { font-size: 40px; }
+}
+
+h3 {
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  h3 { font-size: 26px; }
+}
+
+p { margin-bottom: 16px; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  background: rgba(31, 191, 168, 0.1);
+  border-radius: 20px;
+}
+
+.section-navy .eyebrow {
+  color: var(--yellow);
+  background: rgba(244, 209, 78, 0.15);
+}
+
+.highlight-teal {
+  color: var(--teal);
+}
+.section-navy .highlight-teal { color: var(--teal); }
+
+.highlight-underline {
+  background: linear-gradient(180deg, transparent 60%, var(--teal) 60%);
+  padding: 0 4px;
+}
+
+.lead {
+  font-size: 16px;
+  color: var(--text-soft);
+}
+@media (min-width: 768px) {
+  .lead { font-size: 18px; }
+}
+.section-navy .lead { color: rgba(255,255,255,0.85); }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-block;
+  padding: 18px 32px;
+  background: var(--teal);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-decoration: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  min-height: 56px;
+  line-height: 1.2;
+  box-shadow: 0 6px 18px rgba(31, 191, 168, 0.35);
+}
+.btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-large {
+  padding: 22px 40px;
+  font-size: 18px;
+  min-height: 64px;
+}
+@media (min-width: 768px) {
+  .btn-large {
+    padding: 26px 48px;
+    font-size: 20px;
+  }
+}
+
+.btn-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cta-block {
+  text-align: center;
+  margin: 32px 0;
+}
+.cta-friction {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+.section-navy .cta-friction { color: rgba(255,255,255,0.75); }
+
+/* ============ HERO ============ */
+.hero {
+  padding-top: 32px;
+  padding-bottom: 48px;
+  background: var(--navy);
+  color: var(--white);
+}
+@media (min-width: 768px) {
+  .hero { padding-top: 56px; padding-bottom: 64px; }
+}
+@media (min-width: 1100px) {
+  .hero { padding-top: 64px; padding-bottom: 72px; }
+}
+.hero h1 { color: var(--white); }
+.hero .lead { color: rgba(255,255,255,0.85); }
+.hero-grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
+}
+.hero-benefits {
+  list-style: none;
+  margin: 24px 0;
+}
+.hero-benefits li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  color: rgba(255,255,255,0.92);
+  font-size: 15px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .hero-benefits li { font-size: 16px; padding: 12px 0 12px 36px; }
+}
+.hero-benefits li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 18px;
+  height: 18px;
+  background: var(--teal);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 16px 0 24px;
+  padding: 0;
+}
+.hero-pills li {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(31, 191, 168, 0.18);
+  color: var(--white);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(31, 191, 168, 0.5);
+  text-transform: lowercase;
+}
+.hero-pills li:before {
+  content: "✓";
+  color: var(--teal);
+  font-weight: 800;
+  margin-right: 6px;
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .hero-pills li { font-size: 14px; padding: 8px 16px; }
+}
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  overflow: visible;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35));
+}
+.hero-photo-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  display: block;
+  background: var(--teal);
+}
+.hero-photo-frame:before {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 60%;
+  height: 60%;
+  background: var(--yellow);
+  border-radius: 24px;
+  z-index: -1;
+  opacity: 0.85;
+}
+.hero-photo-frame:after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 100px;
+  height: 100px;
+  background: var(--teal);
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.4;
+}
+.hero-floating-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
+  background: var(--white);
+  color: var(--text);
+  padding: 16px 22px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+  max-width: 240px;
+}
+@media (min-width: 768px) {
+  .hero-floating-badge {
+    left: -32px;
+    padding: 18px 24px;
+  }
+}
+.hero-floating-badge .badge-stat {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+}
+.hero-floating-badge .badge-text {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  text-transform: lowercase;
+}
+.hero-floating-pill {
+  position: absolute;
+  top: 24px;
+  right: -14px;
+  background: var(--navy-deep);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 2;
+  border: 2px solid var(--yellow);
+}
+
+/* ============ PROBLEM SECTION ============ */
+.problem-step {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.problem-step:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.problem-step .step-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+/* ============ FAILED SOLUTIONS GRID ============ */
+.failed-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 32px;
+}
+@media (min-width: 600px) {
+  .failed-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 1000px) {
+  .failed-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.failed-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px 22px;
+  position: relative;
+  color: var(--white);
+  transition: transform 0.2s, background 0.2s;
+}
+.failed-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.07);
+}
+.failed-card .failed-x {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.18);
+  color: #ff7b7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+.failed-card .failed-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.failed-card .failed-icon svg { width: 28px; height: 28px; }
+.failed-card h3 {
+  color: var(--white);
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-transform: lowercase;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.failed-card p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============ WINNER CARD ============ */
+.winner-card {
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border-radius: 24px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(31, 191, 168, 0.35);
+}
+@media (min-width: 768px) {
+  .winner-card { padding: 40px 44px; }
+}
+.winner-card:before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: rgba(244, 209, 78, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--white);
+  color: var(--teal-dark);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.winner-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .winner-grid {
+    grid-template-columns: 96px 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+}
+.winner-icon-wrap { display: flex; justify-content: center; }
+.winner-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  background: var(--white);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.winner-icon svg { width: 48px; height: 48px; }
+.winner-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+.winner-content h3 {
+  color: var(--white);
+  font-size: 26px;
+  margin-bottom: 12px;
+  text-transform: lowercase;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .winner-content h3 { font-size: 32px; }
+}
+.winner-content p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.winner-content p strong { color: var(--white); }
+.winner-points {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.winner-points li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+.winner-points li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+/* ============ COMPARISON TABLE ============ */
+.comparison-wrap {
+  overflow-x: auto;
+  margin: 32px -16px 0;
+  padding: 0 16px;
+  scrollbar-width: thin;
+}
+.comparison-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.comparison-table th, .comparison-table td {
+  padding: 18px 20px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.comparison-table thead {
+  background: var(--navy);
+}
+.comparison-table thead th {
+  color: var(--white);
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+.comparison-table tbody tr:last-child td { border-bottom: 0; }
+.comparison-table tbody tr.winner-row {
+  background: rgba(31, 191, 168, 0.08);
+}
+.comparison-table tbody tr.winner-row td {
+  font-weight: 500;
+}
+.comparison-table tbody tr.winner-row td:first-child {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* ============ MECHANISM SECTION ============ */
+.mechanism-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 48px;
+}
+@media (min-width: 768px) {
+  .mechanism-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+.mechanism-card {
+  background: var(--white);
+  padding: 28px 26px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.mechanism-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(14, 31, 77, 0.1);
+}
+.mechanism-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal) 0%, var(--yellow) 100%);
+}
+.mechanism-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.mechanism-card .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(31, 191, 168, 0.35);
+}
+.mechanism-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(31, 191, 168, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.mechanism-icon svg { width: 28px; height: 28px; stroke-width: 1.8; }
+.mechanism-card h3 {
+  text-transform: lowercase;
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-size: 19px;
+  line-height: 1.25;
+}
+@media (min-width: 768px) {
+  .mechanism-card h3 { font-size: 21px; }
+}
+.mechanism-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-soft);
+  margin-bottom: 0;
+}
+.mechanism-card .axis-list {
+  list-style: none;
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.mechanism-card .axis-list li {
+  padding: 5px 10px 5px 22px;
+  position: relative;
+  font-size: 12px;
+  color: var(--text);
+  background: rgba(31, 191, 168, 0.08);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.mechanism-card .axis-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  color: var(--teal);
+  font-weight: 800;
+  font-size: 11px;
+}
+.mechanism-callout {
+  margin-top: auto;
+  padding: 12px 14px;
+  background: rgba(31, 191, 168, 0.08);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.mechanism-card p { margin-bottom: 14px; }
+.mechanism-card p:last-child { margin-bottom: 0; }
+
+/* ============ BENEFITS TABLE ============ */
+.benefits-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 40px;
+}
+.benefit-row {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.benefit-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(14, 31, 77, 0.08);
+}
+.benefit-row:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--teal);
+}
+@media (min-width: 768px) {
+  .benefit-row {
+    grid-template-columns: 64px 1.4fr 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 28px 28px 28px 32px;
+    align-items: start;
+  }
+}
+.benefit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.benefit-icon svg { width: 28px; height: 28px; stroke-width: 2; }
+.benefit-row .benefit-cell .cell-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+  display: block;
+}
+.benefit-row .benefit-feature {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.3;
+}
+.benefit-row .benefit-feature .cell-label { color: var(--text-soft); }
+.benefit-row .benefit-cell {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+.testimonial-card {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.testimonial-card .testimonial-quote {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+  font-style: italic;
+  flex: 1;
+}
+.testimonial-card .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.testimonial-card .testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--offwhite);
+  border: 2px solid var(--white);
+  box-shadow: 0 2px 8px rgba(14, 31, 77, 0.12);
+}
+.testimonial-card .testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.testimonial-card .testimonial-meta .name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+}
+.testimonial-card .testimonial-meta .role {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+/* ============ OFFER STACK ============ */
+.offer-stack {
+  background: var(--white);
+  border-radius: 20px;
+  border: 2px solid var(--teal);
+  padding: 32px 24px;
+  max-width: 640px;
+  margin: 32px auto 0;
+  box-shadow: 0 20px 40px rgba(14, 31, 77, 0.1);
+}
+@media (min-width: 768px) {
+  .offer-stack { padding: 40px 36px; }
+}
+.offer-stack h3 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--navy);
+}
+.stack-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--border);
+  align-items: center;
+}
+.stack-row:last-of-type { border-bottom: 0; }
+.stack-row.bonus {
+  background: linear-gradient(90deg, rgba(244, 209, 78, 0.18) 0%, rgba(244, 209, 78, 0) 100%);
+  margin: 0 -16px;
+  padding: 18px 16px;
+  border-radius: 12px;
+  border-bottom: 1px dashed var(--border);
+}
+@media (min-width: 768px) {
+  .stack-row.bonus { margin: 0 -20px; padding: 20px 20px; }
+}
+.stack-row .stack-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.stack-row.bonus .stack-icon {
+  background: linear-gradient(135deg, var(--yellow) 0%, #E8B82E 100%);
+  color: var(--text);
+}
+.stack-row .stack-icon svg { width: 22px; height: 22px; }
+.stack-row .stack-item {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.stack-row .stack-item strong { color: var(--navy); font-size: 15px; }
+.stack-row .stack-item .bonus-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--yellow);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-right: 8px;
+}
+.stack-row .stack-value {
+  font-weight: 800;
+  color: var(--navy);
+  white-space: nowrap;
+  font-size: 16px;
+}
+.stack-row .stack-value .stack-strike {
+  display: block;
+  font-size: 12px;
+  text-decoration: line-through;
+  color: var(--text-soft);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.stack-total {
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 2px solid var(--border);
+  text-align: center;
+}
+.stack-total .total-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+}
+.stack-total .total-strike {
+  font-size: 22px;
+  text-decoration: line-through;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.stack-total .total-now {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .stack-total .total-now { font-size: 64px; }
+}
+.stack-total .total-now small {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+.stack-total .total-installments {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ============ PRICE CARD ============ */
+.price-card {
+  max-width: 920px;
+  margin: 40px auto 0;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.18);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .price-card {
+    grid-template-columns: 1fr 1.1fr;
+    padding: 36px;
+    gap: 36px;
+    align-items: stretch;
+  }
+}
+.price-card-strikes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.strike-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  position: relative;
+}
+.strike-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(220, 80, 80, 0.12);
+  color: #C24343;
+  font-weight: 800;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.strike-content { display: flex; flex-direction: column; gap: 2px; }
+.strike-amount {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-soft);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(194, 67, 67, 0.5);
+}
+.strike-label {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.3;
+}
+
+.price-card-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border-radius: 18px;
+  padding: 32px 28px;
+  color: var(--white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.price-card-hero:before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  background: rgba(31, 191, 168, 0.18);
+  border-radius: 50%;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.hero-amount {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .hero-amount { font-size: 80px; }
+}
+.hero-meta {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.hero-aside {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+  margin-bottom: 24px;
+  max-width: 320px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+.price-cta {
+  background: var(--teal) !important;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(31, 191, 168, 0.5) !important;
+}
+.price-cta:hover { background: var(--teal-dark) !important; }
+
+/* ============ GUARANTEE ============ */
+.guarantee-card {
+  max-width: 700px;
+  margin: 32px auto 0;
+  background: var(--offwhite);
+  border: 2px solid var(--teal);
+  border-radius: 20px;
+  padding: 32px 28px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .guarantee-card {
+    padding: 40px;
+    padding-left: 180px;
+  }
+}
+.guarantee-badge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: var(--yellow);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border: 4px solid var(--white);
+  box-shadow: 0 6px 18px rgba(244, 209, 78, 0.4);
+}
+@media (min-width: 768px) {
+  .guarantee-badge {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+}
+.guarantee-badge .badge-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+.guarantee-badge .badge-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-top: 4px;
+}
+.guarantee-card h3 { color: var(--navy); }
+.guarantee-card p { color: var(--text); font-size: 15px; }
+.guarantee-card .satisfaction-extras {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.guarantee-card .satisfaction-extras ul {
+  list-style: none;
+  margin-top: 8px;
+}
+.guarantee-card .satisfaction-extras li {
+  padding: 4px 0 4px 22px;
+  position: relative;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+.guarantee-card .satisfaction-extras li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* ============ AUTHORITY SECTION ============ */
+.authority-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .authority-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.authority-card {
+  background: var(--white);
+  padding: 32px 28px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+.authority-card .pillar-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.authority-card h3 { color: var(--navy); }
+.authority-card p { color: var(--text-soft); font-size: 15px; }
+
+/* ============ AUTHORITY CARD V2 ============ */
+.authority-card-v2 {
+  max-width: 980px;
+  margin: 40px auto 0;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 24px 60px rgba(14, 31, 77, 0.18);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .authority-card-v2 {
+    grid-template-columns: 1.3fr 1px 1fr;
+    padding: 48px 48px;
+    gap: 48px;
+    align-items: center;
+  }
+}
+.authority-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.authority-logo {
+  height: 32px;
+  width: auto;
+}
+@media (min-width: 768px) {
+  .authority-logo { height: 40px; }
+}
+.authority-tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin: 0;
+  padding: 6px 14px;
+  background: var(--offwhite);
+  border-radius: 999px;
+}
+.authority-desc {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+}
+.authority-desc strong { color: var(--navy); font-weight: 700; }
+
+.authority-divider-vert {
+  display: none;
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+  min-height: 200px;
+}
+@media (min-width: 900px) {
+  .authority-divider-vert { display: block; }
+}
+
+.authority-stat-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 900px) {
+  .authority-stat-block { border-top: 0; padding: 0; }
+}
+.authority-stat-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+.authority-stat-num {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+@media (min-width: 768px) {
+  .authority-stat-num { font-size: 72px; }
+}
+.authority-stat-label {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0 0 10px;
+  max-width: 320px;
+}
+.authority-stat-label strong { color: var(--navy); font-weight: 700; }
+.authority-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--navy);
+  margin-top: 4px;
+}
+.authority-stat-pill:before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  display: inline-block;
+}
+
+.market-stat {
+  margin-top: 48px;
+  text-align: center;
+}
+.market-stat .stat-bignum {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+@media (min-width: 768px) {
+  .market-stat .stat-bignum { font-size: 80px; }
+}
+.market-stat .stat-caption {
+  font-size: 16px;
+  color: var(--text);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ============ FAQ ============ */
+.faq-list {
+  margin-top: 32px;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--navy);
+  list-style: none;
+  position: relative;
+  padding-right: 56px;
+  text-transform: lowercase;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:after {
+  content: "+";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--teal);
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+.faq-item[open] summary:after {
+  transform: translateY(-50%) rotate(45deg);
+}
+.faq-item .faq-answer {
+  padding: 0 24px 24px;
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ============ FINAL CTA IMAGE ============ */
+.final-cta-image {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+.final-cta-image img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+  border: 4px solid var(--white);
+}
+@media (min-width: 768px) {
+  .final-cta-image { margin: 0 auto 56px; }
+}
+
+/* ============ FINAL CTA ============ */
+.final-cta {
+  text-align: center;
+}
+.final-cta .ps-block {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  text-align: left;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-cta .ps-block .ps-label {
+  font-weight: 800;
+  color: var(--yellow);
+  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+.final-cta .ps-block p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.7;
+}
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background: var(--navy-deep);
+  color: rgba(255,255,255,0.6);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 13px;
+}
+.site-footer img {
+  height: 32px;
+  margin: 0 auto 16px;
+  filter: brightness(0) invert(1);
+}
+.site-footer p { margin-bottom: 6px; }
+
+/* ============ UTILITIES ============ */
+.text-center { text-align: center; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+.mt-5 { margin-top: 40px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 32px; }
+
+/* ============ RESULT PREVIEW MOCKUP ============ */
+.result-preview-wrap {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .result-preview-wrap {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+  }
+}
+.result-preview-intro h3 {
+  margin: 12px 0 12px;
+  color: var(--navy);
+  font-size: 26px;
+}
+@media (min-width: 768px) {
+  .result-preview-intro h3 { font-size: 32px; }
+}
+.result-preview-intro p {
+  color: var(--text-soft);
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.result-mockup {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 24px 60px rgba(14, 31, 77, 0.18);
+  border: 1px solid var(--border);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .result-mockup { padding: 28px 28px; }
+}
+.result-mockup:before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: 24px;
+  bottom: 24px;
+  background: var(--teal);
+  opacity: 0.15;
+  border-radius: 24px;
+  z-index: -1;
+}
+.result-mockup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 18px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.mockup-title { display: flex; flex-direction: column; gap: 2px; }
+.mockup-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: lowercase;
+  line-height: 1.2;
+}
+.mockup-date {
+  font-size: 11px;
+  color: var(--text-soft);
+}
+.mockup-pill {
+  background: var(--navy);
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+.result-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(228, 232, 238, 0.6);
+}
+.result-row:last-of-type { border-bottom: 0; }
+.result-rank {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+}
+.result-row.top .result-rank { color: var(--teal); font-size: 14px; }
+.result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.result-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: lowercase;
+}
+.result-row.top .result-name { font-weight: 700; }
+.result-bar {
+  height: 6px;
+  background: var(--offwhite);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.result-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 999px;
+}
+.result-row.top .result-fill {
+  background: linear-gradient(90deg, var(--teal) 0%, var(--teal-dark) 100%);
+}
+.result-pct {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+.result-row.top .result-pct { color: var(--teal); font-size: 16px; }
+.result-narrative {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--offwhite);
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  border-left: 3px solid var(--teal);
+}
+.result-narrative strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--navy);
+  font-size: 12px;
+  text-transform: lowercase;
+}
+.result-narrative em {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-soft);
+  font-style: normal;
+}
+
+/* ============ PROBLEM HERO (split with photo) ============ */
+.problem-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .problem-hero {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+  }
+}
+.problem-photo {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(14, 31, 77, 0.18);
+  position: relative;
+}
+.problem-photo:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14,31,77,0) 60%, rgba(14,31,77,0.25) 100%);
+  pointer-events: none;
+}
+.problem-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.problem-intro h2 {
+  margin-bottom: 16px;
+}
+.problem-intro .lead {
+  color: var(--text-soft);
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .problem-intro .lead { font-size: 19px; }
+}
+
+/* ============ HERO RATING (ATF) ============ */
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.hero-rating-stars {
+  color: var(--yellow);
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.hero-rating-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .hero-rating-text { font-size: 14px; }
+}
+
+/* ============ TRUST STRIP ============ */
+.trust-strip-section {
+  background: var(--white);
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+.trust-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 600px) {
+  .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 1000px) {
+  .trust-strip { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+}
+.trust-item .trust-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.trust-item .trust-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.trust-item .trust-copy strong {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  text-transform: lowercase;
+}
+.trust-item .trust-copy span {
+  font-size: 12px;
+  color: var(--text-soft);
+  text-transform: lowercase;
+}
+
+/* ============ AUTHORITY STRIP ============ */
+.authority-strip-section {
+  padding: 32px 0 36px;
+  background: var(--offwhite);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.authority-strip-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 18px;
+}
+.authority-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-bottom: 18px;
+}
+.authority-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: lowercase;
+  letter-spacing: -0.3px;
+  padding: 6px 4px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .authority-name { font-size: 22px; }
+}
+.authority-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+.authority-strip-sub {
+  font-size: 13px;
+  color: var(--text-soft);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.authority-strip-sub strong { color: var(--navy); font-weight: 600; }
+@media (max-width: 600px) { .authority-divider { display: none; } }
+
+/* ============ PULLED QUOTE ============ */
+.pulled-quote-section {
+  padding: 0;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.pulled-quote-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  min-height: 480px;
+}
+@media (min-width: 900px) {
+  .pulled-quote-grid {
+    grid-template-columns: 1fr 1.1fr;
+    min-height: 540px;
+  }
+}
+.pulled-quote-image {
+  background-image: url('assets-extracted/quote-bg.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 280px;
+  position: relative;
+}
+.pulled-quote-image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 31, 77, 0.15) 0%, rgba(14, 31, 77, 0.55) 100%);
+}
+@media (min-width: 900px) {
+  .pulled-quote-image { min-height: auto; }
+  .pulled-quote-image:after {
+    background: linear-gradient(90deg, rgba(14, 31, 77, 0) 50%, var(--navy) 100%);
+  }
+}
+.pulled-quote {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  padding: 56px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .pulled-quote { padding: 72px 48px; }
+}
+.pulled-quote .quote-mark {
+  font-size: 100px;
+  line-height: 0.8;
+  color: var(--yellow);
+  font-weight: 800;
+  font-family: Georgia, serif;
+  display: block;
+  margin-bottom: -22px;
+  opacity: 0.6;
+}
+@media (min-width: 768px) {
+  .pulled-quote .quote-mark { font-size: 140px; margin-bottom: -32px; }
+}
+.pulled-quote .quote-text {
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 28px;
+  text-transform: lowercase;
+}
+@media (min-width: 768px) {
+  .pulled-quote .quote-text { font-size: 26px; line-height: 1.4; }
+}
+.pulled-quote .quote-emphasis {
+  background: linear-gradient(180deg, transparent 55%, rgba(244, 209, 78, 0.4) 55%);
+  padding: 0 4px;
+  font-weight: 700;
+  color: var(--white);
+}
+.pulled-quote .quote-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  padding-top: 16px;
+  border-top: 2px solid rgba(31, 191, 168, 0.4);
+  width: fit-content;
+}
+.pulled-quote .quote-attribution strong {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 16px;
+  text-transform: lowercase;
+}
+.pulled-quote .quote-attribution span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: lowercase;
+}
+
+/* ============ STICKY CTA BAR ============ */
+.sticky-cta {
+  position: fixed;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  background: var(--navy);
+  border-top: 2px solid var(--teal);
+  padding: 12px 16px;
+  z-index: 100;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.25);
+  transition: bottom 0.3s ease;
+}
+.sticky-cta.visible { bottom: 0; }
+.sticky-cta-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sticky-cta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--white);
+  flex: 1;
+  min-width: 0;
+}
+.sticky-cta-rating {
+  color: var(--yellow);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+.sticky-cta-info .sticky-product {
+  text-transform: lowercase;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sticky-cta-info .sticky-price {
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 13px;
+}
+.sticky-cta-btn {
+  padding: 13px 18px !important;
+  font-size: 13px !important;
+  min-height: 44px !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(31,191,168,0.4) !important;
+}
+@media (min-width: 768px) {
+  .sticky-cta { padding: 14px 24px; }
+  .sticky-cta-info { flex-direction: row; align-items: center; gap: 18px; }
+  .sticky-cta-info .sticky-product { font-size: 16px; }
+  .sticky-cta-info .sticky-price { font-size: 16px; }
+  .sticky-cta-btn { padding: 14px 28px !important; font-size: 15px !important; min-height: 48px !important; }
+}
+body.sticky-active { padding-bottom: 84px; }
+@media (min-width: 768px) { body.sticky-active { padding-bottom: 90px; } }
+
+/* ============ MOMENTUM BADGE ============ */
+.momentum-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.momentum-badge:before {
+  content: "★";
+  color: var(--text);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <img src="assets-extracted/logo-med-escolha.png" alt="Med Escolha, por Amo Medicina">
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">para estudantes e médicos recém-formados</span>
+        <h1>o <span class="highlight-teal">match</span> da especialidade médica, <span class="highlight-teal">sem achismos.</span></h1>
+        <div class="hero-rating">
+          <span class="hero-rating-stars">★★★★★</span>
+          <span class="hero-rating-text">depoimentos reais de estudantes e médicos</span>
+        </div>
+        <p class="lead">o <strong>match da especialidade médica</strong> cruza 100+ pontos do seu perfil com as <strong>55 reconhecidas no Brasil</strong>. ranking + narrativa pra você fechar a decisão de vez.</p>
+        <ul class="hero-pills">
+          <li>100+ pontos cruzados</li>
+          <li>55 especialidades</li>
+          <li>+ acervo 50 lives</li>
+          <li>14 dias garantia</li>
+        </ul>
+        <div class="cta-block" style="text-align: left;">
+          <a href="#checkout" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">definir minha especialidade</a>
+          <p class="cta-friction">14 dias de garantia. acesso em até 5 minutos.</p>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-photo-frame">
+          <img src="assets-extracted/hero-medica.png" alt="Estudante de medicina sorrindo, com jaleco branco e tablet">
+          <div class="hero-floating-pill">decisão definitiva</div>
+          <div class="hero-floating-badge">
+            <div class="badge-stat">55</div>
+            <div class="badge-text">especialidades cruzadas com seu perfil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust-strip-section">
+  <div class="container">
+    <div class="trust-strip">
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div class="trust-copy">
+          <strong>100+ perguntas</strong>
+          <span>em 6 eixos do seu perfil</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div class="trust-copy">
+          <strong>55 especialidades</strong>
+          <span>reconhecidas no Brasil</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div class="trust-copy">
+          <strong>ranking + narrativa</strong>
+          <span>do porquê de cada match</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div class="trust-copy">
+          <strong>14 dias</strong>
+          <span>garantia incondicional</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✓</span>
+        <div class="trust-copy">
+          <strong>acesso vitalício</strong>
+          <span>sem mensalidade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: PROBLEM ============ -->
+<section class="section-offwhite">
+  <div class="container">
+    <div class="problem-hero">
+      <div class="problem-photo">
+        <img src="assets-extracted/problem-student.png" alt="Estudante de medicina estudando à noite, pensativa">
+      </div>
+      <div class="problem-intro">
+        <span class="eyebrow">a sua realidade hoje</span>
+        <h2>essa <span class="highlight-underline">provavelmente</span> é a sua realidade hoje:</h2>
+        <p class="lead">você não tá perdido. só tá usando ferramentas que não foram feitas pra essa decisão.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-narrow" style="margin-top: 48px;">
+
+    <div class="problem-step" style="border-bottom-color: var(--border);">
+      <span class="step-eyebrow" style="color: var(--teal);">a dor visível</span>
+      <h3>todo mundo parece saber, menos você.</h3>
+      <p>você termina mais um plantão exausto, abre o instagram, vê um colega comentando que vai pra cirurgia plástica, outro pra radiologia, e a sensação volta.</p>
+      <p>já tentou listar prós e contras numa folha. já conversou com professor, com R3, com tio médico. já fez quiz na internet (e o resultado deu três especialidades completamente opostas). nenhuma das tentativas fechou.</p>
+    </div>
+
+    <div class="problem-step" style="border-bottom-color: var(--border);">
+      <span class="step-eyebrow" style="color: var(--teal);">o custo invisível</span>
+      <h3>cada semestre de indecisão tem um custo que ninguém te conta.</h3>
+      <p>o R3 que você vai começar 1 ano depois. a residência que você vai escolher por exclusão (porque "a inscrição fechou amanhã"). a vaga em hospital top que vai pra quem decidiu antes.</p>
+      <p>e tem o custo emocional, o que dói mais: a pressão da família, o medo de chegar no quinto ano sem rumo, o silêncio nas reuniões quando perguntam "e aí, vai ser o quê?".</p>
+    </div>
+
+    <div class="problem-step" style="border-bottom-color: var(--border);">
+      <span class="step-eyebrow" style="color: var(--teal);">a consequência projetada</span>
+      <h3>30 anos.</h3>
+      <p>é mais ou menos isso que você vai passar dentro da especialidade que escolher agora. escolher errado significa rotina, plantão, jornada, pacientes, ambiente, salário e estilo de vida travados por uma decisão tomada com pressa, achismo e pressão dos outros.</p>
+      <p><strong>a maioria dos médicos generalistas que você conhece não escolheu ser generalista. foi parando lá.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: FAILED SOLUTIONS ============ -->
+<section class="section-navy">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">o que você já tentou</span>
+      <h2>e por que <span class="highlight-teal">não fechou</span></h2>
+    </div>
+
+    <div class="failed-grid">
+
+      <div class="failed-card">
+        <div class="failed-x">✕</div>
+        <div class="failed-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+            <rect x="4" y="3" width="16" height="18" rx="2"/>
+            <path d="M9 9h.01M9 13h.01M9 17h.01M13 9h2M13 13h2M13 17h2"/>
+          </svg>
+        </div>
+        <h3>quiz gratuito de internet</h3>
+        <p>10 a 30 perguntas genéricas. resultado muda toda vez. cobre 5 a 10 áreas só.</p>
+      </div>
+
+      <div class="failed-card">
+        <div class="failed-x">✕</div>
+        <div class="failed-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            <path d="M9 10h.01M13 10h.01M17 10h.01"/>
+          </svg>
+        </div>
+        <h3>conversa com professor</h3>
+        <p>você ouve a história dele, não a sua. o que serviu aos 50 dele não serve aos seus 24.</p>
+      </div>
+
+      <div class="failed-card">
+        <div class="failed-x">✕</div>
+        <div class="failed-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+            <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12s4.5 10 10 10"/>
+            <path d="M12 6v6l3 2"/>
+            <path d="M16 22l4-4-4-4M16 18h6"/>
+          </svg>
+        </div>
+        <h3>decidir pela rotação que gostou</h3>
+        <p>rotação dura 4 a 8 semanas. especialidade dura 30 anos. internato não é o cenário da carreira.</p>
+      </div>
+
+      <div class="failed-card">
+        <div class="failed-x">✕</div>
+        <div class="failed-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+        </div>
+        <h3>esperar "bater o estalo"</h3>
+        <p>estalo é viés de confirmação. bate pela última vivência que te marcou, não pela compatibilidade real.</p>
+      </div>
+
+    </div>
+
+    <!-- Winner card full-width -->
+    <div class="winner-card">
+      <div class="winner-badge">✓ a alternativa que fecha</div>
+      <div class="winner-grid">
+        <div class="winner-icon-wrap">
+          <div class="winner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+        <div class="winner-content">
+          <span class="winner-eyebrow">med escolha</span>
+          <h3>o match da especialidade médica.</h3>
+          <p>100+ perguntas em 6 eixos cruzadas com as <strong>55 especialidades reconhecidas no Brasil</strong>. ranking ordenado + narrativa do porquê de cada match.</p>
+          <ul class="winner-points">
+            <li>cobre o universo inteiro de especialidades, não só as 5 ou 10 mais óbvias</li>
+            <li>narrativa explica POR QUE cada especialidade combina com você</li>
+            <li>você sai com decisão fechada, não com nova confusão</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SECTION 4: MECHANISM ============ -->
+<section class="section-offwhite">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">como funciona</span>
+      <h2>como o <span class="highlight-underline">match da especialidade médica</span> funciona</h2>
+      <p class="lead">a maioria dos "testes vocacionais" online tem 10 a 30 perguntas e cruza com 5 a 10 carreiras. resultado: você fecha a página igual confuso. o match do med escolha foi desenhado pra fazer o oposto.</p>
+    </div>
+
+    <div class="mechanism-grid">
+      <div class="mechanism-card">
+        <div class="mechanism-card-head">
+          <div class="step-num">1</div>
+          <div class="mechanism-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+              <path d="M8 7h8M8 11h8M8 15h5"/>
+            </svg>
+          </div>
+        </div>
+        <h3>100+ perguntas em 6 eixos</h3>
+        <ul class="axis-list">
+          <li>aptidão técnica</li>
+          <li>perfil emocional</li>
+          <li>estilo de vida</li>
+          <li>tolerância a plantão</li>
+          <li>motivação financeira</li>
+          <li>ambição acadêmica</li>
+        </ul>
+      </div>
+
+      <div class="mechanism-card">
+        <div class="mechanism-card-head">
+          <div class="step-num">2</div>
+          <div class="mechanism-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+        <h3>cruzamento com as 55 especialidades</h3>
+        <p>sua resposta é cruzada com uma base que mapeia rotina, perfil, requisitos e tendências de carreira de cada área.</p>
+        <div class="mechanism-callout">→ as 55 reconhecidas no Brasil, da clínica geral à neurocirurgia</div>
+      </div>
+
+      <div class="mechanism-card">
+        <div class="mechanism-card-head">
+          <div class="step-num">3</div>
+          <div class="mechanism-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h12M3 12h9M3 18h6"/>
+              <path d="M17 18l3 3 4-5" transform="translate(-1, -3)"/>
+            </svg>
+          </div>
+        </div>
+        <h3>ranking + narrativa do porquê</h3>
+        <p>você não recebe "tenta cirurgia". recebe um ranking ordenado <strong>com narrativa explicando porque cada match bateu com seu perfil</strong>.</p>
+        <div class="mechanism-callout">→ a parte que muda decisão</div>
+      </div>
+
+    </div>
+
+    <div class="result-preview-wrap">
+      <div class="result-preview-intro">
+        <span class="eyebrow" style="background: rgba(244, 209, 78, 0.2); color: var(--navy);">exemplo de resultado</span>
+        <h3>é exatamente isso que chega no seu painel:</h3>
+        <p>seu ranking ordenado das 55 especialidades, com narrativa pra cada match no top. exemplo ilustrativo abaixo.</p>
+      </div>
+
+      <div class="result-mockup">
+        <div class="result-mockup-header">
+          <div class="mockup-title">
+            <span class="mockup-label">seu match com as 55 especialidades</span>
+            <span class="mockup-date">resultado, 9 de maio</span>
+          </div>
+          <div class="mockup-pill">top 5</div>
+        </div>
+
+        <div class="result-row top">
+          <div class="result-rank">01</div>
+          <div class="result-info">
+            <div class="result-name">anestesiologia</div>
+            <div class="result-bar"><div class="result-fill" style="width: 89%;"></div></div>
+          </div>
+          <div class="result-pct">89%</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-rank">02</div>
+          <div class="result-info">
+            <div class="result-name">medicina de família</div>
+            <div class="result-bar"><div class="result-fill" style="width: 82%;"></div></div>
+          </div>
+          <div class="result-pct">82%</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-rank">03</div>
+          <div class="result-info">
+            <div class="result-name">cirurgia geral</div>
+            <div class="result-bar"><div class="result-fill" style="width: 76%;"></div></div>
+          </div>
+          <div class="result-pct">76%</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-rank">04</div>
+          <div class="result-info">
+            <div class="result-name">pediatria</div>
+            <div class="result-bar"><div class="result-fill" style="width: 71%;"></div></div>
+          </div>
+          <div class="result-pct">71%</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-rank">05</div>
+          <div class="result-info">
+            <div class="result-name">radiologia</div>
+            <div class="result-bar"><div class="result-fill" style="width: 65%;"></div></div>
+          </div>
+          <div class="result-pct">65%</div>
+        </div>
+
+        <div class="result-narrative">
+          <strong>+ narrativa do porquê de cada match:</strong>
+          "anestesiologia apareceu no topo do seu ranking porque seu perfil mostra alta tolerância a procedimento, raciocínio rápido sob pressão e preferência por rotina previsível, padrão típico das R3 dessa área..."
+          <em>(continua no seu painel, 1 narrativa por especialidade do top 5)</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block mt-5">
+      <a href="#checkout" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">quero fazer o match, R$ 149</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PULLED QUOTE (mid-page editorial) ============ -->
+<section class="pulled-quote-section">
+  <div class="pulled-quote-grid">
+    <div class="pulled-quote-image" role="presentation"></div>
+    <blockquote class="pulled-quote">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">o relatório me permitiu entender minhas aptidões, meu temperamento e meu perfil profissional. recebi uma lista completa das especialidades dentro da minha aptidão, com um <span class="quote-emphasis">top 3 que bateu com o que penso em seguir</span>.</p>
+      <footer class="quote-attribution">
+        <strong>João Vitor Carvalho</strong>
+        <span>médico, formado pela universidade federal do amazonas</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: BENEFITS ============ -->
+<section>
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">o impacto na prática</span>
+      <h2>o que cada parte do match <span class="highlight-underline">resolve por você</span></h2>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-row">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+        <div class="benefit-cell benefit-feature"><span class="cell-label">o que é</span>match com 100+ perguntas em 6 eixos</div>
+        <div class="benefit-cell"><span class="cell-label">funcional</span>mapeia compatibilidade real entre seu perfil e cada uma das 55 especialidades</div>
+        <div class="benefit-cell"><span class="cell-label">financeiro</span>você não desperdiça os R$ 50.000+ de uma residência errada</div>
+        <div class="benefit-cell"><span class="cell-label">emocional</span>para de sentir que jogou 6 anos numa escolha aleatória</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
+        <div class="benefit-cell benefit-feature"><span class="cell-label">o que é</span>cobertura das 55 especialidades reconhecidas no Brasil</div>
+        <div class="benefit-cell"><span class="cell-label">funcional</span>especialidades menos óbvias entram no seu radar</div>
+        <div class="benefit-cell"><span class="cell-label">financeiro</span>chance maior de descobrir nichos com menor competição e melhor remuneração-por-esforço</div>
+        <div class="benefit-cell"><span class="cell-label">emocional</span>para de se sentir limitado às 5 ou 6 áreas famosas</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg></div>
+        <div class="benefit-cell benefit-feature"><span class="cell-label">o que é</span>bônus: acervo com 50+ lives de especialistas</div>
+        <div class="benefit-cell"><span class="cell-label">funcional</span>você assiste no seu ritmo o que cada especialidade é de verdade no dia a dia</div>
+        <div class="benefit-cell"><span class="cell-label">financeiro</span>50+ horas de mentoria que custariam R$ 15 mil em sessões individuais</div>
+        <div class="benefit-cell"><span class="cell-label">emocional</span>para de imaginar e começa a ver a rotina de quem já está nela</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: TESTIMONIALS ============ -->
+<section class="section-offwhite">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">depoimentos reais</span>
+      <h2>quem já fechou a decisão pelo <span class="highlight-underline">med escolha</span></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"faculdade inteira fiquei em dúvida entre 3 especializações. nunca achei algo que pudesse me mostrar tão fidedignamente o que se encaixaria melhor pra mim. o med escolha proporcionou isso na íntegra, com um teste minuciosamente feito. ele me trouxe tão fiel as 3 especialidades que eu sempre tive dúvida, e ainda mostrou qual delas mais combinava com meu perfil. sanou minha dúvida e fez eu bater o martelo. faria 1 milhão de vezes novamente."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="assets-extracted/testimonial-vanessa.jpg" alt="Vanessa"></div>
+          <div class="testimonial-meta">
+            <div class="name">Vanessa</div>
+            <div class="role">médica, graduada há 2 anos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"antes do med escolha eu não tinha a menor ideia do que queria cursar pra residência. sempre tive amor por pediatria e ginecologia obstetrícia, mas não conseguia me decidir. respondi o questionário e o resultado mostrou que minha prioridade deveria ser GO. dentro da pediatria também foram elencadas áreas que compensam o padrão de vida que desejo, como pediatria intensiva e urgência emergência. meu coração ficou mais em paz com meu futuro."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="assets-extracted/testimonial-julia.jpg" alt="Júlia"></div>
+          <div class="testimonial-meta">
+            <div class="name">Júlia</div>
+            <div class="role">estudante de medicina, 5º período, Faculdade Pequeno Príncipe</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"o med escolha me ajudou a decidir qual especialidade vou seguir. score criterioso, com embasamento científico. o relatório me permitiu entender minhas aptidões, meu temperamento e meu perfil profissional. recebi uma lista completa das especialidades dentro da minha aptidão, com um top 3 que bateu com o que penso em seguir. realmente um ótimo investimento."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="assets-extracted/testimonial-joao.jpg" alt="João Vitor Carvalho"></div>
+          <div class="testimonial-meta">
+            <div class="name">João Vitor Carvalho</div>
+            <div class="role">médico, formado pela UFAM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"fui uma das primeiras a testar a plataforma. para chegar no resultado parece fácil, mas respondi tantas perguntas e a análise é tão profunda que é um negócio totalmente profissional, de outro nível. meu top 1 foi medicina física e reabilitação, com 80% e poucos de match, uma especialidade que eu nem pensava antes. eles dão todo um perfil da especialidade e o porquê de você ser compatível. diferenciado do que já tem no mercado."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="assets-extracted/testimonial-camila.jpg" alt="Camila"></div>
+          <div class="testimonial-meta">
+            <div class="name">Camila</div>
+            <div class="role">estudante de medicina</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: OFFER STACK ============ -->
+<section id="checkout" class="section-navy">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">a oferta</span>
+      <h2>tudo o que você recebe<br>por <span class="highlight-teal">R$ 149.</span></h2>
+    </div>
+
+    <div class="offer-stack">
+      <h3>tudo o que você recebe hoje:</h3>
+      <div class="stack-row">
+        <div class="stack-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="stack-item"><strong>match da especialidade médica</strong><br>100+ perguntas em 6 eixos cruzadas com as 55 especialidades reconhecidas no Brasil, ranking ordenado + narrativa do porquê de cada match</div>
+        <div class="stack-value">R$ 497</div>
+      </div>
+      <div class="stack-row bonus">
+        <div class="stack-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="stack-item"><span class="bonus-tag">bônus</span><strong>acervo com 50+ lives de médicos especialistas</strong><br>acesso vitalício a todas as gravações, lives novas entram no acervo</div>
+        <div class="stack-value">R$ 750</div>
+      </div>
+      <div class="stack-total">
+        <div class="total-label">valor total real</div>
+        <div class="total-strike">R$ 1.247</div>
+        <div class="total-label" style="color: var(--teal); margin-top: 12px;">você paga hoje</div>
+        <div class="total-now">R$ 149<small> à vista</small></div>
+        <div class="total-installments">ou em até 12x de R$ 14,90 no cartão</div>
+      </div>
+      <div class="cta-block mt-3">
+        <a href="https://pay.hotmart.com/Y86347681C?off=y014gd40" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">quero garantir meu acesso, R$ 149</a>
+        <p class="cta-friction" style="color: var(--text-soft);">compra 100% protegida. 14 dias de garantia. acesso liberado em até 5 minutos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: PRICE CONTRAST ============ -->
+<section class="section-teal">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow" style="background: rgba(14,31,77,0.18); color: var(--white);">o preço</span>
+      <h2 style="color: var(--white);">quanto custa fechar a decisão da sua <span style="background: linear-gradient(180deg, transparent 60%, rgba(244, 209, 78, 0.5) 60%); padding: 0 6px;">especialidade</span></h2>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-strikes">
+        <div class="strike-row">
+          <span class="strike-x">✕</span>
+          <div class="strike-content">
+            <div class="strike-amount">R$ 2.000+</div>
+            <div class="strike-label">uma mentoria 1:1 com profissional médico</div>
+          </div>
+        </div>
+        <div class="strike-row">
+          <span class="strike-x">✕</span>
+          <div class="strike-content">
+            <div class="strike-amount">R$ 5.000+</div>
+            <div class="strike-label">um curso completo de residência</div>
+          </div>
+        </div>
+        <div class="strike-row">
+          <span class="strike-x">✕</span>
+          <div class="strike-content">
+            <div class="strike-amount">R$ 250+</div>
+            <div class="strike-label">a taxa da próxima prova de residência</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card-hero">
+        <div class="hero-eyebrow">você paga apenas</div>
+        <div class="hero-amount">R$ 149</div>
+        <div class="hero-meta">à vista, ou 12x de R$ 14,90 no cartão</div>
+        <p class="hero-aside">menos do que você gastou comendo no hospital essa semana.</p>
+        <a href="#checkout" class="btn btn-large btn-uppercase price-cta" onclick="fbq('track','InitiateCheckout');">decidir minha especialidade agora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9: GUARANTEE ============ -->
+<section>
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">risco zero do seu lado</span>
+      <h2>garantia incondicional de <span class="highlight-underline">14 dias</span></h2>
+    </div>
+    <div class="guarantee-card">
+      <div class="guarantee-badge">
+        <div class="badge-num">14</div>
+        <div class="badge-label">dias</div>
+      </div>
+      <h3>você tem 14 dias pra usar o programa inteiro.</h3>
+      <p>faz o teste. lê o ranking das 55 especialidades. assiste as lives do bônus. testa, repete, refaz se quiser.</p>
+      <p>se em algum momento até o 14º dia você sentir que isso não é pra você, pede reembolso integral. <strong>sem perguntas, sem fricção, sem formulário cheio de campos.</strong></p>
+
+      <div class="satisfaction-extras">
+        <p style="color: var(--navy); font-weight: 600; margin-bottom: 8px;">e se for pra você, seu acesso é <strong>vitalício</strong>:</p>
+        <ul>
+          <li>seu ranking e a narrativa de cada match ficam salvos no painel pra rever quando quiser</li>
+          <li>acervo de 50+ lives sempre crescendo, lives novas entram automaticamente</li>
+          <li>nenhuma mensalidade, nenhuma taxa de renovação</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 10: AUTHORITY ============ -->
+<section class="section-yellow">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow" style="background: rgba(14, 31, 77, 0.1); color: var(--navy);">desenvolvido por</span>
+      <h2>quem entende de carreira médica<br>melhor do que <span class="highlight-underline">a faculdade</span></h2>
+    </div>
+
+    <div class="authority-card-v2">
+      <div class="authority-brand">
+        <img src="assets-extracted/logo-amo-medicina-v2.png" alt="Amo Medicina" class="authority-logo">
+        <p class="authority-tag">a newsletter do médico</p>
+        <p class="authority-desc">conteúdo gratuito sobre medicina, finanças, marketing e tecnologia médica, lido por médicos e estudantes do Brasil inteiro. <strong>o med escolha nasceu dentro desse ecossistema</strong>, materializando anos de conversa com a audiência sobre a decisão mais adiada da carreira médica.</p>
+      </div>
+
+      <div class="authority-divider-vert"></div>
+
+      <div class="authority-stat-block">
+        <div class="authority-stat-eyebrow">o mercado em números</div>
+        <div class="authority-stat-num">570 mil+</div>
+        <p class="authority-stat-label">médicos ativos no Brasil, distribuídos entre <strong>as 55 especialidades reconhecidas no país</strong>.</p>
+        <div class="authority-stat-pill">a maioria escolheu no escuro.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 11: FAQ ============ -->
+<section>
+  <div class="container-narrow">
+    <div class="text-center mb-4">
+      <span class="eyebrow">faq</span>
+      <h2>dúvidas que aparecem antes de <span class="highlight-underline">decidir</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>o med escolha é só mais um quiz online?</summary>
+        <div class="faq-answer">não. é o match da especialidade médica. 100+ perguntas em 6 eixos, cruzadas com as 55 especialidades reconhecidas no Brasil, ranking ordenado, narrativa explicando o porquê de cada match. quiz é o que você já fez antes e não fechou nada.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>e se eu não gostar do programa?</summary>
+        <div class="faq-answer">14 dias de garantia incondicional. faz o teste, lê o ranking, assiste algumas lives. se não for pra você, pede reembolso integral, sem perguntas, sem fricção.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>quanto tempo leva pra finalizar o teste?</summary>
+        <div class="faq-answer">entre 30 e 45 minutos pra responder. resultado liberado no seu painel logo após a análise. decisão fechada no mesmo dia (caso mais comum entre alunos).</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>quais especialidades estão cobertas?</summary>
+        <div class="faq-answer">todas. as 55 especialidades médicas reconhecidas no Brasil estão no cruzamento, da clínica geral à neurocirurgia, da medicina de família à radiologia intervencionista. nenhuma fica de fora do seu ranking.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>posso refazer o teste se mudar de ideia?</summary>
+        <div class="faq-answer">quantas vezes quiser, pra sempre. acesso vitalício, sem mensalidade, sem taxa de renovação.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>as lives do acervo ficam disponíveis pra sempre?</summary>
+        <div class="faq-answer">sim. todas as 50+ lives gravadas ficam disponíveis no seu painel, vitalício. lives novas também entram no acervo conforme são gravadas.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>sou estudante do 2º ano, ainda dá pra fazer?</summary>
+        <div class="faq-answer">o programa é desenhado pros anos finais, mas estudantes mais novos também usam. quanto antes você decide, mais tempo tem pra direcionar estudo, estágio e foco.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>funciona pra médico que já está formado mas quer mudar de área?</summary>
+        <div class="faq-answer">sim. o teste é desenhado pra qualquer momento da carreira médica, não só pra quem está começando. médicos formados há anos usam pra aproveitar habilidades já desenvolvidas e migrar pra uma especialidade mais alinhada com o perfil que mudou ao longo da prática.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 12: FINAL CTA ============ -->
+<section class="section-navy final-cta">
+  <div class="final-cta-image">
+    <img src="assets-extracted/closing-doctors.png" alt="Médicos jovens caminhando juntos pelo hospital, sorrindo">
+  </div>
+  <div class="container-narrow">
+    <span class="eyebrow">decida hoje</span>
+    <h2>menos dúvidas, <span class="highlight-teal">mais certezas</span>.</h2>
+    <p class="lead">a sua próxima especialidade médica não precisa ser decidida no escuro.</p>
+    <p class="lead">match da especialidade médica + acervo com 50+ lives + acesso vitalício + 14 dias de garantia.</p>
+    <p class="lead"><strong>R$ 149 à vista. ou 12x de R$ 14,90 no cartão.</strong></p>
+
+    <div class="cta-block mt-4">
+      <a href="https://pay.hotmart.com/Y86347681C?off=y014gd40" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">quero definir minha especialidade agora</a>
+      <p class="cta-friction">14 dias de garantia. acesso liberado em até 5 minutos.</p>
+    </div>
+
+    <div class="ps-block">
+      <p><span class="ps-label">P.S.</span>a residência que você vai começar daqui a 1 ano vai ser decidida nos próximos meses. ou agora, com o match da especialidade médica cobrindo as 55 áreas reconhecidas, narrativa explicativa e garantia de 14 dias. ou no escuro, depois, na pressão da inscrição. R$ 149 contra 30 anos de carreira: a matemática mais simples que você vai resolver hoje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <img src="assets-extracted/logo-med-escolha.png" alt="Med Escolha">
+    <p>med escolha, por amo medicina.</p>
+    <p>compra processada via Hotmart. garantia de 14 dias.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA BAR ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-info">
+      <span class="sticky-cta-rating">★★★★★</span>
+      <span class="sticky-product">match da especialidade médica</span>
+      <span class="sticky-price">R$ 149 ou 12x R$ 14,90</span>
+    </div>
+    <a href="https://pay.hotmart.com/Y86347681C?off=y014gd40" class="btn sticky-cta-btn btn-uppercase" onclick="fbq('track','InitiateCheckout');">garantir acesso</a>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sticky = document.getElementById('stickyCta');
+    const body = document.body;
+    let activated = false;
+    const showAfter = 700;
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      if (y > showAfter) {
+        if (!activated) {
+          sticky.classList.add('visible');
+          body.classList.add('sticky-active');
+          activated = true;
+        }
+      } else if (activated) {
+        sticky.classList.remove('visible');
+        body.classList.remove('sticky-active');
+        activated = false;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=486908010162611&ev=PageView&noscript=1"/>
+</noscript>
+
+</body>
+</html>
