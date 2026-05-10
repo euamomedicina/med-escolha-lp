@@ -164,6 +164,19 @@ p { margin-bottom: 16px; }
   background: rgba(31, 191, 168, 0.1);
   border-radius: 20px;
 }
+.eyebrow-compact {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) {
+  .eyebrow-compact {
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    padding: 5px 12px;
+  }
+}
 
 .section-navy .eyebrow {
   color: var(--yellow);
@@ -215,6 +228,18 @@ p { margin-bottom: 16px; }
   padding: 22px 40px;
   font-size: 18px;
   min-height: 64px;
+}
+.btn-hero-cta {
+  padding: 16px 28px;
+  font-size: 15px;
+  min-height: 52px;
+}
+@media (min-width: 768px) {
+  .btn-hero-cta {
+    padding: 18px 34px;
+    font-size: 16px;
+    min-height: 56px;
+  }
 }
 @media (min-width: 768px) {
   .btn-large {
@@ -437,7 +462,7 @@ p { margin-bottom: 16px; }
 .hero-floating-pill {
   position: absolute;
   top: 16px;
-  right: 16px;
+  left: 16px;
   background: var(--navy-deep);
   color: var(--white);
   padding: 8px 14px;
@@ -453,7 +478,8 @@ p { margin-bottom: 16px; }
 @media (min-width: 768px) {
   .hero-floating-pill {
     top: 24px;
-    right: -14px;
+    left: -14px;
+    right: auto;
     padding: 10px 16px;
     font-size: 12px;
   }
@@ -2188,17 +2214,13 @@ body.sticky-active { padding-bottom: 84px; }
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text-top">
-        <span class="eyebrow">para estudantes e médicos recém-formados</span>
+        <span class="eyebrow eyebrow-compact">para estudantes e médicos recém-formados</span>
         <h1>o <span class="highlight-teal">match</span> da especialidade médica, <span class="highlight-teal">sem achismos.</span></h1>
-        <div class="hero-rating">
-          <span class="hero-rating-stars">★★★★★</span>
-          <span class="hero-rating-text">depoimentos reais de estudantes e médicos</span>
-        </div>
         <p class="lead">o <strong>match da especialidade médica</strong> cruza 100+ pontos do seu perfil com as <strong>55 reconhecidas no Brasil</strong>. ranking + narrativa pra você fechar a decisão de vez.</p>
       </div>
       <div class="hero-image-wrap">
         <div class="hero-photo-frame">
-          <img src="assets-extracted/hero-medica-v2.png" alt="Médica jovem sorrindo, jaleco branco e estetoscópio">
+          <img src="assets-extracted/hero-medica.png" alt="Médica jovem sorrindo, jaleco branco e tablet">
           <div class="hero-floating-pill">decisão definitiva</div>
           <div class="hero-floating-badge">
             <div class="badge-stat">55</div>
@@ -2214,7 +2236,7 @@ body.sticky-active { padding-bottom: 84px; }
           <li>14 dias garantia</li>
         </ul>
         <div class="cta-block" style="text-align: left;">
-          <a href="#checkout" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">definir minha especialidade</a>
+          <a href="#checkout" class="btn btn-uppercase btn-hero-cta" onclick="fbq('track','InitiateCheckout');">definir minha especialidade</a>
         </div>
       </div>
     </div>
