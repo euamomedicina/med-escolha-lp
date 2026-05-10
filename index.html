@@ -241,8 +241,8 @@ p { margin-bottom: 16px; }
 
 /* ============ HERO ============ */
 .hero {
-  padding-top: 32px;
-  padding-bottom: 48px;
+  padding-top: 24px;
+  padding-bottom: 36px;
   background: var(--navy);
   color: var(--white);
 }
@@ -256,14 +256,28 @@ p { margin-bottom: 16px; }
 .hero .lead { color: rgba(255,255,255,0.85); }
 .hero-grid {
   display: grid;
-  gap: 40px;
-  align-items: center;
+  gap: 14px;
+  grid-template-areas:
+    "text-top"
+    "image"
+    "text-bottom";
 }
 @media (min-width: 900px) {
   .hero-grid {
     grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
+    grid-template-areas:
+      "text-top image"
+      "text-bottom image";
+    column-gap: 56px;
+    row-gap: 32px;
+    align-items: center;
   }
+}
+.hero-text-top { grid-area: text-top; }
+.hero-image-wrap { grid-area: image; }
+.hero-text-bottom { grid-area: text-bottom; }
+@media (min-width: 900px) {
+  .hero-image-wrap { align-self: stretch; display: flex; align-items: center; justify-content: center; }
 }
 .hero-benefits {
   list-style: none;
@@ -294,12 +308,15 @@ p { margin-bottom: 16px; }
   background-position: center;
 }
 .hero-pills {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 8px;
   list-style: none;
   margin: 16px 0 24px;
   padding: 0;
+}
+@media (min-width: 900px) {
+  .hero-pills { display: flex; }
 }
 .hero-pills li {
   display: inline-flex;
@@ -339,10 +356,18 @@ p { margin-bottom: 16px; }
 }
 .hero-photo-frame img {
   width: 100%;
-  height: auto;
+  height: 170px;
   border-radius: 24px;
   display: block;
   background: var(--teal);
+  object-fit: cover;
+  object-position: center 22%;
+}
+@media (min-width: 900px) {
+  .hero-photo-frame img {
+    height: auto;
+    object-fit: initial;
+  }
 }
 .hero-photo-frame:before {
   content: "";
@@ -2082,7 +2107,7 @@ body.sticky-active { padding-bottom: 84px; }
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div class="hero-content">
+      <div class="hero-text-top">
         <span class="eyebrow">para estudantes e médicos recém-formados</span>
         <h1>o <span class="highlight-teal">match</span> da especialidade médica, <span class="highlight-teal">sem achismos.</span></h1>
         <div class="hero-rating">
@@ -2090,16 +2115,6 @@ body.sticky-active { padding-bottom: 84px; }
           <span class="hero-rating-text">depoimentos reais de estudantes e médicos</span>
         </div>
         <p class="lead">o <strong>match da especialidade médica</strong> cruza 100+ pontos do seu perfil com as <strong>55 reconhecidas no Brasil</strong>. ranking + narrativa pra você fechar a decisão de vez.</p>
-        <ul class="hero-pills">
-          <li>100+ pontos cruzados</li>
-          <li>55 especialidades</li>
-          <li>+ acervo 50 lives</li>
-          <li>14 dias garantia</li>
-        </ul>
-        <div class="cta-block" style="text-align: left;">
-          <a href="#checkout" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">definir minha especialidade</a>
-          <p class="cta-friction">14 dias de garantia. acesso em até 5 minutos.</p>
-        </div>
       </div>
       <div class="hero-image-wrap">
         <div class="hero-photo-frame">
@@ -2109,6 +2124,18 @@ body.sticky-active { padding-bottom: 84px; }
             <div class="badge-stat">55</div>
             <div class="badge-text">especialidades cruzadas com seu perfil</div>
           </div>
+        </div>
+      </div>
+      <div class="hero-text-bottom">
+        <ul class="hero-pills">
+          <li>100+ pontos cruzados</li>
+          <li>55 especialidades</li>
+          <li>+ acervo 50 lives</li>
+          <li>14 dias garantia</li>
+        </ul>
+        <div class="cta-block" style="text-align: left;">
+          <a href="#checkout" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">definir minha especialidade</a>
+          <p class="cta-friction">14 dias de garantia. acesso em até 5 minutos.</p>
         </div>
       </div>
     </div>
