@@ -828,6 +828,42 @@ p { margin-bottom: 16px; }
 .mechanism-card p { margin-bottom: 14px; }
 .mechanism-card p:last-child { margin-bottom: 0; }
 
+/* ============ BENEFITS HERO (intro split) ============ */
+.benefits-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+@media (min-width: 900px) {
+  .benefits-hero {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+  }
+}
+.benefits-hero-photo {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(14, 31, 77, 0.18);
+  position: relative;
+}
+.benefits-hero-photo:before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 60%;
+  height: 50%;
+  background: var(--teal);
+  opacity: 0.18;
+  border-radius: 20px;
+  z-index: -1;
+}
+.benefits-hero-photo img { width: 100%; display: block; }
+.benefits-hero-content h2 { margin-bottom: 16px; }
+.benefits-hero-content .lead { color: var(--text-soft); }
+
 /* ============ BENEFITS TABLE ============ */
 .benefits-grid {
   display: grid;
@@ -1905,82 +1941,72 @@ p { margin-bottom: 16px; }
 
 /* ============ PULLED QUOTE ============ */
 .pulled-quote-section {
-  padding: 0;
+  padding: 80px 0;
   background: var(--navy);
   position: relative;
   overflow: hidden;
 }
-.pulled-quote-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: stretch;
-  min-height: 480px;
+@media (min-width: 768px) {
+  .pulled-quote-section { padding: 120px 0; }
 }
-@media (min-width: 900px) {
-  .pulled-quote-grid {
-    grid-template-columns: 1fr 1.1fr;
-    min-height: 540px;
-  }
-}
-.pulled-quote-image {
-  background-image: url('assets-extracted/quote-bg.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 280px;
-  position: relative;
-}
-.pulled-quote-image:after {
+.pulled-quote-section:before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(14, 31, 77, 0.15) 0%, rgba(14, 31, 77, 0.55) 100%);
+  top: -100px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(31, 191, 168, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
 }
-@media (min-width: 900px) {
-  .pulled-quote-image { min-height: auto; }
-  .pulled-quote-image:after {
-    background: linear-gradient(90deg, rgba(14, 31, 77, 0) 50%, var(--navy) 100%);
-  }
+.pulled-quote-section:after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(244, 209, 78, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
 }
 .pulled-quote {
-  max-width: 560px;
+  max-width: 920px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   position: relative;
-  padding: 56px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .pulled-quote { padding: 72px 48px; }
+  padding: 0 24px;
+  z-index: 1;
 }
 .pulled-quote .quote-mark {
-  font-size: 100px;
+  font-size: 140px;
   line-height: 0.8;
   color: var(--yellow);
   font-weight: 800;
   font-family: Georgia, serif;
   display: block;
-  margin-bottom: -22px;
-  opacity: 0.6;
+  margin-bottom: -36px;
+  opacity: 0.5;
 }
 @media (min-width: 768px) {
-  .pulled-quote .quote-mark { font-size: 140px; margin-bottom: -32px; }
+  .pulled-quote .quote-mark { font-size: 200px; margin-bottom: -56px; }
 }
 .pulled-quote .quote-text {
-  font-size: 20px;
-  line-height: 1.45;
+  font-size: 24px;
+  line-height: 1.4;
   font-weight: 500;
   color: var(--white);
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   text-transform: lowercase;
 }
 @media (min-width: 768px) {
-  .pulled-quote .quote-text { font-size: 26px; line-height: 1.4; }
+  .pulled-quote .quote-text { font-size: 38px; line-height: 1.3; }
+}
+@media (min-width: 1100px) {
+  .pulled-quote .quote-text { font-size: 44px; }
 }
 .pulled-quote .quote-emphasis {
-  background: linear-gradient(180deg, transparent 55%, rgba(244, 209, 78, 0.4) 55%);
-  padding: 0 4px;
+  background: linear-gradient(180deg, transparent 60%, rgba(244, 209, 78, 0.45) 60%);
+  padding: 0 6px;
   font-weight: 700;
   color: var(--white);
 }
@@ -1988,10 +2014,16 @@ p { margin-bottom: 16px; }
   display: flex;
   flex-direction: column;
   gap: 2px;
-  align-items: flex-start;
-  padding-top: 16px;
-  border-top: 2px solid rgba(31, 191, 168, 0.4);
-  width: fit-content;
+  align-items: center;
+  padding-top: 20px;
+  position: relative;
+}
+.pulled-quote .quote-attribution:before {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: var(--teal);
+  margin: 0 auto 18px;
 }
 .pulled-quote .quote-attribution strong {
   font-weight: 700;
@@ -2454,25 +2486,28 @@ body.sticky-active { padding-bottom: 84px; }
 
 <!-- ============ PULLED QUOTE (mid-page editorial) ============ -->
 <section class="pulled-quote-section">
-  <div class="pulled-quote-grid">
-    <div class="pulled-quote-image" role="presentation"></div>
-    <blockquote class="pulled-quote">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">o relatório me permitiu entender minhas aptidões, meu temperamento e meu perfil profissional. recebi uma lista completa das especialidades dentro da minha aptidão, com um <span class="quote-emphasis">top 3 que bateu com o que penso em seguir</span>.</p>
-      <footer class="quote-attribution">
-        <strong>João Vitor Carvalho</strong>
-        <span>médico, formado pela universidade federal do amazonas</span>
-      </footer>
-    </blockquote>
-  </div>
+  <blockquote class="pulled-quote">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">o relatório me permitiu entender minhas aptidões, meu temperamento e meu perfil profissional. recebi uma lista completa das especialidades dentro da minha aptidão, com um <span class="quote-emphasis">top 3 que bateu com o que penso em seguir</span>.</p>
+    <footer class="quote-attribution">
+      <strong>João Vitor Carvalho</strong>
+      <span>médico, formado pela universidade federal do amazonas</span>
+    </footer>
+  </blockquote>
 </section>
 
 <!-- ============ SECTION 5: BENEFITS ============ -->
 <section>
   <div class="container">
-    <div class="text-center mb-4">
-      <span class="eyebrow">o impacto na prática</span>
-      <h2>o que cada parte do match <span class="highlight-underline">resolve por você</span></h2>
+    <div class="benefits-hero">
+      <div class="benefits-hero-photo">
+        <img src="assets-extracted/benefits-doctor.png" alt="Médica jovem confiante em corredor de hospital">
+      </div>
+      <div class="benefits-hero-content">
+        <span class="eyebrow">o impacto na prática</span>
+        <h2>o que cada parte do match <span class="highlight-underline">resolve por você</span></h2>
+        <p class="lead">cada elemento do programa foi desenhado pra atacar uma fricção específica da sua decisão. veja o que muda no <strong>funcional, no bolso e na cabeça</strong>.</p>
+      </div>
     </div>
 
     <div class="benefits-grid">
