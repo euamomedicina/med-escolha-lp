@@ -374,82 +374,103 @@ p { margin-bottom: 16px; }
 .hero-photo-frame {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  border-radius: 24px;
-  overflow: visible;
-  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35));
+  max-width: 540px;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.5fr) 1fr;
+  gap: 12px;
+  align-items: center;
 }
-.hero-photo-frame img {
-  width: 100%;
-  height: 170px;
-  border-radius: 24px;
-  display: block;
-  background: var(--teal);
-  object-fit: cover;
-  object-position: center 22%;
-}
-@media (min-width: 900px) {
-  .hero-photo-frame img {
-    height: auto;
-    object-fit: initial;
+@media (min-width: 768px) {
+  .hero-photo-frame {
+    grid-template-columns: minmax(150px, 0.55fr) 1fr;
+    gap: 16px;
   }
 }
-.hero-photo-frame:before {
+.hero-photo-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .hero-photo-cards { gap: 16px; }
+}
+.hero-photo-img {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+  aspect-ratio: 3/4;
+}
+@media (min-width: 768px) {
+  .hero-photo-img { aspect-ratio: 4/5; }
+}
+.hero-photo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  background: var(--teal);
+}
+.hero-photo-img:after {
   content: "";
   position: absolute;
-  bottom: -16px;
-  right: -16px;
+  bottom: -14px;
+  right: -14px;
   width: 60%;
-  height: 60%;
+  height: 50%;
   background: var(--yellow);
-  border-radius: 24px;
+  border-radius: 20px;
   z-index: -1;
   opacity: 0.85;
 }
-.hero-photo-frame:after {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: -14px;
-  width: 100px;
-  height: 100px;
-  background: var(--teal);
-  border-radius: 18px;
-  z-index: -1;
-  opacity: 0.4;
-}
-.hero-floating-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: var(--white);
-  color: var(--text);
-  padding: 14px 18px;
-  border-radius: 14px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 2;
-  max-width: 240px;
+.hero-card-pill {
+  background: var(--navy-deep);
+  color: var(--white);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  border: 2px solid var(--yellow);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  line-height: 1.3;
 }
 @media (min-width: 768px) {
-  .hero-floating-badge {
-    bottom: 24px;
-    left: -24px;
-    padding: 18px 24px;
+  .hero-card-pill {
+    padding: 12px 16px;
+    font-size: 12px;
   }
 }
-.hero-floating-badge .badge-stat {
-  font-size: 30px;
+.hero-card-badge {
+  background: var(--white);
+  color: var(--text);
+  padding: 14px 14px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .hero-card-badge {
+    padding: 16px 18px;
+    gap: 6px;
+  }
+}
+.hero-card-badge .badge-stat {
+  font-size: 32px;
   font-weight: 800;
   color: var(--teal);
   line-height: 1;
 }
 @media (min-width: 768px) {
-  .hero-floating-badge .badge-stat { font-size: 36px; }
+  .hero-card-badge .badge-stat { font-size: 40px; }
 }
-.hero-floating-badge .badge-text {
+.hero-card-badge .badge-text {
   font-size: 11px;
   font-weight: 600;
   line-height: 1.3;
@@ -457,32 +478,7 @@ p { margin-bottom: 16px; }
   text-transform: lowercase;
 }
 @media (min-width: 768px) {
-  .hero-floating-badge .badge-text { font-size: 12px; }
-}
-.hero-floating-pill {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: var(--navy-deep);
-  color: var(--white);
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  z-index: 2;
-  border: 2px solid var(--yellow);
-}
-@media (min-width: 768px) {
-  .hero-floating-pill {
-    top: 24px;
-    left: -14px;
-    right: auto;
-    padding: 10px 16px;
-    font-size: 12px;
-  }
+  .hero-card-badge .badge-text { font-size: 12px; }
 }
 
 /* ============ PROBLEM SECTION ============ */
@@ -2220,11 +2216,15 @@ body.sticky-active { padding-bottom: 84px; }
       </div>
       <div class="hero-image-wrap">
         <div class="hero-photo-frame">
-          <img src="assets-extracted/hero-medica.png" alt="Médica jovem sorrindo, jaleco branco e tablet">
-          <div class="hero-floating-pill">decisão definitiva</div>
-          <div class="hero-floating-badge">
-            <div class="badge-stat">55</div>
-            <div class="badge-text">especialidades cruzadas com seu perfil</div>
+          <div class="hero-photo-cards">
+            <div class="hero-card-pill">decisão definitiva</div>
+            <div class="hero-card-badge">
+              <div class="badge-stat">55</div>
+              <div class="badge-text">especialidades cruzadas com seu perfil</div>
+            </div>
+          </div>
+          <div class="hero-photo-img">
+            <img src="assets-extracted/hero-medica.png" alt="Médica jovem sorrindo, jaleco branco e tablet">
           </div>
         </div>
       </div>
