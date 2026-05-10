@@ -235,6 +235,7 @@ p { margin-bottom: 16px; }
   padding: 16px 24px;
   font-size: 15px;
   min-height: 52px;
+  text-align: center;
 }
 @media (min-width: 768px) {
   .btn-hero-cta {
@@ -380,42 +381,32 @@ p { margin-bottom: 16px; }
   width: 100%;
   max-width: 540px;
   display: grid;
-  grid-template-columns: minmax(140px, 0.7fr) 1fr;
-  gap: 14px;
+  grid-template-columns: minmax(110px, 0.45fr) 1fr;
+  gap: 12px;
   align-items: stretch;
   padding: 14px;
-}
-@media (min-width: 768px) {
-  .hero-photo-frame {
-    grid-template-columns: minmax(170px, 0.75fr) 1fr;
-    gap: 18px;
-    padding: 18px;
-  }
 }
 .hero-photo-frame:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: var(--teal);
-  border-radius: 16px;
+  border-radius: 14px;
   opacity: 0.5;
   z-index: 0;
-}
-@media (min-width: 768px) {
-  .hero-photo-frame:before { width: 110px; height: 110px; }
 }
 .hero-photo-frame:after {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 50%;
+  width: 55%;
   height: 50%;
   background: var(--yellow);
-  border-radius: 18px;
+  border-radius: 16px;
   opacity: 0.85;
   z-index: 0;
 }
@@ -427,9 +418,6 @@ p { margin-bottom: 16px; }
   z-index: 2;
   justify-content: center;
 }
-@media (min-width: 768px) {
-  .hero-photo-cards { gap: 16px; }
-}
 .hero-photo-img {
   position: relative;
   border-radius: 18px;
@@ -438,9 +426,6 @@ p { margin-bottom: 16px; }
   aspect-ratio: 3/4;
   z-index: 1;
 }
-@media (min-width: 768px) {
-  .hero-photo-img { aspect-ratio: 4/5; }
-}
 .hero-photo-img img {
   width: 100%;
   height: 100%;
@@ -448,6 +433,58 @@ p { margin-bottom: 16px; }
   object-position: center 30%;
   display: block;
   background: var(--teal);
+}
+
+@media (min-width: 900px) {
+  .hero-photo-frame {
+    display: block;
+    max-width: 460px;
+    padding: 0;
+    overflow: visible;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35));
+  }
+  .hero-photo-frame:before {
+    top: -14px;
+    left: -14px;
+    width: 110px;
+    height: 110px;
+    border-radius: 18px;
+    opacity: 0.4;
+    z-index: -1;
+  }
+  .hero-photo-frame:after {
+    bottom: -16px;
+    right: -16px;
+    width: 60%;
+    height: 60%;
+    border-radius: 24px;
+    opacity: 0.85;
+    z-index: -1;
+  }
+  .hero-photo-cards {
+    display: contents;
+  }
+  .hero-photo-img {
+    aspect-ratio: 3/4;
+    border-radius: 24px;
+    box-shadow: none;
+  }
+  .hero-photo-img img {
+    object-position: center center;
+  }
+  .hero-card-pill {
+    position: absolute;
+    top: 24px;
+    left: -14px;
+    z-index: 3;
+  }
+  .hero-card-badge {
+    position: absolute;
+    bottom: 24px;
+    left: -24px;
+    z-index: 3;
+    max-width: 220px;
+  }
 }
 .hero-card-pill {
   background: var(--navy-deep);
@@ -2723,7 +2760,7 @@ body.sticky-active { padding-bottom: 84px; }
       </div>
       <div class="cta-block mt-3">
         <a href="https://pay.hotmart.com/Y86347681C?off=y014gd40&checkoutMode=10" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">quero garantir meu acesso, R$ 149</a>
-        <p class="cta-friction" style="color: var(--text-soft);">compra 100% protegida. 14 dias de garantia. acesso liberado em até 5 minutos.</p>
+        <p class="cta-friction" style="color: var(--text-soft);">compra 100% protegida. 14 dias de garantia. acesso imediato.</p>
       </div>
     </div>
   </div>
@@ -2894,7 +2931,7 @@ body.sticky-active { padding-bottom: 84px; }
 
     <div class="cta-block mt-4">
       <a href="https://pay.hotmart.com/Y86347681C?off=y014gd40&checkoutMode=10" class="btn btn-large btn-uppercase" onclick="fbq('track','InitiateCheckout');">quero definir minha especialidade agora</a>
-      <p class="cta-friction">14 dias de garantia. acesso liberado em até 5 minutos.</p>
+      <p class="cta-friction">14 dias de garantia. acesso imediato.</p>
     </div>
 
     <div class="ps-block">
