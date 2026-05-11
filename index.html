@@ -271,8 +271,8 @@ p { margin-bottom: 16px; }
 
 /* ============ HERO ============ */
 .hero {
-  padding-top: 24px;
-  padding-bottom: 36px;
+  padding-top: 18px;
+  padding-bottom: 24px;
   background: var(--navy);
   color: var(--white);
 }
@@ -286,7 +286,7 @@ p { margin-bottom: 16px; }
 .hero .lead { color: rgba(255,255,255,0.85); }
 .hero-grid {
   display: grid;
-  gap: 18px;
+  gap: 12px;
   grid-template-areas:
     "text-top"
     "image"
@@ -400,10 +400,10 @@ p { margin-bottom: 16px; }
 .hero-photo-frame:after {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30%;
-  height: 38%;
+  bottom: -8px;
+  right: -10px;
+  width: 38%;
+  height: 48%;
   background: var(--yellow);
   border-radius: 18px;
   opacity: 0.9;
@@ -421,17 +421,22 @@ p { margin-bottom: 16px; }
   padding: 0 0 0 4px;
   position: relative;
 }
-.hero-card-pill { max-width: 170px; }
-.hero-card-badge { max-width: 200px; }
+.hero-card-pill,
+.hero-card-badge {
+  width: 100%;
+  max-width: 170px;
+  box-sizing: border-box;
+}
 .hero-photo-img {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 18px 36px rgba(0,0,0,0.32);
-  aspect-ratio: 3/4;
+  aspect-ratio: 6/7;
   z-index: 1;
-  width: 62%;
+  width: 58%;
   margin-left: auto;
+  margin-right: 10px;
   grid-column: 1;
   grid-row: 1;
 }
