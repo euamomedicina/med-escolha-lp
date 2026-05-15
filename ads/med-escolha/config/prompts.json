@@ -1,0 +1,568 @@
+{
+  "brand": "Med Escolha",
+  "product": "Med Escolha — o match da especialidade médica (teste de 100+ pontos × 55 especialidades reconhecidas no Brasil = ranking + narrativa + acervo de 50+ lives, R$ 149, 14 dias de garantia)",
+  "generated_at": "2026-05-11",
+  "modifier": "Brand: Med Escolha — the match for choosing a medical specialty. It is a 100+ point test cross-referenced with the 55 medical specialties recognized in Brazil, delivering an ordered ranking + narrative explanation, plus an archive of 50+ recorded lives with lifetime access. R$ 149, 14-day guarantee. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with white and warm yellow (#F4D14E) accents. Typography: modern geometric sans-serif (Poppins/DM Sans style), always lowercase headlines, key words highlighted with teal underline or background. Photography: soft natural lighting, warm color grading, smiling young doctors and medical students in white coats with stethoscopes, aspirational but accessible mood, never sterile or corporate-stiff. Layouts are spacious with generous whitespace. All text in Brazilian Portuguese.",
+  "prompts": [
+    {
+      "template_number": 1,
+      "template_name": "headline-manifesto",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with white and warm yellow (#F4D14E) accents. Typography: modern geometric sans-serif (Poppins/DM Sans style), always lowercase headlines, key words highlighted with teal underline or background. All text in Brazilian Portuguese. — Vertical 4:5 social ad. Deep navy (#0E1F4D) full-bleed background. Centered all-lowercase headline in modern geometric sans-serif (Poppins-style, semibold, white): 'menos dúvidas,' on the first line and 'mais certezas.' on the second line. The words 'mais certezas' are highlighted with a saturated teal (#1FBFA8) marker-style underline that looks hand-drawn. Below the headline, a single line of smaller white lowercase text reads 'o match da especialidade médica, sem achismos.' In the bottom-right corner, a teal CTA pill button reads 'definir minha especialidade' in white lowercase. Top-left corner shows small typed lowercase text in white, exactly two words separated by a space: 'med escolha' (treat as plain typed text with caps lock off, not as a logo — both m and e are lowercase letters). Generous whitespace, premium editorial composition. No people in the frame, pure typographic poster."
+    },
+    {
+      "template_number": 2,
+      "template_name": "anti-claim",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Warm off-white background (#F5F7F9). The headline fills the frame in 7 lines, exactly this text in Brazilian Portuguese, bold all-lowercase geometric sans-serif (DM Sans-style, black weight, dark navy #0E1F4D):\n\nline 1: 'não tome uma'\nline 2: 'das decisões'\nline 3: 'mais importantes'\nline 4: 'da sua carreira'\nline 5: 'com base no'\nline 6: 'achismo.'\n\nIMPORTANT SPELLING: every word must be spelled correctly — 'importantes' is i-m-p-o-r-t-a-n-t-e-s (eleven letters), do not drop letters. The single word 'achismo' on line 6 is highlighted with a teal (#1FBFA8) horizontal marker stroke through it like a hand-drawn highlighter. Below the headline, a single small lowercase tag in teal reads 'med escolha — o match da especialidade médica'. CRITICAL: every letter of 'med escolha' is lowercase — treat as plain typed text, not a logo, never capitalize. Editorial poster style, no people, airy and minimal."
+    },
+    {
+      "template_number": 3,
+      "template_name": "us-vs-them",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with white and warm yellow (#F4D14E) accents. Typography: modern geometric sans-serif (Poppins/DM Sans style), always lowercase headlines, key words highlighted with teal underline or background. All text in Brazilian Portuguese. — Vertical 4:5 social ad. The canvas is split vertically into two halves. LEFT HALF: soft gray (#E8EAEE) background with a faded label at the top in lowercase dark gray reading 'decidir no achismo' and below it a small messy hand-drawn icon of a coin flip and question marks. RIGHT HALF: deep navy (#0E1F4D) background with a label at the top in lowercase teal (#1FBFA8) reading 'decidir com método' and below it a clean line icon of a checklist with check-marks. Between the two halves, a thin vertical white divider line. At the bottom, spanning the full width on a white strip, in lowercase navy: 'med escolha — muito mais do que um teste.' Geometric sans-serif throughout. Clean, balanced, editorial."
+    },
+    {
+      "template_number": 4,
+      "template_name": "testimonial-camila",
+      "aspect_ratio": "4:5",
+      "needs_product_images": true,
+      "image_urls": ["testimonial-camila.jpg"],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with white and warm yellow (#F4D14E) accents. Typography: modern geometric sans-serif (Poppins/DM Sans style), always lowercase headlines, key words highlighted with teal underline or background. All text in Brazilian Portuguese. — Vertical 4:5 social ad. White editorial background with soft warm shadow. Top 60% of the frame: a clean rounded-square portrait of the woman in the reference image, matching her face and likeness exactly, smiling with calm confidence, wearing a white medical coat (add the coat if she isn't wearing one). The portrait sits inside a navy (#0E1F4D) frame with rounded corners. Below the portrait, a teal (#1FBFA8) tag reads 'camila' in lowercase white text, and a smaller gray tag below reads 'estudante de medicina.' Bottom 30% of the frame: a large quote in lowercase navy semibold sans-serif: 'uma especialidade que eu nem pensava antes.' The three words 'nem pensava antes' are highlighted in teal with a hand-drawn marker underline. Tiny lowercase med escolha text at the bottom-right corner (treat as plain typed text, not a logo). Spacious, premium, calm."
+    },
+    {
+      "template_number": 5,
+      "template_name": "problem-state-ugc",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Photography: soft natural lighting, warm color grading, never sterile or corporate-stiff. — Vertical 4:5 photo. A young Brazilian female medical student, around 22 years old, sitting alone at a wooden desk late at night in a softly-lit student apartment. She has straight dark hair tied loosely back, wears a slightly wrinkled hospital scrubs top, and looks pensively at the open laptop screen in front of her with her cheek resting on one hand. On the desk: a coffee mug, scattered medical textbooks, a stethoscope draped over a notebook. Warm tungsten lamp light from the left side. Out-of-focus background shows a bookshelf with medical books and a dimly lit hallway. Mood: calm exhaustion, contemplation, decision-pressure but not despair. Natural soft lighting, warm color grading, shallow depth of field, shot on 50mm lens at f/2. Magazine-quality photojournalism. NO TEXT OVERLAY. Image only."
+    },
+    {
+      "template_number": 6,
+      "template_name": "stat-social-proof",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Deep navy (#0E1F4D) full-bleed background. Centered composition. Top half: a massive lowercase number in teal (#1FBFA8), bold geometric sans-serif: '570 mil'. Directly below it, in slightly smaller white lowercase: 'médicos no brasil.' Bottom half: a single elegant white lowercase question in medium weight: 'qual a chance de você escolher a especialidade certa no achismo?' The single word 'certa' is highlighted with a subtle teal underline. At the bottom-center, a small teal pill CTA button reads 'fazer o teste' in white lowercase. Top-left corner shows a small piece of body text in white, exactly two lowercase words separated by a single space: 'med escolha'. Treat this text as if you were typing it in a word processor with caps lock OFF and shift key never pressed — it is NOT a logo, NOT a brand mark, NOT a wordmark, just plain typed lowercase text. Both letters m and e are small lowercase letters. Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 7,
+      "template_name": "feature-triptych",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the medical specialty match (100+ point test × 55 specialties = ranking + narrative + 50+ live recordings archive). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with white and warm yellow (#F4D14E) accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. White background. Top of the frame in large lowercase navy (#0E1F4D) bold geometric sans-serif: 'o match da especialidade médica.' The two words 'da especialidade' are highlighted with a teal (#1FBFA8) marker underline. Below the headline, three equally-spaced rounded-square cards arranged horizontally, each with a soft drop shadow. Card 1 (left): teal-tinted background, simple line icon of a checklist with check-marks, label in lowercase navy: '100+ pontos'. Card 2 (middle): navy background, simple line icon of a grid showing many small squares, label in lowercase white: '55 especialidades'. Card 3 (right): warm yellow (#F4D14E) background, simple line icon of a podium / ranking chart, label in lowercase navy: 'ranking + narrativa'. At the bottom of the frame, a teal CTA button with white lowercase text reads 'definir minha especialidade'. Top-right corner shows small typed lowercase text 'med escolha' (treat as plain text with caps lock off, both m and e are lowercase). Clean, modern, premium."
+    },
+    {
+      "template_number": 8,
+      "template_name": "aspirational-hero",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif (Poppins/DM Sans style), always lowercase headlines. Photography: soft natural lighting, warm color grading, smiling young doctor in white coat, aspirational but accessible mood. All text in Brazilian Portuguese. — Vertical 4:5 social ad. Photograph of a smiling Brazilian female doctor in her late 20s wearing a crisp white medical coat over a soft blue scrub top, stethoscope around her neck. She stands in a bright modern hospital corridor with soft natural daylight from a window behind her, slight bokeh background. She holds a tablet in one hand and looks slightly off-camera with calm confidence and a soft smile. Warm color grading, soft natural lighting, shot on 85mm lens at f/2.8. On the right side of the frame, a vertical white panel takes up the right 45% of the canvas (wide enough to fit long Portuguese words on a single line each). Inside the panel, a lowercase navy (#0E1F4D) headline in bold geometric sans-serif laid out across exactly 3 lines as follows:\n\nline 1 (large): 'sua'\nline 2 (large): 'especialidade,'\nline 3 (large): 'sem achismos.'\n\nThe word 'especialidade,' fits on line 2 as a single unbroken word — the panel is wide enough that you do NOT need to hyphenate it. NEVER break 'especialidade' across lines with a hyphen. The single word 'achismos' on line 3 is highlighted with a teal (#1FBFA8) marker underline. Below the headline, a smaller line in lowercase teal reads 'med escolha — o match da especialidade médica.' At the bottom-right of the panel, a teal CTA button with white lowercase text: 'definir minha especialidade'. Premium editorial composition."
+    },
+    {
+      "template_number": 9,
+      "template_name": "press-editorial",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (a 100+ point test cross-referenced with the 55 specialties recognized in Brazil, yielding a ranking and narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. All text in Brazilian Portuguese, all lowercase. — Vertical 4:5 social ad styled like a high-end magazine editorial spread. Off-white paper-textured background (#FAF8F4). At the top, a tiny lowercase serif label in muted teal reads 'editorial · med escolha'. Below it, a massive lowercase navy (#0E1F4D) headline in editorial display sans-serif (think a modern Sora/Mona Sans): 'o que não te mostram na faculdade.' The phrase 'não te mostram' is highlighted with a teal (#1FBFA8) marker underline. Below the headline, two narrow columns of lowercase dark gray body text in a clean serif (Lora/Source Serif style), arranged like a magazine article — fully legible Portuguese paragraph fragments about the difficulty of choosing among the 55 medical specialties recognized in Brazil, the limits of internships (4-8 weeks) compared to a 30-year career, and the value of a 100+ point test that cross-references personal profile with all 55 specialty areas. Between the two columns, a small teal pull-quote in lowercase: 'o match da especialidade médica.' Bottom-right corner shows the med escolha logo small. Sophisticated, calm, premium publication aesthetic."
+    },
+    {
+      "template_number": 10,
+      "template_name": "carousel-cover-3-sinais",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Centered composition with generous top padding. Top-center small lowercase teal (#1FBFA8) tag with rounded background reads 'carrossel · arraste'. Below it, the main lowercase navy (#0E1F4D) headline in bold modern geometric sans-serif (DM Sans-style), three lines: '3 sinais de que você ainda não escolheu a especialidade certa.' The phrase '3 sinais' is significantly larger than the rest, and the single word 'certa' is highlighted with a hand-drawn teal marker underline. Below the headline, a small lowercase dark gray supporting line: '(e como decidir com método)'. Bottom-center: a horizontal row of three small dots, the leftmost dot is teal and filled (indicating slide 1 of 3), the other two are gray and hollow. Bottom-right corner shows the brand wordmark, exactly two lowercase words: 'med escolha'. CRITICAL: every letter of 'med escolha' is lowercase — NEVER write 'Med Escolha' or 'MED ESCOLHA'; M and E are always lowercase, no exceptions. Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 11,
+      "template_name": "testimonial-vanessa",
+      "aspect_ratio": "4:5",
+      "needs_product_images": true,
+      "image_urls": ["testimonial-vanessa.jpg"],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (100+ point test × 55 specialties = ranking + narrative). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. White editorial background with soft warm shadow. Top 60% of the frame: a clean rounded-square portrait of the woman in the reference image, matching her face and likeness exactly, smiling with calm confidence (add a white medical coat if not visible). The portrait sits inside a navy (#0E1F4D) frame with rounded corners. Below the portrait, a teal (#1FBFA8) tag reads 'vanessa' in lowercase white text, and a smaller gray tag below reads 'médica, graduada há 2 anos.' Bottom 30% of the frame: a large quote in lowercase navy semibold sans-serif on exactly two lines: 'fez eu' (line 1) 'bater o martelo.' (line 2). The three words 'bater o martelo' on line 2 are highlighted in teal with a hand-drawn marker underline. CRITICAL: spell each word exactly as written — do not change or misspell any letter. Tiny lowercase 'med escolha' typed text at the bottom-right corner (plain text, not a logo, both letters lowercase). Spacious, premium, calm."
+    },
+    {
+      "template_number": 12,
+      "template_name": "testimonial-julia",
+      "aspect_ratio": "4:5",
+      "needs_product_images": true,
+      "image_urls": ["testimonial-julia.jpg"],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. White editorial background with soft warm shadow. Top 60% of the frame: a clean rounded-square portrait of the woman in the reference image, matching her face and likeness exactly, smiling with calm confidence (add a white medical coat if not visible). The portrait sits inside a navy (#0E1F4D) frame with rounded corners. Below the portrait, a teal (#1FBFA8) tag reads 'júlia' in lowercase white text, and a smaller gray tag below reads 'estudante de medicina, 5º período.' Bottom 30% of the frame: a large quote in lowercase navy semibold sans-serif on exactly two lines: 'meu coração' (line 1) 'em paz com meu futuro.' (line 2). The two words 'em paz' on line 2 are highlighted in teal with a hand-drawn marker underline. CRITICAL: spell each word exactly as written — do not change or misspell any letter. Tiny lowercase 'med escolha' typed text at the bottom-right corner (plain text, not a logo, both letters lowercase). Spacious, premium, calm."
+    },
+    {
+      "template_number": 13,
+      "template_name": "testimonial-joao",
+      "aspect_ratio": "4:5",
+      "needs_product_images": true,
+      "image_urls": ["testimonial-joao.jpg"],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. White editorial background with soft warm shadow. Top 60% of the frame: a clean rounded-square portrait of the man in the reference image, matching his face and likeness exactly, smiling with calm confidence (add a white medical coat if not visible). The portrait sits inside a navy (#0E1F4D) frame with rounded corners. Below the portrait, a teal (#1FBFA8) tag reads 'joão vitor' in lowercase white text, and a smaller gray tag below reads 'médico, formado pela ufam.' Bottom 30% of the frame: a large quote in lowercase navy semibold sans-serif: 'um top 3 que bateu com o que penso em seguir.' The four words 'top 3 que bateu' are highlighted in teal with a hand-drawn marker underline. Tiny lowercase 'med escolha' typed text at the bottom-right corner (plain text, not a logo, both letters lowercase). Spacious, premium, calm."
+    },
+    {
+      "template_number": 14,
+      "template_name": "stat-55-especialidades",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Deep navy (#0E1F4D) full-bleed background. Centered composition. Top half: a massive bold geometric sans-serif number in teal (#1FBFA8): '55'. Directly below it in slightly smaller white lowercase: 'especialidades reconhecidas no brasil.' Bottom half: a single elegant white lowercase line in medium weight: 'qual delas combina com o seu perfil?' The two words 'seu perfil' are highlighted with a subtle teal underline. At the bottom-center, a small teal pill CTA button reads 'ver meu ranking' in white lowercase. Top-left corner shows small typed lowercase text in white: 'med escolha' (treat as plain text, both m and e lowercase, not a logo). Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 15,
+      "template_name": "stat-100-pontos",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Warm off-white background (#F5F7F9). Centered composition. Top half: a massive bold geometric sans-serif number in navy (#0E1F4D): '100+'. Directly below it in slightly smaller dark gray lowercase: 'pontos em 6 eixos.' Bottom half: a single elegant lowercase navy line in medium weight: 'o teste mais profundo da escolha de especialidade médica.' The two words 'mais profundo' are highlighted with a teal (#1FBFA8) marker underline. At the bottom-center, a small teal pill CTA button reads 'fazer o teste' in white lowercase. Top-left corner shows small typed lowercase text in navy: 'med escolha' (treat as plain text, both m and e lowercase, not a logo). Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 16,
+      "template_name": "stat-rotacao-vs-carreira",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. White background. Composition is split vertically into two halves with a teal divider line in the center and a small teal lowercase word 'vs' inside a small circle at the divider midpoint. LEFT HALF: small gray lowercase label at top reading 'rotação no internato', below it a massive bold geometric sans-serif number in dark gray: '4-8', below that lowercase gray text: 'semanas.' RIGHT HALF: small teal lowercase label at top reading 'sua especialidade', below it a massive bold geometric sans-serif number in teal (#1FBFA8): '30', below that lowercase navy text: 'anos.' Bottom strip in lowercase navy: 'med escolha — fechar a decisão com método.' Clean, balanced, editorial, no people."
+    },
+    {
+      "template_number": 17,
+      "template_name": "aspirational-hero-male",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. Photography: soft natural lighting, warm color grading, smiling young Brazilian male doctor, aspirational but accessible mood. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a smiling Brazilian male doctor in his early 30s, short dark hair, light stubble, wearing a crisp white medical coat over a soft blue scrub top, stethoscope around his neck. He stands in a bright modern hospital corridor with soft natural daylight from a window, slight bokeh background. Holds a tablet, looks slightly off-camera with calm confidence and a soft smile. Warm color grading, soft natural lighting, shot on 85mm lens at f/2.8. The photograph occupies the left 55% of the frame. On the right 45% of the frame, a vertical white panel contains a 3-line lowercase navy (#0E1F4D) headline in bold geometric sans-serif: 'sua' (line 1), 'especialidade,' (line 2), 'sem achismos.' (line 3). The single word 'achismos' is highlighted with a teal (#1FBFA8) marker underline. Below the headline, a smaller line in lowercase teal: 'med escolha — o match da especialidade médica.' At the bottom-right, a teal CTA button with white lowercase text: 'definir minha especialidade'. NEVER hyphenate any word across lines. Premium editorial composition."
+    },
+    {
+      "template_number": 18,
+      "template_name": "aspirational-hero-senior",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. Photography: soft natural lighting, warm color grading. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a calm, confident Brazilian female doctor in her late 40s, dark hair with hints of gray pulled back, thin tortoiseshell glasses, wearing a white medical coat over a soft cream blouse, stethoscope around her neck. Standing in a modern clinic office, warm afternoon light, slight bokeh, looking thoughtfully toward the camera with a slight reassuring smile. Warm color grading, soft natural lighting, shot on 85mm lens at f/2.8. The photograph occupies the left 55% of the frame. On the right 45% of the frame, a vertical white panel contains a 3-line lowercase navy (#0E1F4D) headline in bold geometric sans-serif: 'decidir' (line 1), 'uma vez.' (line 2), 'e fazer certo.' (line 3). The two words 'fazer certo' are highlighted with a teal (#1FBFA8) marker underline. Below the headline, a smaller line in lowercase teal: 'med escolha — o match da especialidade médica.' At the bottom-right, a teal CTA button with white lowercase text: 'definir minha especialidade'. NEVER hyphenate any word across lines. Premium editorial composition."
+    },
+    {
+      "template_number": 19,
+      "template_name": "aspirational-hero-student",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. Photography: soft natural lighting, warm color grading. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a young Brazilian male medical student, around 22 years old, with short dark hair, wearing a clean light blue hospital scrub top, stethoscope around his neck, a friendly hopeful expression. He is standing in a bright modern university medical building hallway with soft natural daylight, slight bokeh background. Holds a clipboard, looks slightly off-camera with calm focus. Warm color grading, soft natural lighting, shot on 85mm lens at f/2.8. The photograph occupies the left 55% of the frame. On the right 45% of the frame, a vertical white panel contains a 3-line lowercase navy (#0E1F4D) headline in bold geometric sans-serif: 'sua' (line 1), 'especialidade,' (line 2), 'com método.' (line 3). The two words 'com método' are highlighted with a teal (#1FBFA8) marker underline. Below the headline, a smaller line in lowercase teal: 'med escolha — o match da especialidade médica.' At the bottom-right, a teal CTA button with white lowercase text: 'definir minha especialidade'. NEVER hyphenate any word across lines. Premium editorial composition."
+    },
+    {
+      "template_number": 20,
+      "template_name": "problem-state-male-library",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Photography: soft natural lighting, warm color grading, magazine-quality photojournalism. — Vertical 4:5 photo. A young Brazilian male medical student, around 22 years old, sitting alone at a large wooden table in a university library late afternoon. Short dark hair, tired but contemplative expression, wearing a casual gray t-shirt under an open hoodie. He is leaning on one elbow, looking pensively at the screen of his phone in his other hand. On the table: open anatomy and pharmacology textbooks with highlighter marks, a notebook with handwritten notes, a coffee cup. Tall windows in the background show golden late afternoon light. Out-of-focus rows of library bookshelves visible behind him. Mood: decision-pressure, contemplation, the weight of a big career choice. Natural soft lighting, warm color grading, shallow depth of field, shot on 50mm lens at f/2. NO TEXT OVERLAY whatsoever. Image only."
+    },
+    {
+      "template_number": 21,
+      "template_name": "problem-state-doctor-transition",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Photography: soft natural lighting, warm color grading, magazine-quality photojournalism. — Vertical 4:5 photo. A Brazilian female doctor in her mid 30s, dark hair in a low ponytail, wearing a crisp white medical coat over a soft scrub top, sitting at a modern clinic office desk. She has a thoughtful, slightly furrowed expression as she looks at a list of options on her open laptop screen. She holds a pen against her lower lip in a contemplative gesture. On the desk: a few patient files, a coffee mug, a small potted plant, her stethoscope coiled to one side. Warm afternoon light from a window to her left, the rest of the office in soft shallow focus. Mood: mid-career inflection point, considering a transition or specialization choice, calm and reflective. Natural soft lighting, warm color grading, shallow depth of field, shot on 50mm lens at f/2. NO TEXT OVERLAY whatsoever. Image only."
+    },
+    {
+      "template_number": 22,
+      "template_name": "anti-quiz",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Warm off-white background (#F5F7F9). Bold all-lowercase Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans-style, black weight, dark navy #0E1F4D), 5 lines:\n\nline 1: 'quiz com'\nline 2: '10 perguntas?'\nline 3: 'sua'\nline 4: 'especialidade'\nline 5: 'merece mais.'\n\nThe two words 'merece mais' on line 5 are highlighted with a saturated teal (#1FBFA8) horizontal marker stroke. Below the headline, a single small lowercase tag in teal reads 'med escolha — 100+ pontos × 55 especialidades'. CRITICAL: every letter of 'med escolha' is lowercase. Editorial poster style, no people, airy and minimal."
+    },
+    {
+      "template_number": 23,
+      "template_name": "pricing-math",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. Deep navy (#0E1F4D) full-bleed background. Centered composition. Top: a massive bold geometric sans-serif number in teal (#1FBFA8): 'R$ 149'. Below it in white lowercase medium weight, 2 lines: 'contra 30 anos' (line 1) 'de carreira.' (line 2). The two words '30 anos' are highlighted with a teal underline. Below that, a smaller white lowercase line: 'a matemática mais simples que você resolve hoje.' At the bottom-center, a small teal pill CTA button reads 'fazer o match agora' in white lowercase. Top-left corner small typed lowercase text in white: 'med escolha' (plain text, both letters lowercase). Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 24,
+      "template_name": "guarantee-14-dias",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad. White background. On the left side of the frame, a large stylized circular badge: a teal (#1FBFA8) circle with a slim dark navy ring around it, containing inside it a massive lowercase number '14' in white bold geometric sans-serif, with the word 'dias' in smaller lowercase white below the number. To the right of the badge, occupying the right two-thirds of the canvas, in lowercase navy (#0E1F4D) bold geometric sans-serif arranged across 4 lines: 'garantia' (line 1), 'incondicional.' (line 2), 'faz o teste,' (line 3), 'lê o ranking.' (line 4). The single word 'incondicional' on line 2 is highlighted with a teal marker underline. Below, a smaller lowercase dark gray line: 'se não for pra você, pede reembolso integral.' Bottom-right corner small typed lowercase text in navy: 'med escolha' (plain text, both letters lowercase). Clean, calm, premium."
+    },
+    {
+      "template_number": 26,
+      "template_name": "carousel-10-sinal-01",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the SECOND slide of a Meta carousel (paired with the '3 sinais' cover slide). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom — same gradient as the cover. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'sinal 01'. Below, occupying the vertical center of the canvas, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif (DM Sans-style) on 2 lines: 'você muda de' (line 1) 'top 1 toda semana.' (line 2). The four words 'muda de top 1' are highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(sua intuição não tá te dando segurança.)'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 27,
+      "template_name": "carousel-10-sinal-02",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the THIRD slide of a Meta carousel (after the '3 sinais' cover and 'sinal 01' slides). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'sinal 02'. Below, occupying the vertical center, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif (DM Sans-style) on 2 lines: 'três pessoas,' (line 1) 'três especialidades diferentes.' (line 2). The three words 'três especialidades diferentes' on line 2 are highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(quem está certo? ninguém. e todos.)'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 28,
+      "template_name": "carousel-10-sinal-03-cta",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the FINAL slide of a Meta carousel (the '3 sinais' series). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'sinal 03'. Below, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif on 3 lines: 'você não saberia' (line 1) 'explicar o porquê' (line 2) 'da sua escolha.' (line 3). The two words 'o porquê' on line 2 are highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(é da narrativa que vem a segurança.)'. Toward the bottom of the canvas, a prominent teal (#1FBFA8) pill CTA button with white lowercase text reads 'fazer o teste'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 29,
+      "template_name": "carousel-25-verdade-01",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the SECOND slide of a Meta carousel (paired with the '3 verdades incômodas' cover). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom — same gradient as the cover. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'verdade 01'. Below, occupying the vertical center, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif (DM Sans-style) on 3 lines: 'internato dura' (line 1) '4-8 semanas.' (line 2) 'especialidade dura 30 anos.' (line 3). The two words '30 anos' at the end of line 3 are highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(é amostra pequena demais pra decidir uma vida.)'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 30,
+      "template_name": "carousel-25-verdade-02",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the THIRD slide of a Meta carousel (after the '3 verdades' cover and 'verdade 01'). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'verdade 02'. Below, occupying the vertical center, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif on 3 lines: 'achismo trava' (line 1) 'rotina, plantão e salário' (line 2) 'por décadas.' (line 3). The single word 'décadas' on line 3 is highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(uma decisão de impulso vira uma rotina inteira.)'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 31,
+      "template_name": "carousel-25-verdade-03-cta",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad as the FINAL slide of a Meta carousel (the '3 verdades incômodas' series). Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Top-left: a small lowercase teal (#1FBFA8) tag with rounded background reads 'verdade 03'. Below, a bold lowercase navy (#0E1F4D) headline in modern geometric sans-serif on 3 lines: 'quiz de' (line 1) '10 perguntas não cobre' (line 2) '55 especialidades.' (line 3). The two words '55 especialidades' on line 3 are highlighted with a hand-drawn teal marker underline. Below the headline, a smaller lowercase dark gray supporting line in italic: '(a matemática não fecha. você merece um teste à altura.)'. Toward the bottom of the canvas, a prominent teal (#1FBFA8) pill CTA button with white lowercase text reads 'definir minha especialidade'. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, not a logo). Clean, friendly, premium."
+    },
+    {
+      "template_number": 32,
+      "template_name": "motion-poster-30-anos-travados",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical typographic poster, deep navy (#0E1F4D) full-bleed background. Centered composition divided into two stacked blocks. Top block: a small lowercase teal (#1FBFA8) label reading 'rotação no internato:', and below it a massive bold geometric sans-serif (DM Sans, white) '4-8 semanas.' Bottom block: a small lowercase teal label reading 'sua especialidade:', and below it a massive bold geometric sans-serif (white) '30 anos travados.' with the word 'travados' highlighted by a thick hand-drawn teal (#1FBFA8) marker underline. Subtle horizontal teal thin divider line separates the two blocks. Bottom-center: small typed lowercase 'med escolha' in white (plain text, both letters lowercase, not a logo). Premium editorial poster, generous whitespace, no people, no other elements."
+    },
+    {
+      "template_number": 33,
+      "template_name": "motion-poster-tres-conselheiros",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical typographic poster on warm off-white background (#F5F7F9). Three rounded chat-bubble cards arranged in a slightly scattered loose stack across the upper two-thirds of the canvas, each crossed out diagonally by a thick teal (#1FBFA8) brushstroke: bubble 1 (top-left, tilted slightly left) has a small lowercase navy tag 'tio médico' inside and a lowercase navy quote 'faz cardio. dá dinheiro.'; bubble 2 (middle-right, tilted slightly right) has a small lowercase navy tag 'professor' and quote 'você é boa em clínica.'; bubble 3 (bottom-left, tilted left) has a small lowercase navy tag 'mãe' and quote 'faz pediatria, é mais leve.' Below the bubbles, a centered bold lowercase navy (#0E1F4D) headline in two lines: 'três conselheiros,' (line 1) 'três respostas diferentes.' (line 2) with 'três respostas diferentes' highlighted by a hand-drawn teal marker underline. Small 'med escolha' lowercase typed text at the bottom-center in navy. Editorial design, no people."
+    },
+    {
+      "template_number": 34,
+      "template_name": "motion-poster-55-especialidades",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (cross-references 100+ profile points with the 55 recognized specialties in Brazil). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical typographic poster on off-white background (#FAFAF8). Top: a small lowercase teal (#1FBFA8) label centered reading 'as 55 especialidades reconhecidas no brasil:'. Middle two-thirds: a tight 5-column grid of 55 small rounded rectangular cards filling that area, each card showing a lowercase navy (#0E1F4D) specialty name (use real Brazilian medical specialty names: anestesiologia, cardiologia, pediatria, radiologia, neurocirurgia, dermatologia, oftalmologia, ortopedia, ginecologia, urologia, clínica geral, geriatria, neurologia, infectologia, oncologia, etc.). One specific card in the middle is highlighted with a thick teal glowing border and a small teal 'top 1' lowercase tag floating next to it. Below the grid, a bold lowercase navy headline: 'qual delas combina com o seu perfil?' with 'o seu perfil' highlighted by a hand-drawn teal marker underline. Bottom-center: teal pill CTA button 'fazer o match' in white lowercase. Small 'med escolha' lowercase typed text top-left in navy. Premium editorial."
+    },
+    {
+      "template_number": 35,
+      "template_name": "motion-poster-math-10-vs-55",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical typographic poster on warm off-white background (#F5F7F9). Centered composition split vertically into two stacked numeric blocks separated by a small teal 'vs' label centered. TOP BLOCK: small lowercase gray label 'quiz online médio:'; massive bold geometric sans-serif (DM Sans, dark navy #0E1F4D) '10 perguntas'. BOTTOM BLOCK: small lowercase teal (#1FBFA8) label 'med escolha:'; massive bold geometric sans-serif (teal) '55 especialidades reconhecidas no brasil'. Below the two blocks, a bold lowercase navy headline: 'a matemática não fecha.' with 'não fecha' highlighted by a hand-drawn teal marker underline. Small 'med escolha' lowercase typed text bottom-center in navy. Premium editorial poster, generous whitespace, no people."
+    },
+    {
+      "template_number": 36,
+      "template_name": "motion-poster-pricing-149",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical typographic poster on deep navy (#0E1F4D) full-bleed background. Centered composition. Top third: a massive bold geometric sans-serif (teal #1FBFA8) 'R$ 149'. Middle: a small lowercase white 'vs' centered. Lower third: a massive bold geometric sans-serif (white) '30 anos' with smaller white lowercase 'de carreira.' below, and the word 'carreira' highlighted with a teal underline. Below that, a smaller lowercase white tagline: 'a matemática mais simples do dia.' with 'mais simples' highlighted teal. Bottom-center: small lowercase typed 'med escolha' in white. Editorial poster, no other elements, no people."
+    },
+    {
+      "template_number": 37,
+      "template_name": "motion-poster-phone-quiz",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical poster on clean off-white background (#F5F7F9), centered composition. Upper half: a clean smartphone mockup tilted slightly with a subtle drop shadow, the phone's screen showing a fake online quiz result page in plain navy-and-white style with three contradictory entries stacked: 'top 1: clínica geral', 'top 1: anestesiologia', 'top 1: ginecologia' — all three labeled 'top 1' to convey conflict. A small red 'X' icon overlays the entire phone screen. Lower half: a bold lowercase navy (#0E1F4D) headline in three lines: 'esse quiz' (line 1) 'não foi feito' (line 2) 'pra você.' (line 3) with 'feito pra você' highlighted by a hand-drawn teal (#1FBFA8) marker underline. Below the headline, a teal pill CTA button reading 'ver o match completo' in white lowercase. Bottom-right: small 'med escolha' lowercase typed text in navy. Premium editorial layout."
+    },
+    {
+      "template_number": 38,
+      "template_name": "motion-poster-3-verdades",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8), with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical poster with a soft warm gradient background from cream (#FAF6EE) at top to light teal-tinted white (#EDF7F4) at bottom. Top: a small lowercase teal (#1FBFA8) pill-shaped tag reading '3 verdades incômodas:'. Middle: three stacked horizontal cards each with a small left-side 'verdade 0X' teal tag and a bold lowercase navy (#0E1F4D) statement on the right: verdade 01 'internato dura 4-8 semanas.'; verdade 02 'tio médico não tem dado seu perfil.'; verdade 03 'quiz de 10 perguntas não cobre 55.' with '55' highlighted by a hand-drawn teal marker underline. Below the cards, a bold lowercase navy headline (smaller than the card text): 'o que ninguém te disse sobre escolher sua especialidade.' with 'ninguém te disse' highlighted by a thick hand-drawn teal marker underline. Bottom-center: teal pill CTA button 'ver as 3 verdades' in white lowercase, with small 'med escolha' lowercase typed text below in navy. Premium editorial."
+    },
+    {
+      "template_number": 39,
+      "template_name": "motion-poster-calendar-changing",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical poster on warm off-white background (#F5F7F9). Upper two-thirds: a stylized weekly planner calendar view centered on the canvas, showing 7 day cards in a single column (seg, ter, qua, qui, sex, sab, dom) each labeled in lowercase navy (#0E1F4D), and inside each day card a different handwritten-style specialty name in cursive teal (#1FBFA8): seg 'cardio', ter 'clínica', qua 'pediatria', qui 'anestesia', sex 'GO', sab '?', dom '???'. The calendar has small marker scribble marks and crossings-out showing instability. Below the calendar, a bold lowercase navy headline: 'você muda de top 1 toda semana.' with 'muda de top 1' highlighted by a hand-drawn teal marker underline. Bottom-center: small 'med escolha' lowercase typed text in navy. Premium editorial design, no people."
+    },
+    {
+      "template_number": 40,
+      "template_name": "motion-poster-ranking-narrativa",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (ranking + narrative across 55 specialties). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical poster on soft cream background (#FAF6EE). Centered composition. Top: a small lowercase teal (#1FBFA8) tag with rounded background reading 'ranking + narrativa'. Below it, a clean smartphone mockup tilted very slightly with a subtle drop shadow, the phone's screen showing the Med Escolha results page: header 'seu match · top 3 especialidades' in lowercase navy, then three result cards stacked, each showing a specialty name in lowercase navy bold + a match percentage in teal: card 1 'anestesiologia · 84% match', card 2 'medicina física e reabilitação · 79% match', card 3 'pediatria · 71% match'. The first card is expanded showing 2 lines of small lowercase navy placeholder narrative text. Below the phone: a bold lowercase navy headline 'o seu match completo, em 100+ pontos.' with '100+ pontos' highlighted by a hand-drawn teal marker underline. Bottom-center: teal pill CTA button 'definir minha especialidade' in white lowercase, with small 'med escolha' lowercase typed text below in navy. Premium editorial product-focused layout."
+    },
+    {
+      "template_number": 41,
+      "template_name": "motion-poster-fim-do-achismo",
+      "aspect_ratio": "9:16",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — 9:16 vertical brand manifesto poster on deep navy (#0E1F4D) full-bleed background. Centered composition divided into two stacked blocks. TOP BLOCK: a small lowercase teal (#1FBFA8) label 'fim do:'; below it a massive bold geometric sans-serif (DM Sans / Poppins, white) 'achismo.' with a thick teal marker brushstroke crossing it out diagonally. BOTTOM BLOCK: a small lowercase teal label 'começo do:'; below it a massive bold geometric sans-serif (teal) 'método.'. A thin teal horizontal divider line separates the two blocks. Below both blocks: a teal pill CTA button reading 'definir minha especialidade' in white lowercase, with small 'med escolha' lowercase typed text below in white. Editorial brand manifesto poster, generous whitespace, no people, no other elements."
+    },
+    {
+      "template_number": 25,
+      "template_name": "carousel-cover-3-verdades",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries, with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Background is a soft warm gradient from cream (#FAF6EE) at the top to light teal-tinted white (#EDF7F4) at the bottom. Centered composition with generous top padding. Top-center small lowercase teal (#1FBFA8) tag with rounded background reads 'carrossel · arraste'. Below it, the main lowercase navy (#0E1F4D) headline in bold modern geometric sans-serif (DM Sans-style), 4 lines: 'o que ninguém' (line 1) 'te disse sobre' (line 2) 'escolher sua' (line 3) 'especialidade.' (line 4). The phrase 'ninguém te disse' is highlighted with a hand-drawn teal marker underline. Below the headline, a small lowercase dark gray supporting line: '(em 3 verdades incômodas)'. Bottom-center: a horizontal row of three small dots, leftmost teal filled, others gray hollow. Bottom-right corner shows small typed lowercase text 'med escolha' (plain text, both letters lowercase). Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 42,
+      "template_name": "stat-50-lives-vitalicio",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Centered composition. Top: a small lowercase gray label reading 'além do teste:'. Middle: a massive bold geometric sans-serif (DM Sans, dark navy #0E1F4D) '50+' followed by smaller navy 'lives'. Below it in slightly smaller navy lowercase: 'gravadas, acesso vitalício.' Bottom-third: a single lowercase line in navy medium weight: 'tira dúvidas com especialistas que já fizeram.' with 'já fizeram' highlighted by a hand-drawn teal (#1FBFA8) marker underline. At the bottom: small typed lowercase 'med escolha' in navy. Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 43,
+      "template_name": "stat-6-eixos-100-pontos",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8) as primaries. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Three centered stacked blocks separated by thin horizontal teal divider lines. BLOCK 1 (top): a small lowercase teal label 'eixos:' and a massive bold geometric sans-serif (teal #1FBFA8) '6'. BLOCK 2 (middle): a small lowercase teal label 'pontos:' and a massive bold white '100+'. BLOCK 3 (bottom): a small lowercase teal label 'decisão:' and a massive bold white '1'. Below all blocks: small lowercase typed 'med escolha' in white. Editorial poster aesthetic, generous whitespace, no people, no other elements."
+    },
+    {
+      "template_number": 44,
+      "template_name": "stat-15-min-30-anos",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Centered composition split into two stacked blocks separated by a small teal lowercase 'pra' label centered. TOP BLOCK: small lowercase gray label 'tempo do teste:'; massive bold geometric sans-serif (dark navy #0E1F4D) '15 min'. BOTTOM BLOCK: small lowercase teal label 'decidir uma carreira de:'; massive bold teal '30 anos'. Bottom: small lowercase navy line 'a melhor matemática do dia.' with 'a melhor' highlighted by a hand-drawn teal marker underline. Small typed lowercase 'med escolha' in navy at the bottom-center. Editorial poster aesthetic, generous whitespace, no people."
+    },
+    {
+      "template_number": 45,
+      "template_name": "stat-cobertura-completa-55",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty (covers all 55 specialties recognized in Brazil). Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#F5F7F9). Centered composition. Top: a tight grid of 55 small simple bullet-style dots (5 columns × 11 rows or similar arrangement), each dot a small teal (#1FBFA8) filled circle, arranged compactly to convey scale. Below the dot grid: a bold lowercase navy (#0E1F4D) headline in 2 lines: 'todas as 55 áreas.' (line 1) 'nenhuma de fora.' (line 2) with 'nenhuma de fora' highlighted by a hand-drawn teal marker underline. Below the headline: a smaller lowercase gray supporting line in italic: '(da clínica geral à neurocirurgia.)'. Bottom: small typed lowercase 'med escolha' in navy. Editorial poster, no people."
+    },
+    {
+      "template_number": 46,
+      "template_name": "anti-listinha-pros-contras",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, dark navy #0E1F4D), 4 lines: 'lista de prós' (line 1) 'e contras' (line 2) 'nunca fechou' (line 3) 'nada.' (line 4). The two words 'fechou nada' are highlighted by a thick teal (#1FBFA8) marker brushstroke. Below the headline: a smaller lowercase navy tag reading 'med escolha — método pra decidir de verdade.' Editorial typographic poster, no people, airy and minimal."
+    },
+    {
+      "template_number": 47,
+      "template_name": "anti-instinto",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, white), arranged on 4 lines: 'instinto' (line 1) 'não escolhe' (line 2) 'carreira.' (line 3) 'método escolhe.' (line 4) where line 4 is in teal (#1FBFA8) bold. The single word 'instinto' on line 1 has a thick teal marker stroke crossing through it. Below the headline: a small lowercase white tag reading 'med escolha — o teste com 100+ pontos.' Editorial typographic poster, no people, no other elements."
+    },
+    {
+      "template_number": 48,
+      "template_name": "anti-mentoria-cara",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#F5F7F9). Centered composition with two stacked blocks. TOP BLOCK: a small lowercase gray label 'mentoria 1-on-1:' and a massive bold geometric sans-serif (dark navy #0E1F4D) 'R$ 5.000+' with the entire number having a thick teal marker brushstroke crossing through it. BOTTOM BLOCK: a small lowercase teal label 'med escolha:' and a massive bold teal (#1FBFA8) 'R$ 149'. Below the blocks: a single bold lowercase navy headline 'você precisa do teste, não da palestra.' with 'do teste' highlighted by a hand-drawn teal marker underline. Bottom: small typed lowercase 'med escolha' in navy. Editorial poster, no people."
+    },
+    {
+      "template_number": 49,
+      "template_name": "anti-decidir-no-r1",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Centered composition. Bold lowercase Brazilian Portuguese headline in extra-large geometric sans-serif (DM Sans, dark navy #0E1F4D), arranged on 3 lines: 'decidir no r1' (line 1) 'não é decidir.' (line 2) 'é apostar.' (line 3) where line 3 is in teal (#1FBFA8) bold and highlighted with a thick teal marker underline. Below the headline: a small lowercase navy tag 'med escolha — o teste antes da decisão.' Editorial typographic poster, no people, no other elements."
+    },
+    {
+      "template_number": 50,
+      "template_name": "anti-conselho-familia",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Centered composition. Bold lowercase Brazilian Portuguese headline in extra-large geometric sans-serif (DM Sans, white), arranged on 3 lines: 'tio médico' (line 1) 'não conhece' (line 2) 'o seu perfil.' (line 3) with 'o seu perfil' highlighted by a hand-drawn teal (#1FBFA8) marker underline. Below the headline: a small lowercase white tag reading 'med escolha — 100+ pontos só seus.' Editorial typographic poster, no people, no other elements."
+    },
+    {
+      "template_number": 51,
+      "template_name": "photo-medica-tablet-headline",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Photography: soft natural lighting, warm color grading, smiling young Brazilian female doctor, aspirational but accessible. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a smiling Brazilian female doctor in her late 20s with long dark wavy hair, wearing a crisp white medical coat over a light pink scrub top, holding a modern tablet in both hands looking at it with calm focused interest. Bright modern clinic office background in soft bokeh, soft natural daylight from a window. Warm color grading, shot on 85mm lens at f/2.8, shallow depth of field. The photo occupies the bottom 60% of the canvas. The top 40% has a clean white panel with a bold lowercase navy (#0E1F4D) headline in geometric sans-serif on 3 lines: 'método.' (line 1) 'não' (line 2) 'achismo.' (line 3) where 'método.' is highlighted by a hand-drawn teal marker underline. Below the headline: a smaller lowercase teal line 'med escolha — o match da especialidade médica.' Premium editorial composition."
+    },
+    {
+      "template_number": 52,
+      "template_name": "photo-medico-corredor",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Photography: soft natural lighting, warm color grading, confident young Brazilian male doctor, aspirational. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a smiling Brazilian male doctor in his late 20s with short curly dark hair, wearing a crisp white medical coat over a soft green scrub top, stethoscope around his neck. He walks down a bright modern hospital corridor with soft natural daylight, slight motion in his walk, looking slightly off-camera with calm confidence. Warm color grading, soft natural lighting, slight bokeh background, shot on 85mm lens at f/2.0. The photo fills the left 60% of the frame. On the right 40% panel (white): a bold lowercase navy headline on 3 lines: 'a decisão' (line 1) 'que define' (line 2) 'sua rotina.' (line 3) with 'define sua rotina' highlighted by a hand-drawn teal marker underline. Below: a smaller lowercase teal line 'med escolha — o match da especialidade médica.' Premium editorial composition."
+    },
+    {
+      "template_number": 53,
+      "template_name": "photo-estudante-livro",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Photography: soft natural lighting, warm color grading, contemplative Brazilian female medical student. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a young Brazilian female medical student, around 23 years old, with curly hair pulled back, wearing a cream sweater and jeans, sitting at a desk in a study room reading a large medical textbook, pen in hand making notes, soft afternoon light from a window to her left. She has a calm focused expression as she reads. Bookshelves filled with medical books visible in the soft background bokeh. Warm color grading, shot on 50mm lens at f/2.0. The photo fills the bottom 65% of the canvas. The top 35% has a white panel with a bold lowercase navy headline on 3 lines: 'a faculdade' (line 1) 'não te ensina' (line 2) 'a escolher.' (line 3) with 'não te ensina' highlighted by a hand-drawn teal (#1FBFA8) marker underline. Below: smaller lowercase teal 'med escolha — o método que faltava.' Premium editorial."
+    },
+    {
+      "template_number": 54,
+      "template_name": "photo-mao-stetoscope",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Photography: cinematic close-up, warm color grading, intimate. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Cinematic close-up photograph of a Brazilian medical professional's hands gently holding a high-quality stethoscope, with a soft warm out-of-focus background of a hospital corridor. Skin tone warm, slight detail visible on the stethoscope, light glints subtly. Warm color grading, shot on 100mm macro lens at f/2.8, shallow depth of field, premium magazine quality. The photo fills the bottom 60% of the canvas. Top 40%: a white panel with a bold lowercase navy headline on 3 lines: '100+ pontos' (line 1) 'do seu' (line 2) 'perfil.' (line 3) with 'do seu perfil' highlighted by a hand-drawn teal (#1FBFA8) marker underline. Below: smaller lowercase teal 'med escolha — match com 55 especialidades.' Premium editorial composition."
+    },
+    {
+      "template_number": 55,
+      "template_name": "photo-medica-transicao",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Photography: soft natural lighting, warm color grading, thoughtful mid-career Brazilian doctor. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad. Photograph of a Brazilian female doctor in her mid 30s, dark hair pulled back, wearing a soft beige coat over a navy blouse, sitting at a modern clinic desk reflecting thoughtfully while looking out a window with soft natural light. Warm afternoon glow on her face, small smile, slight head tilt. Calm contemplative mood. Warm color grading, shot on 85mm lens at f/2.8, shallow depth of field. The photo fills the left 60% of the frame. Right 40% white panel: bold lowercase navy headline on 3 lines: 'uma vida.' (line 1) 'uma' (line 2) 'especialidade.' (line 3) with 'uma' on line 2 emphasized in larger teal (#1FBFA8) and highlighted with a teal underline. Below: smaller lowercase teal 'med escolha — fechar a decisão com método.' Premium editorial."
+    },
+    {
+      "template_number": 56,
+      "template_name": "testimonial-quote-only-camila",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#FAFAF8). Pure editorial typographic layout with no photo. Centered composition. Top: a small lowercase teal (#1FBFA8) tag with rounded background reading 'testemunho real:'. Below it, a large lowercase navy (#0E1F4D) quote in serif-style italic display font (Lora or similar): 'uma especialidade que eu nem pensava antes.' with 'nem pensava antes' highlighted by a hand-drawn teal marker underline. Below the quote: a small lowercase navy attribution line in regular sans-serif: '— camila, estudante de medicina.' Bottom: small typed lowercase 'med escolha' in navy. Premium editorial layout, calm and sophisticated."
+    },
+    {
+      "template_number": 57,
+      "template_name": "testimonial-quote-only-vanessa",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#FAFAF8). Pure editorial typographic layout. Centered composition. Top: a small lowercase teal (#1FBFA8) tag with rounded background reading 'testemunho real:'. Below it, a large lowercase navy (#0E1F4D) quote in serif italic display font: 'fez eu bater o martelo.' with 'bater o martelo' highlighted by a hand-drawn teal marker underline. Below the quote: a small lowercase navy attribution line in regular sans-serif: '— vanessa, médica formada há 2 anos.' Bottom: small typed lowercase 'med escolha' in navy. Premium editorial layout, calm and sophisticated."
+    },
+    {
+      "template_number": 58,
+      "template_name": "testimonial-quote-only-julia",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#FAFAF8). Pure editorial typographic layout. Centered composition. Top: a small lowercase teal (#1FBFA8) tag with rounded background reading 'testemunho real:'. Below it, a large lowercase navy (#0E1F4D) quote in serif italic display font: 'meu coração em paz com meu futuro.' with 'em paz' highlighted by a hand-drawn teal marker underline. Below the quote: a small lowercase navy attribution line in regular sans-serif: '— júlia, estudante 5º período.' Bottom: small typed lowercase 'med escolha' in navy. Premium editorial layout, calm and sophisticated."
+    },
+    {
+      "template_number": 59,
+      "template_name": "testimonial-quote-only-joao",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#FAFAF8). Pure editorial typographic layout. Centered composition. Top: a small lowercase teal (#1FBFA8) tag with rounded background reading 'testemunho real:'. Below it, a large lowercase navy (#0E1F4D) quote in serif italic display font: 'um top 3 que bateu com o que penso em seguir.' with 'top 3 que bateu' highlighted by a hand-drawn teal marker underline. Below the quote: a small lowercase navy attribution line in regular sans-serif: '— joão vitor, médico formado pela ufam.' Bottom: small typed lowercase 'med escolha' in navy. Premium editorial layout, calm and sophisticated."
+    },
+    {
+      "template_number": 60,
+      "template_name": "carousel-cover-4-erros",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8), with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Soft warm gradient background from cream (#FAF6EE) at top to light teal-tinted white (#EDF7F4) at bottom. Top-center small lowercase teal (#1FBFA8) tag 'carrossel · arraste'. Centered headline in bold lowercase navy (#0E1F4D) geometric sans-serif on 3 lines: '4 erros' (line 1, much larger than the rest) 'comuns na escolha' (line 2) 'da especialidade.' (line 3) with 'erros' on line 1 highlighted by a hand-drawn teal marker underline. Below the headline: small lowercase dark gray supporting line '(e como evitar cada um.)'. Bottom-center: small horizontal row of 3 dots, leftmost teal-filled, others gray-hollow. Bottom-right: small lowercase typed 'med escolha' in navy. Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 61,
+      "template_name": "carousel-cover-5-passos",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8), with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Soft warm gradient background from cream (#FAF6EE) to light teal-tinted white (#EDF7F4). Top-center small lowercase teal tag 'carrossel · arraste'. Centered headline in bold lowercase navy geometric sans-serif on 3 lines: '5 passos' (line 1, larger) 'pra decidir' (line 2) 'com método.' (line 3) with '5 passos' highlighted by a hand-drawn teal (#1FBFA8) marker underline. Below: small lowercase dark gray supporting line '(em vez de no achismo.)'. Bottom-center: small horizontal row of 3 dots, leftmost teal-filled. Bottom-right: small lowercase typed 'med escolha' in navy. Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 62,
+      "template_name": "carousel-cover-mitos",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8), with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Soft warm gradient background from cream (#FAF6EE) to light teal-tinted white (#EDF7F4). Top-center small lowercase teal tag 'carrossel · arraste'. Centered headline in bold lowercase navy geometric sans-serif on 3 lines: '3 mitos' (line 1, larger) 'sobre escolher' (line 2) 'sua especialidade.' (line 3) with 'mitos' highlighted by a hand-drawn teal marker underline. Below: small lowercase dark gray supporting line '(que ninguém ainda desmistificou pra você.)'. Bottom-center: small horizontal row of 3 dots, leftmost teal-filled. Bottom-right: small lowercase typed 'med escolha' in navy. Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 63,
+      "template_name": "carousel-cover-perguntas",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8), with warm cream accents. Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad designed as a carousel cover slide. Soft warm gradient background from cream (#FAF6EE) to light teal-tinted white (#EDF7F4). Top-center small lowercase teal tag 'carrossel · arraste'. Centered headline in bold lowercase navy geometric sans-serif on 3 lines: 'as 3 perguntas' (line 1) 'que você ainda' (line 2) 'não se fez.' (line 3) with 'não se fez' highlighted by a hand-drawn teal marker underline. Below: small lowercase dark gray supporting line '(e que precisam de uma resposta agora.)'. Bottom-center: small horizontal row of 3 dots, leftmost teal-filled. Bottom-right: small lowercase typed 'med escolha' in navy. Clean, friendly, swipe-inviting."
+    },
+    {
+      "template_number": 64,
+      "template_name": "manifesto-uma-escolha",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Centered composition. Three bold lowercase Portuguese statements stacked vertically with generous spacing, in geometric sans-serif (DM Sans, white): 'uma escolha.' (line 1) 'uma vida.' (line 2) 'um método.' (line 3, in teal #1FBFA8, bold). Subtle thin horizontal teal divider lines separate each statement. Below all three statements: a smaller lowercase teal line 'med escolha — o match da especialidade médica.' Editorial brand manifesto poster, generous whitespace, no people, no other elements."
+    },
+    {
+      "template_number": 65,
+      "template_name": "manifesto-seguranca-saber",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on deep navy (#0E1F4D) full-bleed background. Centered composition with extra generous whitespace. Bold lowercase Brazilian Portuguese headline in extra-large geometric sans-serif (DM Sans, white), arranged on 3 lines: 'a segurança' (line 1) 'de saber' (line 2) 'por quê.' (line 3) where 'por quê.' is in teal (#1FBFA8) bold and highlighted with a thick hand-drawn teal marker underline. Below the headline, with significant spacing: a smaller lowercase white tag 'med escolha — o ranking vem com narrativa.' Editorial brand manifesto poster, no people, no other elements."
+    },
+    {
+      "template_number": 66,
+      "template_name": "feature-narrativa-spotlight",
+      "aspect_ratio": "4:5",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Vertical 4:5 social ad on warm off-white background (#FAFAF8). Top of the canvas: a small lowercase teal (#1FBFA8) tag with rounded background reading 'além do ranking:'. Middle: a centered card-like layout with a bold lowercase navy (#0E1F4D) headline 'narrativa.' in extra-large geometric sans-serif, with a thick teal marker underline. Below the headline: 3 small bullet rows in lowercase navy, each with a small teal teal arrow icon: '→ por que cada especialidade combina com você', '→ traços do seu perfil que pesam mais', '→ o que esperar do dia a dia da área top 1'. Bottom: a small lowercase navy line 'inclusa em todos os matches.' with 'todos' highlighted teal. Small typed lowercase 'med escolha' at the bottom-center in navy. Premium editorial layout."
+    },
+    {
+      "template_number": 67,
+      "template_name": "anti-googlar",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, dark navy #0E1F4D), arranged on 3 lines: 'googlar' (line 1) 'não é pesquisa.' (line 2) 'é desespero.' (line 3) where 'é desespero.' is in teal (#1FBFA8) bold and highlighted by a thick hand-drawn teal marker underline. The single word 'googlar' on line 1 has a thick teal marker brushstroke crossing it out. Below the headline: a small lowercase navy tag 'med escolha — o teste com 100+ pontos.' Editorial typographic poster, no people, airy and minimal."
+    },
+    {
+      "template_number": 68,
+      "template_name": "anti-procrastinar",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, white), arranged on 4 lines: 'adiar a decisão' (line 1) 'é uma' (line 2) 'decisão.' (line 3) 'ruim.' (line 4) where the single word 'ruim.' on line 4 is in teal (#1FBFA8) bold and highlighted by a thick hand-drawn teal marker underline. Below the headline: a small lowercase white tag 'med escolha — fechar a decisão com método.' Editorial typographic poster, no people, no other elements."
+    },
+    {
+      "template_number": 69,
+      "template_name": "anti-especialidade-segura",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on warm off-white background (#F5F7F9). Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, dark navy #0E1F4D), arranged on 4 lines: 'não existe' (line 1) 'especialidade segura.' (line 2) 'existe' (line 3) 'especialidade certa.' (line 4) where the two words 'especialidade certa.' on line 4 are in teal (#1FBFA8) bold and highlighted by a thick hand-drawn teal marker underline. The two words 'especialidade segura.' on line 2 have a thick teal marker brushstroke crossing them out. Below the headline: a small lowercase navy tag 'med escolha — o match com 55 áreas.' Editorial typographic poster, no people, airy and minimal."
+    },
+    {
+      "template_number": 70,
+      "template_name": "anti-internato-decide",
+      "aspect_ratio": "1:1",
+      "needs_product_images": false,
+      "image_urls": [],
+      "prompt": "Brand: Med Escolha — the match for choosing a medical specialty. Visual identity: deep navy (#0E1F4D) and saturated teal (#1FBFA8). Typography: modern geometric sans-serif. ALL TEXT IS LOWERCASE BRAZILIAN PORTUGUESE. — Square 1:1 social ad on deep navy (#0E1F4D) full-bleed background. Bold lowercase Brazilian Portuguese headline filling most of the frame in extra-large geometric sans-serif (DM Sans, white), arranged on 3 lines: 'o internato' (line 1) 'te mostra.' (line 2) 'não te decide.' (line 3) where 'não te decide.' is in teal (#1FBFA8) bold and highlighted by a thick hand-drawn teal marker underline. Below the headline: a small lowercase white tag 'med escolha — 4-8 semanas não decidem 30 anos.' Editorial typographic poster, no people, no other elements."
+    }
+  ]
+}
