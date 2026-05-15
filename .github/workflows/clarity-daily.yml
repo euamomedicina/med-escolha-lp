@@ -1,0 +1,90 @@
+name: Clarity Daily Check
+
+on:
+  schedule:
+    # 12:00 UTC = 09:00 America/Sao_Paulo (BRT, UTC-3)
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    # Allows manual trigger from the Actions tab
+
+permissions:
+  contents: write   # commit updated state + reports back to main
+  issues: write     # create issue when milestone is hit
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Clarity check
+        id: check
+        env:
+          CLARITY_API_TOKEN: ${{ secrets.CLARITY_API_TOKEN }}
+        run: |
+          python3 scripts/clarity_check.py
+          echo "status=$(python3 -c 'import json; print(json.load(open("clarity-output.json"))["status"])')" >> "$GITHUB_OUTPUT"
+
+      - name: Show summary
+        run: |
+          echo "## Clarity Daily Check" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat clarity-output.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create issue on milestone
+        if: steps.check.outputs.status == 'milestone_hit'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const out = JSON.parse(fs.readFileSync('clarity-output.json', 'utf8'));
+            const milestone = out.milestone;
+            const previous = out.previous_milestone;
+            const current = out.current_sessions;
+            const date = out.date;
+            const reportPath = out.report_path || `reports/clarity-${date}.md`;
+
+            const body = [
+              `**Milestone:** ${milestone} sessões acumuladas (anterior: ${previous}).`,
+              `**Sessões totais agora:** ${current}.`,
+              `**Data:** ${date}.`,
+              ``,
+              `Um relatório esqueleto foi gerado em [\`${reportPath}\`](../blob/main/${reportPath}) com os dados brutos do Clarity.`,
+              ``,
+              `### Próximo passo`,
+              `Abra o relatório no Claude Code e peça análise:`,
+              `> "Lê o ${reportPath} e gera 3 a 7 recomendações de melhoria na index.html baseadas nos sinais do Clarity (dead clicks, scroll depth, abandono por seção, device split)."`,
+              ``,
+              `O state file \`.clarity-state.json\` foi atualizado e commitado.`
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📊 Clarity milestone: ${milestone} sessões (${date})`,
+              body: body,
+              labels: ['clarity', 'milestone']
+            });
+
+      - name: Commit updated state and reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .clarity-state.json reports/ || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(clarity): daily check $(date -u +%Y-%m-%d)"
+            git push
+          fi

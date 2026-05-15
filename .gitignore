@@ -1,0 +1,9 @@
+# Per-run artifacts from the Clarity check (state IS committed below)
+clarity-output.json
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
