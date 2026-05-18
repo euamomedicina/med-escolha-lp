@@ -1,7 +1,11 @@
 {
   "cumulative_sessions": 0,
-  "daily_counts": {},
-  "last_check": "2026-05-17T15:42:31.453990+00:00",
+  "daily_counts": {
+    "2026-05-15": 0,
+    "2026-05-16": 0,
+    "2026-05-17": 0
+  },
+  "last_check": "2026-05-18T18:22:34.213479+00:00",
   "last_milestone": 0,
   "last_report": null
 }
