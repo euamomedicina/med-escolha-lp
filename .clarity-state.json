@@ -1,11 +1,11 @@
 {
-  "cumulative_estimated": 0,
+  "cumulative_estimated": 845,
   "history": [],
   "last_check": null,
   "last_milestone": 0,
   "last_report": null,
   "last_seen_window_3d": 0,
   "peak_window_3d": 0,
-  "seed_value": null,
-  "seeded_at": null
+  "seed_value": 845,
+  "seeded_at": "2026-05-19"
 }
