@@ -2,15 +2,18 @@
 """
 Clarity milestone checker.
 
-Hits the Microsoft Clarity Data Export API to track cumulative sessions for the
-target landing page and flags when a 1000-session milestone has been crossed.
+Hits the Microsoft Clarity Data Export API ONCE per run with num_days=3 and
+tracks the peak 3-day window seen so far. Fires when that peak crosses a new
+1000-session multiple.
 
-The Clarity API only exposes a 1-3 day rolling window with no native per-day
-breakdown. We fake the breakdown by querying num_days=1, 2, and 3 and
-subtracting the totals (yesterday = sum_1d, day-2 = sum_2d - sum_1d,
-day-3 = sum_3d - sum_2d). Daily counts are persisted to .clarity-state.json so
-the cumulative total survives across runs and recovers from up to 2 days of
-missed workflow runs.
+Why 1 call per run: the Clarity Data Export API has a hard quota of ~10
+requests per day per project. Doing 3 calls per run (to infer daily breakdown)
+burns through the quota fast and trips 429 rate-limit errors that silently
+make the script report zero. One call per run leaves plenty of headroom for
+manual debug runs.
+
+What we lose: per-day breakdown. If you need that, open the dashboard
+directly (it's where Clarity natively exposes daily timeseries).
 
 URL filtering: only sessions whose URL contains DEFAULT_URL_FILTER (override
 via CLARITY_URL_FILTER env var) are counted, so previews/staging hits don't
@@ -27,7 +30,8 @@ Outputs:
 
 Status values:
   - "no_data"      Clarity returned 5xx/empty (no traffic yet). Silent exit.
-  - "no_milestone" Traffic exists but didn't cross a new 1000-multiple.
+  - "rate_limited" Clarity returned 429. Workflow should retry next run.
+  - "no_milestone" Traffic exists but peak 3-day window didn't cross a new 1000-multiple.
   - "milestone_hit" Crossed milestone. Workflow creates issue + commits report.
   - "error"        Unexpected error.
 """
@@ -67,18 +71,24 @@ def load_token() -> str:
 def load_state() -> dict:
     if not STATE_FILE.exists():
         return {
-            "daily_counts": {},
-            "cumulative_sessions": 0,
+            "peak_sessions_3d": 0,
+            "last_seen_sessions_3d": 0,
             "last_milestone": 0,
             "last_check": None,
             "last_report": None,
+            "history": [],  # rolling list of {date, sessions_3d}
         }
     state = json.loads(STATE_FILE.read_text())
-    state.setdefault("daily_counts", {})
-    state.setdefault("cumulative_sessions", 0)
+    # Migrate older state shapes silently.
+    state.setdefault("peak_sessions_3d", state.get("cumulative_sessions", 0))
+    state.setdefault("last_seen_sessions_3d", 0)
     state.setdefault("last_milestone", 0)
     state.setdefault("last_check", None)
     state.setdefault("last_report", None)
+    state.setdefault("history", [])
+    # Drop legacy fields we no longer maintain.
+    state.pop("cumulative_sessions", None)
+    state.pop("daily_counts", None)
     return state
 
 
@@ -160,14 +170,18 @@ def extract_session_count(payload, url_filter: str = None):
 def _no_data_response(payload, state, now_iso):
     """Build a no_data result and persist state."""
     code = payload.get("_http_error") if isinstance(payload, dict) else None
+    status = "no_data"
     msg = "Clarity returned no data (likely zero traffic)."
-    if isinstance(payload, dict) and payload.get("_empty"):
+    if code == 429:
+        status = "rate_limited"
+        msg = "Clarity rate-limited (429). Will retry next run."
+    elif isinstance(payload, dict) and payload.get("_empty"):
         msg = "Empty response from Clarity."
     result = {
-        "status": "no_data",
+        "status": status,
         "http_status": code,
-        "current_sessions": state["cumulative_sessions"],
-        "previous_sessions": state["cumulative_sessions"],
+        "peak_sessions_3d": state["peak_sessions_3d"],
+        "last_seen_sessions_3d": state["last_seen_sessions_3d"],
         "last_check": now_iso,
         "message": msg,
     }
@@ -185,20 +199,25 @@ def _error_response(err, state, now_iso):
     print(json.dumps(result))
 
 
-def write_report_skeleton(milestone, previous, current, daily_counts, insights, output_date):
+def write_report_skeleton(milestone, previous, sessions_3d, history, insights, output_date):
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     path = REPORTS_DIR / f"clarity-{output_date}.md"
-    daily_lines = "\n".join(
-        f"- **{day}:** {count} sessões" for day, count in sorted(daily_counts.items(), reverse=True)[:14]
+    history_lines = "\n".join(
+        f"- **{entry['date']}:** {entry['sessions_3d']} sessões (janela 3 dias)"
+        for entry in history[-14:]
     )
     body = f"""# Relatório Clarity, {output_date}
 
-**Milestone atingido:** {milestone} sessões acumuladas (anterior: {previous}).
-**Total atual:** {current} sessões.
+**Milestone atingido:** {milestone} sessões em janela de 3 dias (anterior: {previous}).
+**Pico atual (3-day window):** {sessions_3d} sessões.
 
-## Sessões por dia (últimos 14 dias rastreados)
+## Histórico das checagens diárias (últimas 14)
 
-{daily_lines or '- (sem histórico ainda)'}
+{history_lines or '- (sem histórico ainda)'}
+
+> Cada linha mostra o total da janela móvel de 3 dias no dia da checagem.
+> Pra ver breakdown por dia, abra o dashboard do Clarity diretamente:
+> https://clarity.microsoft.com
 
 ## Dados Brutos (Clarity, últimos 3 dias)
 
@@ -228,84 +247,39 @@ def main():
     today = now_utc.strftime("%Y-%m-%d")
     url_filter = os.environ.get("CLARITY_URL_FILTER", DEFAULT_URL_FILTER).strip() or None
 
-    # Fetch 3 windows. URL dimension so we can filter by domain.
-    payloads = {}
-    fetch_meta = {}
-    for n in (1, 2, 3):
-        p = fetch_clarity(token, num_days=n, dimensions=["URL"])
-        payloads[n] = p
-        fetch_meta[n] = {"type": type(p).__name__}
+    # ONE call per run. num_days=3 to capture as much of a window as the API allows.
+    # Dimension=URL so we can filter by domain (skip previews/staging).
+    payload = fetch_clarity(token, num_days=3, dimensions=["URL"])
 
-    # If all three returned a Clarity 5xx or empty, treat as no_data.
-    def is_no_data(p):
-        if isinstance(p, dict) and (p.get("_http_error") in (500, 404) or p.get("_empty")):
-            return True
-        return False
-
-    if all(is_no_data(payloads[n]) for n in (1, 2, 3)):
-        _no_data_response(payloads[1], state, now_iso)
-        return
-
-    # If any payload is an outright error (network, parse), surface it.
-    for n in (1, 2, 3):
-        p = payloads[n]
-        if isinstance(p, dict) and ("_url_error" in p or "_error" in p):
-            _error_response(p, state, now_iso)
+    if isinstance(payload, dict):
+        if payload.get("_http_error") in (500, 404, 429) or payload.get("_empty"):
+            _no_data_response(payload, state, now_iso)
+            return
+        if "_url_error" in payload or "_error" in payload:
+            _error_response(payload, state, now_iso)
             return
 
-    # Sum sessions per window, filtered by URL.
-    sums = {}
-    matched_urls = set()
-    skipped_urls = set()
-    for n in (1, 2, 3):
-        p = payloads[n]
-        if isinstance(p, list):
-            total, _all, m, s = extract_session_count(p, url_filter=url_filter)
-            sums[n] = total
-            matched_urls.update(m)
-            skipped_urls.update(s)
-        else:
-            sums[n] = 0
+    sessions_3d, sessions_all_urls, matched_urls, skipped_urls = extract_session_count(
+        payload, url_filter=url_filter
+    )
 
-    # Derive per-day counts by subtraction. Map to actual dates.
-    # num_days=1 = sessions in the last 24h ending now. We treat this as "yesterday" UTC.
-    # num_days=2 = last 48h. day-2 contribution = sums[2] - sums[1]
-    # num_days=3 = last 72h. day-3 contribution = sums[3] - sums[2]
-    day_minus_1 = sums.get(1, 0)
-    day_minus_2 = max(0, sums.get(2, 0) - sums.get(1, 0))
-    day_minus_3 = max(0, sums.get(3, 0) - sums.get(2, 0))
-
-    yesterday = (now_utc - timedelta(days=1)).strftime("%Y-%m-%d")
-    two_days_ago = (now_utc - timedelta(days=2)).strftime("%Y-%m-%d")
-    three_days_ago = (now_utc - timedelta(days=3)).strftime("%Y-%m-%d")
-
-    # Update daily_counts: overwrite the 3 days we just observed.
-    state["daily_counts"][yesterday] = day_minus_1
-    state["daily_counts"][two_days_ago] = day_minus_2
-    state["daily_counts"][three_days_ago] = day_minus_3
-
-    # Cumulative = sum of all daily counts ever recorded.
-    new_cumulative = sum(state["daily_counts"].values())
+    peak = max(state["peak_sessions_3d"], sessions_3d)
     previous_milestone = state["last_milestone"]
-    current_milestone = (new_cumulative // MILESTONE_STEP) * MILESTONE_STEP
+    current_milestone = (peak // MILESTONE_STEP) * MILESTONE_STEP
     crossed = current_milestone > previous_milestone and current_milestone >= MILESTONE_STEP
 
+    # Append to history (keep last 60 entries to bound state file size).
+    state["history"].append({"date": today, "sessions_3d": sessions_3d})
+    state["history"] = state["history"][-60:]
+
     result = {
-        "current_sessions": new_cumulative,
-        "previous_sessions": state["cumulative_sessions"],
+        "sessions_3d_window": sessions_3d,
+        "sessions_all_urls_3d": sessions_all_urls,
+        "peak_sessions_3d": peak,
+        "previous_peak": state["peak_sessions_3d"],
         "url_filter": url_filter,
-        "matched_urls": sorted(matched_urls),
-        "skipped_urls": sorted(skipped_urls),
-        "daily_breakdown": {
-            yesterday: day_minus_1,
-            two_days_ago: day_minus_2,
-            three_days_ago: day_minus_3,
-        },
-        "window_totals": {
-            "last_1_day": sums.get(1, 0),
-            "last_2_days": sums.get(2, 0),
-            "last_3_days": sums.get(3, 0),
-        },
+        "matched_urls": matched_urls,
+        "skipped_urls": skipped_urls,
         "milestone": current_milestone,
         "previous_milestone": previous_milestone,
         "last_check": now_iso,
@@ -313,15 +287,16 @@ def main():
     }
 
     if crossed:
-        detailed = fetch_clarity(token, num_days=3, dimensions=["URL", "Device", "Country"])
+        # No extra Clarity call here. Re-use the same payload we already have
+        # so we don't burn another request from the daily quota.
         result["status"] = "milestone_hit"
-        result["raw_insights"] = detailed
+        result["raw_insights"] = payload
         report_path = write_report_skeleton(
             milestone=current_milestone,
             previous=previous_milestone,
-            current=new_cumulative,
-            daily_counts=state["daily_counts"],
-            insights=detailed,
+            sessions_3d=sessions_3d,
+            history=state["history"],
+            insights=payload,
             output_date=today,
         )
         result["report_path"] = str(report_path.relative_to(PROJECT_ROOT))
@@ -330,12 +305,12 @@ def main():
     else:
         result["status"] = "no_milestone"
 
-    state["cumulative_sessions"] = new_cumulative
+    state["peak_sessions_3d"] = peak
+    state["last_seen_sessions_3d"] = sessions_3d
     state["last_check"] = now_iso
     save_state(state)
     write_output(result)
 
-    # Compact stdout payload (without raw_insights which is huge).
     print(json.dumps({k: v for k, v in result.items() if k != "raw_insights"}))
 
 
