@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Med Escolha, Clarity Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0E1F4D;
+  --navy-deep: #081434;
+  --teal: #1FBFA8;
+  --teal-dark: #17A38F;
+  --yellow: #F4D14E;
+  --red: #C24343;
+  --green: #1FBF7A;
+  --text: #1A2233;
+  --text-soft: #4A5468;
+  --white: #FFFFFF;
+  --offwhite: #F5F7F9;
+  --border: #E4E8EE;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background: var(--offwhite);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============ HEADER ============ */
+.dash-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+.dash-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.dash-header h1 { font-size: 18px; font-weight: 700; text-transform: lowercase; }
+.dash-header h1 small { display: block; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.dash-header .meta { font-size: 12px; color: rgba(255,255,255,0.65); }
+.dash-header .meta strong { color: var(--white); font-weight: 600; }
+
+/* ============ CARDS ============ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (min-width: 720px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+}
+.card h2 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 12px; }
+.card .big-num { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; }
+.card .big-num small { font-size: 14px; font-weight: 500; color: var(--text-soft); margin-left: 4px; }
+.card .sub { font-size: 13px; color: var(--text-soft); margin-top: 6px; }
+.card.accent-teal .big-num { color: var(--teal); }
+.card.accent-yellow { background: var(--yellow); border-color: transparent; }
+.card.accent-yellow h2 { color: var(--navy); }
+.card.accent-yellow .sub { color: var(--text); }
+
+/* ============ STATUS PILLS ============ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill.pending { background: rgba(244, 209, 78, 0.2); color: #8A6E00; }
+.pill.approved { background: rgba(31, 191, 122, 0.15); color: #117A4B; }
+.pill.rejected { background: rgba(194, 67, 67, 0.12); color: var(--red); }
+.pill.implemented { background: rgba(31, 191, 168, 0.18); color: var(--teal-dark); }
+
+/* ============ HISTORY TABLE ============ */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+th { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-soft); }
+tbody tr:hover { background: var(--offwhite); }
+tbody td.num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--navy); }
+
+/* ============ SPARKLINE ============ */
+.sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 60px;
+  margin-top: 12px;
+  padding-top: 4px;
+}
+.sparkline .bar {
+  flex: 1;
+  background: var(--teal);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+  transition: opacity 0.2s;
+}
+.sparkline .bar:hover { opacity: 0.7; }
+
+/* ============ MILESTONE CARD ============ */
+.milestone-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  margin-bottom: 14px;
+}
+.milestone-card .header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.milestone-card .title { font-size: 17px; font-weight: 700; color: var(--navy); }
+.milestone-card .meta { font-size: 12px; color: var(--text-soft); margin-bottom: 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+.milestone-card .meta span strong { color: var(--text); font-weight: 600; }
+.milestone-card .body-preview { font-size: 13px; color: var(--text-soft); margin-bottom: 14px; line-height: 1.55; max-height: 80px; overflow: hidden; position: relative; }
+.milestone-card .body-preview::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 24px; background: linear-gradient(transparent, var(--white)); }
+.milestone-card .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: opacity 0.15s, transform 0.1s;
+  cursor: pointer;
+  border: 0;
+  font-family: inherit;
+}
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--navy); color: var(--white); }
+.btn-ghost { background: var(--offwhite); color: var(--text); border: 1px solid var(--border); }
+.btn-teal { background: var(--teal); color: var(--white); }
+
+/* ============ COMMENTS ============ */
+.comments { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--border); display: flex; flex-direction: column; gap: 10px; }
+.comment { font-size: 13px; color: var(--text); padding: 10px 12px; background: var(--offwhite); border-radius: 8px; }
+.comment .who { font-weight: 700; color: var(--navy); font-size: 12px; margin-bottom: 4px; display: flex; gap: 10px; align-items: center; }
+.comment .who time { color: var(--text-soft); font-weight: 500; font-size: 11px; }
+
+/* ============ STATES ============ */
+.empty-state { padding: 40px 20px; text-align: center; color: var(--text-soft); font-size: 14px; }
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin: 28px 0 12px;
+  padding-left: 4px;
+}
+
+.error-banner {
+  background: rgba(194, 67, 67, 0.08);
+  border: 1px solid rgba(194, 67, 67, 0.2);
+  color: var(--red);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin: 12px 0;
+}
+
+.muted { color: var(--text-soft); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header class="dash-header">
+  <div class="container">
+    <h1>
+      <small>med escolha</small>
+      clarity dashboard
+    </h1>
+    <div class="meta" id="lastUpdated">carregando…</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Summary cards -->
+  <div class="grid grid-3" id="summaryCards">
+    <div class="card">
+      <h2>última leitura</h2>
+      <div class="big-num" id="lastSessions">–</div>
+      <p class="sub" id="lastSessionsSub">janela de 3 dias</p>
+    </div>
+    <div class="card accent-teal">
+      <h2>pico de 3 dias já visto</h2>
+      <div class="big-num" id="peakSessions">–</div>
+      <p class="sub" id="peakSessionsSub">desde o início do tracking</p>
+    </div>
+    <div class="card accent-yellow">
+      <h2>próximo milestone</h2>
+      <div class="big-num" id="nextMilestone">–</div>
+      <p class="sub" id="nextMilestoneSub">faltam X sessões</p>
+    </div>
+  </div>
+
+  <!-- History chart -->
+  <div class="card">
+    <h2>histórico de leituras</h2>
+    <p class="sub">sessões registradas em cada checagem diária (janela 3 dias)</p>
+    <div class="sparkline" id="sparkline"></div>
+    <div class="table-wrap" style="margin-top: 16px;">
+      <table id="historyTable">
+        <thead><tr><th>data</th><th>sessões (3d)</th><th>variação vs. anterior</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Milestones -->
+  <h2 class="section-title">milestones e recomendações</h2>
+  <div id="milestonesContainer">
+    <div class="empty-state">
+      <span class="spinner"></span>carregando issues do GitHub…
+    </div>
+  </div>
+
+</main>
+
+<script>
+const GH_REPO = "euamomedicina/med-escolha-lp";
+const STATE_FILE = "../.clarity-state.json";
+
+async function fetchJson(url) {
+  const r = await fetch(url, { cache: "no-store" });
+  if (!r.ok) throw new Error(`${url} → ${r.status}`);
+  return r.json();
+}
+
+function fmt(n) {
+  if (typeof n !== "number") return "–";
+  return n.toLocaleString("pt-BR");
+}
+
+function fmtDate(iso) {
+  if (!iso) return "–";
+  const d = new Date(iso);
+  return d.toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
+}
+
+function fmtDateShort(iso) {
+  if (!iso) return "–";
+  return new Date(iso).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" });
+}
+
+function fmtRelative(iso) {
+  if (!iso) return "–";
+  const diff = (Date.now() - new Date(iso)) / 1000;
+  if (diff < 60) return "agora";
+  if (diff < 3600) return `${Math.floor(diff/60)} min atrás`;
+  if (diff < 86400) return `${Math.floor(diff/3600)} h atrás`;
+  return `${Math.floor(diff/86400)} dias atrás`;
+}
+
+function statusFromLabels(labels) {
+  const names = (labels || []).map(l => (typeof l === "string" ? l : l.name).toLowerCase());
+  if (names.includes("clarity-implemented")) return "implemented";
+  if (names.includes("clarity-approved")) return "approved";
+  if (names.includes("clarity-rejected")) return "rejected";
+  return "pending";
+}
+
+function statusLabel(s) {
+  return ({
+    pending: "aguardando análise",
+    approved: "aprovado",
+    rejected: "rejeitado",
+    implemented: "implementado"
+  })[s] || s;
+}
+
+async function loadState() {
+  try {
+    const state = await fetchJson(STATE_FILE);
+    renderSummary(state);
+    renderHistory(state.history || []);
+    document.getElementById("lastUpdated").innerHTML = `última checagem: <strong>${fmtRelative(state.last_check)}</strong> · <span class="muted">${fmtDate(state.last_check)}</span>`;
+  } catch (e) {
+    document.getElementById("lastUpdated").innerHTML = `<span class="muted">state file não acessível</span>`;
+    document.querySelector("main").insertAdjacentHTML("afterbegin",
+      `<div class="error-banner">Não consegui carregar <code>.clarity-state.json</code>. Está commitado no repo? Erro: ${e.message}</div>`);
+  }
+}
+
+function renderSummary(state) {
+  const last = state.last_seen_sessions_3d || 0;
+  const peak = state.peak_sessions_3d || 0;
+  const lastMs = state.last_milestone || 0;
+  const nextMs = lastMs + 1000;
+  const faltam = Math.max(0, nextMs - peak);
+
+  document.getElementById("lastSessions").innerHTML = `${fmt(last)} <small>sessões</small>`;
+  document.getElementById("peakSessions").innerHTML = `${fmt(peak)} <small>sessões</small>`;
+  document.getElementById("nextMilestone").innerHTML = `${fmt(nextMs)}`;
+  document.getElementById("nextMilestoneSub").textContent = faltam > 0
+    ? `faltam ${fmt(faltam)} sessões`
+    : `atingido! aguardando processamento`;
+}
+
+function renderHistory(history) {
+  if (!history.length) {
+    document.getElementById("historyTable").querySelector("tbody").innerHTML =
+      '<tr><td colspan="3" class="muted" style="text-align:center; padding: 24px;">Sem leituras ainda. Aguarde o workflow rodar amanhã às 6h BRT.</td></tr>';
+    return;
+  }
+  const recent = history.slice(-14);
+  const max = Math.max(...recent.map(h => h.sessions_3d || 0), 1);
+  const sparkline = document.getElementById("sparkline");
+  sparkline.innerHTML = recent.map(h => {
+    const pct = ((h.sessions_3d || 0) / max) * 100;
+    return `<div class="bar" style="height: ${pct}%" title="${fmtDateShort(h.date)}: ${fmt(h.sessions_3d)} sessões"></div>`;
+  }).join("");
+
+  const tbody = document.getElementById("historyTable").querySelector("tbody");
+  const rows = [...history].reverse().slice(0, 30);
+  tbody.innerHTML = rows.map((h, i) => {
+    const prev = rows[i + 1];
+    let diff = "";
+    if (prev) {
+      const d = (h.sessions_3d || 0) - (prev.sessions_3d || 0);
+      const sign = d > 0 ? "+" : "";
+      const color = d > 0 ? "var(--green)" : d < 0 ? "var(--red)" : "var(--text-soft)";
+      diff = `<span style="color: ${color}; font-weight: 600;">${sign}${fmt(d)}</span>`;
+    }
+    return `<tr><td>${fmtDateShort(h.date)}</td><td class="num">${fmt(h.sessions_3d)}</td><td>${diff}</td></tr>`;
+  }).join("");
+}
+
+async function loadMilestones() {
+  const container = document.getElementById("milestonesContainer");
+  try {
+    const issues = await fetchJson(`https://api.github.com/repos/${GH_REPO}/issues?labels=clarity&state=all&per_page=30`);
+    if (!issues.length) {
+      container.innerHTML = '<div class="empty-state">Nenhum milestone disparado ainda. Quando atingir 1000 sessões em janela de 3 dias, um issue é criado automaticamente aqui e aparece nesta página.</div>';
+      return;
+    }
+    const cards = await Promise.all(issues.map(renderMilestoneCard));
+    container.innerHTML = cards.join("");
+  } catch (e) {
+    container.innerHTML = `<div class="error-banner">Erro ao carregar issues: ${e.message}</div>`;
+  }
+}
+
+async function renderMilestoneCard(issue) {
+  const status = statusFromLabels(issue.labels);
+  const created = fmtDate(issue.created_at);
+  const body = (issue.body || "").replace(/\r?\n/g, "<br>").slice(0, 320);
+  const issueUrl = issue.html_url;
+  const reportMatch = (issue.body || "").match(/reports\/clarity-[\d-]+\.md/);
+  const reportLink = reportMatch ? `https://github.com/${GH_REPO}/blob/main/${reportMatch[0]}` : null;
+
+  let commentsHtml = "";
+  if (issue.comments > 0) {
+    try {
+      const comments = await fetchJson(issue.comments_url);
+      commentsHtml = `
+        <div class="comments">
+          ${comments.map(c => `
+            <div class="comment">
+              <div class="who"><strong>${c.user.login}</strong><time>${fmtRelative(c.created_at)}</time></div>
+              ${(c.body || "").replace(/\r?\n/g, "<br>")}
+            </div>
+          `).join("")}
+        </div>
+      `;
+    } catch {}
+  }
+
+  return `
+    <article class="milestone-card">
+      <div class="header-row">
+        <div class="title">${issue.title}</div>
+        <span class="pill ${status}">${statusLabel(status)}</span>
+      </div>
+      <div class="meta">
+        <span>criado <strong>${created}</strong></span>
+        <span>issue <strong>#${issue.number}</strong></span>
+        <span>${issue.comments} comentário(s)</span>
+      </div>
+      <div class="body-preview">${body}</div>
+      <div class="actions">
+        <a class="btn btn-primary" href="${issueUrl}" target="_blank" rel="noopener">abrir issue / comentar</a>
+        ${reportLink ? `<a class="btn btn-ghost" href="${reportLink}" target="_blank" rel="noopener">ver relatório</a>` : ""}
+        <a class="btn btn-teal" href="${issueUrl}/labels" target="_blank" rel="noopener">mudar status</a>
+      </div>
+      ${commentsHtml}
+    </article>
+  `;
+}
+
+loadState();
+loadMilestones();
+</script>
+
+</body>
+</html>

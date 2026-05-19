@@ -2,8 +2,9 @@ name: Clarity Daily Check
 
 on:
   schedule:
-    # 12:00 UTC = 09:00 America/Sao_Paulo (BRT, UTC-3)
-    - cron: "0 12 * * *"
+    # 09:00 UTC = 06:00 America/Sao_Paulo (BRT, UTC-3)
+    # Roda cedo pra deixar quota livre durante o dia caso precise debug manual.
+    - cron: "0 9 * * *"
   workflow_dispatch:
     # Allows manual trigger from the Actions tab
 
@@ -72,9 +73,9 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `📊 Clarity milestone: ${milestone} sessões (${date})`,
+              title: `Clarity milestone ${milestone} sessões (${date})`,
               body: body,
-              labels: ['clarity', 'milestone']
+              labels: ['clarity', 'milestone', 'clarity-pending']
             });
 
       - name: Commit updated state and reports

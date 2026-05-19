@@ -6,7 +6,10 @@
     "2026-05-17": 0,
     "2026-05-18": 0
   },
-  "last_check": "2026-05-19T14:12:55.441627+00:00",
+  "history": [],
+  "last_check": "2026-05-19T14:24:53.783907+00:00",
   "last_milestone": 0,
-  "last_report": null
+  "last_report": null,
+  "last_seen_sessions_3d": 0,
+  "peak_sessions_3d": 0
 }
