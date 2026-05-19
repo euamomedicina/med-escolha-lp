@@ -1,15 +1,11 @@
 {
-  "cumulative_sessions": 0,
-  "daily_counts": {
-    "2026-05-15": 0,
-    "2026-05-16": 0,
-    "2026-05-17": 0,
-    "2026-05-18": 0
-  },
+  "cumulative_estimated": 0,
   "history": [],
-  "last_check": "2026-05-19T14:24:53.783907+00:00",
+  "last_check": null,
   "last_milestone": 0,
   "last_report": null,
-  "last_seen_sessions_3d": 0,
-  "peak_sessions_3d": 0
+  "last_seen_window_3d": 0,
+  "peak_window_3d": 0,
+  "seed_value": null,
+  "seeded_at": null
 }

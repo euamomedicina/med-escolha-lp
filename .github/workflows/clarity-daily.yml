@@ -31,6 +31,10 @@ jobs:
         id: check
         env:
           CLARITY_API_TOKEN: ${{ secrets.CLARITY_API_TOKEN }}
+          # Cumulative seed used ONLY on the first run (when history is empty).
+          # Reflects ~845 sessions accumulated in Clarity before tracking began.
+          # After the first run, this value is ignored.
+          CLARITY_INITIAL_SESSIONS: "845"
         run: |
           python3 scripts/clarity_check.py
           echo "status=$(python3 -c 'import json; print(json.load(open("clarity-output.json"))["status"])')" >> "$GITHUB_OUTPUT"

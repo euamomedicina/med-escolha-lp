@@ -233,15 +233,15 @@ tbody td.num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(
 
   <!-- Summary cards -->
   <div class="grid grid-3" id="summaryCards">
-    <div class="card">
-      <h2>última leitura</h2>
-      <div class="big-num" id="lastSessions">–</div>
-      <p class="sub" id="lastSessionsSub">janela de 3 dias</p>
-    </div>
     <div class="card accent-teal">
-      <h2>pico de 3 dias já visto</h2>
-      <div class="big-num" id="peakSessions">–</div>
-      <p class="sub" id="peakSessionsSub">desde o início do tracking</p>
+      <h2>acumulado estimado</h2>
+      <div class="big-num" id="cumulativeSessions">–</div>
+      <p class="sub" id="cumulativeSub">desde o início do tracking</p>
+    </div>
+    <div class="card">
+      <h2>janela 3 dias atual</h2>
+      <div class="big-num" id="windowSessions">–</div>
+      <p class="sub" id="windowSub">sessões nos últimos 3 dias</p>
     </div>
     <div class="card accent-yellow">
       <h2>próximo milestone</h2>
@@ -257,7 +257,7 @@ tbody td.num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(
     <div class="sparkline" id="sparkline"></div>
     <div class="table-wrap" style="margin-top: 16px;">
       <table id="historyTable">
-        <thead><tr><th>data</th><th>sessões (3d)</th><th>variação vs. anterior</th></tr></thead>
+        <thead><tr><th>data</th><th>janela 3d</th><th>delta</th><th>acumulado</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -339,46 +339,53 @@ async function loadState() {
 }
 
 function renderSummary(state) {
-  const last = state.last_seen_sessions_3d || 0;
-  const peak = state.peak_sessions_3d || 0;
+  const cumulative = state.cumulative_estimated || 0;
+  const window3d = state.last_seen_window_3d || state.last_seen_sessions_3d || 0;
   const lastMs = state.last_milestone || 0;
   const nextMs = lastMs + 1000;
-  const faltam = Math.max(0, nextMs - peak);
+  const faltam = Math.max(0, nextMs - cumulative);
+  const seed = state.seed_value;
+  const seededAt = state.seeded_at;
 
-  document.getElementById("lastSessions").innerHTML = `${fmt(last)} <small>sessões</small>`;
-  document.getElementById("peakSessions").innerHTML = `${fmt(peak)} <small>sessões</small>`;
+  document.getElementById("cumulativeSessions").innerHTML = `${fmt(cumulative)} <small>sessões</small>`;
+  document.getElementById("cumulativeSub").innerHTML = seed
+    ? `seed ${fmt(seed)} em ${seededAt} + deltas diários`
+    : `desde o início do tracking`;
+  document.getElementById("windowSessions").innerHTML = `${fmt(window3d)} <small>sessões</small>`;
   document.getElementById("nextMilestone").innerHTML = `${fmt(nextMs)}`;
   document.getElementById("nextMilestoneSub").textContent = faltam > 0
     ? `faltam ${fmt(faltam)} sessões`
-    : `atingido! aguardando processamento`;
+    : `atingido, aguardando processamento`;
 }
 
 function renderHistory(history) {
   if (!history.length) {
     document.getElementById("historyTable").querySelector("tbody").innerHTML =
-      '<tr><td colspan="3" class="muted" style="text-align:center; padding: 24px;">Sem leituras ainda. Aguarde o workflow rodar amanhã às 6h BRT.</td></tr>';
+      '<tr><td colspan="4" class="muted" style="text-align:center; padding: 24px;">Sem leituras ainda. Aguarde o workflow rodar amanhã às 6h BRT.</td></tr>';
     return;
   }
   const recent = history.slice(-14);
-  const max = Math.max(...recent.map(h => h.sessions_3d || 0), 1);
+  const max = Math.max(...recent.map(h => h.cumulative || h.window_3d || h.sessions_3d || 0), 1);
   const sparkline = document.getElementById("sparkline");
   sparkline.innerHTML = recent.map(h => {
-    const pct = ((h.sessions_3d || 0) / max) * 100;
-    return `<div class="bar" style="height: ${pct}%" title="${fmtDateShort(h.date)}: ${fmt(h.sessions_3d)} sessões"></div>`;
+    const v = h.cumulative || h.window_3d || h.sessions_3d || 0;
+    const pct = (v / max) * 100;
+    return `<div class="bar" style="height: ${pct}%" title="${fmtDateShort(h.date)}: ${fmt(v)} acumulado"></div>`;
   }).join("");
 
   const tbody = document.getElementById("historyTable").querySelector("tbody");
   const rows = [...history].reverse().slice(0, 30);
-  tbody.innerHTML = rows.map((h, i) => {
-    const prev = rows[i + 1];
-    let diff = "";
-    if (prev) {
-      const d = (h.sessions_3d || 0) - (prev.sessions_3d || 0);
-      const sign = d > 0 ? "+" : "";
-      const color = d > 0 ? "var(--green)" : d < 0 ? "var(--red)" : "var(--text-soft)";
-      diff = `<span style="color: ${color}; font-weight: 600;">${sign}${fmt(d)}</span>`;
-    }
-    return `<tr><td>${fmtDateShort(h.date)}</td><td class="num">${fmt(h.sessions_3d)}</td><td>${diff}</td></tr>`;
+  tbody.innerHTML = rows.map(h => {
+    const window3d = h.window_3d || h.sessions_3d || 0;
+    const cumulative = h.cumulative || 0;
+    const delta = h.delta || 0;
+    const deltaColor = delta > 0 ? "var(--green)" : "var(--text-soft)";
+    return `<tr>
+      <td>${fmtDateShort(h.date)}</td>
+      <td class="num">${fmt(window3d)}</td>
+      <td><span style="color: ${deltaColor}; font-weight: 600;">+${fmt(delta)}</span></td>
+      <td class="num">${fmt(cumulative)}</td>
+    </tr>`;
   }).join("");
 }
 

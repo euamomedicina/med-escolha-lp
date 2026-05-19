@@ -3,17 +3,19 @@
 Clarity milestone checker.
 
 Hits the Microsoft Clarity Data Export API ONCE per run with num_days=3 and
-tracks the peak 3-day window seen so far. Fires when that peak crosses a new
-1000-session multiple.
+tracks a cumulative session count via positive-delta accumulation across runs.
 
-Design notes:
-- 1 call per run respects the 10-requests-per-day Clarity quota.
-- No URL dimension by default: the dimension filter has been unreliable in
-  observed responses (sometimes returns rows without URL fields, causing
-  the filter to drop every row). If the project's Clarity setup only tracks
-  one domain (ours: match.medescolha.com), filtering is unnecessary.
-- Optional URL filter still available via CLARITY_URL_FILTER env var. Falls
-  back to all sessions if the API doesn't return any URL field at all.
+The Clarity API only exposes a 1-3 day rolling window with no native cumulative
+or per-day breakdown. We approximate cumulative-since-tracking-began by:
+
+  seed (first run)  = env CLARITY_INITIAL_SESSIONS OR the first observed window
+  cumulative        = seed + sum of positive deltas (window_today - window_yesterday)
+
+If the window shrinks between runs (older day fell out, newer day was smaller),
+delta is treated as 0 instead of negative (we never decrement). This means the
+cumulative is a slight undercount in those cases but never overshoots.
+
+Milestone fires when cumulative crosses a new MILESTONE_STEP multiple (1000).
 
 Token loading:
   1. env CLARITY_API_TOKEN (preferred, used in CI)
@@ -28,7 +30,7 @@ Outputs:
 Status values:
   - "no_data"      Clarity returned 5xx/empty (no traffic yet).
   - "rate_limited" Clarity returned 429. Retry next run.
-  - "no_milestone" Traffic exists but peak didn't cross a new 1000-multiple.
+  - "no_milestone" Traffic exists but cumulative didn't cross a new 1000-multiple.
   - "milestone_hit" Crossed milestone. Workflow creates issue + commits report.
   - "error"        Unexpected error.
 """
@@ -51,7 +53,10 @@ LOCAL_TOKEN_FILE = Path.home() / ".config" / "clarity" / "api_token"
 API_BASE = "https://www.clarity.ms/export-data/api/v1/project-live-insights"
 
 MILESTONE_STEP = 1000
-DEFAULT_URL_FILTER = ""  # disabled by default; set via CLARITY_URL_FILTER if needed
+# URL filter: disabled by default. Project Clarity setup for med-escolha only
+# tracks one domain so totalSessionCount is already our domain. Override via
+# CLARITY_URL_FILTER env var if you ever add multi-domain to the same project.
+DEFAULT_URL_FILTER = ""
 
 
 def load_token() -> str:
@@ -66,32 +71,51 @@ def load_token() -> str:
     )
 
 
+def _empty_state():
+    return {
+        "cumulative_estimated": 0,
+        "peak_window_3d": 0,
+        "last_seen_window_3d": 0,
+        "last_milestone": 0,
+        "last_check": None,
+        "last_report": None,
+        "seeded_at": None,
+        "seed_value": None,
+        "history": [],  # list of {date, window_3d, delta, cumulative}
+    }
+
+
 def load_state() -> dict:
     if not STATE_FILE.exists():
         return _empty_state()
     state = json.loads(STATE_FILE.read_text())
-    # Always present fields (with defaults for legacy state shapes).
-    state.setdefault("peak_sessions_3d", 0)
-    state.setdefault("last_seen_sessions_3d", 0)
+    # Defaults for the new shape (migrate older shapes silently).
+    state.setdefault("cumulative_estimated", 0)
+    state.setdefault("peak_window_3d", state.get("peak_sessions_3d", 0))
+    state.setdefault("last_seen_window_3d", state.get("last_seen_sessions_3d", 0))
     state.setdefault("last_milestone", 0)
     state.setdefault("last_check", None)
     state.setdefault("last_report", None)
+    state.setdefault("seeded_at", None)
+    state.setdefault("seed_value", None)
     state.setdefault("history", [])
-    # Drop legacy fields nobody reads anymore (keeps state file tidy).
-    state.pop("cumulative_sessions", None)
-    state.pop("daily_counts", None)
+    # Strip legacy fields nobody reads anymore.
+    for legacy in ("cumulative_sessions", "daily_counts", "peak_sessions_3d", "last_seen_sessions_3d"):
+        state.pop(legacy, None)
+    # Normalize old history entries (key was sessions_3d, now window_3d).
+    new_history = []
+    for entry in state["history"]:
+        if not isinstance(entry, dict):
+            continue
+        normalized = {
+            "date": entry.get("date"),
+            "window_3d": entry.get("window_3d", entry.get("sessions_3d", 0)),
+            "delta": entry.get("delta", 0),
+            "cumulative": entry.get("cumulative", 0),
+        }
+        new_history.append(normalized)
+    state["history"] = new_history
     return state
-
-
-def _empty_state():
-    return {
-        "peak_sessions_3d": 0,
-        "last_seen_sessions_3d": 0,
-        "last_milestone": 0,
-        "last_check": None,
-        "last_report": None,
-        "history": [],
-    }
 
 
 def save_state(state: dict) -> None:
@@ -103,7 +127,6 @@ def write_output(payload: dict) -> None:
 
 
 def write_debug_payload(payload) -> None:
-    """Always overwrite the raw payload from the most recent call (debug)."""
     try:
         DEBUG_PAYLOAD_FILE.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
     except Exception:
@@ -139,17 +162,11 @@ def _row_url_fields(row: dict) -> list:
 
 
 def extract_session_count(payload, url_filter: str = None):
-    """Sum sessions from a Clarity payload.
+    """Sum sessions from a Clarity Traffic metric.
 
-    Returns (count, debug_info). debug_info has:
-      - any_url_seen: bool, whether any row had a URL-like field
-      - matched_urls / skipped_urls: lists of URLs found
-      - rows_total / rows_counted: counts
-      - metric_names_seen: list of metricName values encountered
-
-    Filter behavior: if url_filter is set AND at least one row in the payload
-    has a URL field, we filter. If no row has a URL field (Clarity didn't
-    return URL dimension), we count everything (no filter possible).
+    Field priority: totalSessionCount, sessionsCount, numOfSessions, sessions.
+    Values may be strings ("823") or ints (823); both handled.
+    Returns (count, debug_info).
     """
     debug = {
         "any_url_seen": False,
@@ -162,7 +179,6 @@ def extract_session_count(payload, url_filter: str = None):
     if not isinstance(payload, list):
         return 0, debug
 
-    # First pass: detect if any row has URL fields anywhere in Traffic metric.
     for metric in payload:
         if not isinstance(metric, dict):
             continue
@@ -180,7 +196,6 @@ def extract_session_count(payload, url_filter: str = None):
 
     can_filter = bool(url_filter) and debug["any_url_seen"]
 
-    # Second pass: count.
     total = 0
     for metric in payload:
         if not isinstance(metric, dict):
@@ -192,7 +207,7 @@ def extract_session_count(payload, url_filter: str = None):
                 continue
             debug["rows_total"] += 1
             count = 0
-            for key in ("sessionsCount", "totalSessionCount", "numOfSessions", "sessions"):
+            for key in ("totalSessionCount", "sessionsCount", "numOfSessions", "sessions"):
                 if key in row:
                     try:
                         count = int(row[key])
@@ -221,25 +236,25 @@ def extract_session_count(payload, url_filter: str = None):
     return total, debug
 
 
-def write_report_skeleton(milestone, previous, sessions_3d, history, insights, output_date):
+def write_report_skeleton(milestone, previous, cumulative, window_3d, history, insights, output_date):
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     path = REPORTS_DIR / f"clarity-{output_date}.md"
     history_lines = "\n".join(
-        f"- **{entry['date']}:** {entry['sessions_3d']} sessões (janela 3 dias)"
+        f"- **{entry['date']}:** janela 3d = {entry['window_3d']} | acumulado = {entry['cumulative']} (delta +{entry['delta']})"
         for entry in history[-14:]
     )
     body = f"""# Relatório Clarity, {output_date}
 
-**Milestone atingido:** {milestone} sessões em janela de 3 dias (anterior: {previous}).
-**Pico atual (3-day window):** {sessions_3d} sessões.
+**Milestone atingido:** {milestone} sessões acumuladas (anterior: {previous}).
+**Acumulado estimado:** {cumulative} sessões.
+**Janela 3d atual:** {window_3d} sessões.
 
-## Histórico das checagens diárias (últimas 14)
+## Histórico das checagens (últimas 14)
 
 {history_lines or '- (sem histórico ainda)'}
 
-> Cada linha mostra o total da janela móvel de 3 dias no dia da checagem.
-> Pra ver breakdown por dia, abra o dashboard do Clarity diretamente:
-> https://clarity.microsoft.com
+> Acumulado estimado = seed inicial + soma dos deltas positivos entre janelas.
+> Pra dados completos por dia, abra o dashboard do Clarity: https://clarity.microsoft.com
 
 ## Dados Brutos (Clarity, últimos 3 dias)
 
@@ -267,24 +282,31 @@ def main():
     now_utc = datetime.now(timezone.utc)
     now_iso = now_utc.isoformat()
     today = now_utc.strftime("%Y-%m-%d")
-    url_filter_raw = os.environ.get("CLARITY_URL_FILTER", DEFAULT_URL_FILTER).strip()
-    url_filter = url_filter_raw or None
+    url_filter = os.environ.get("CLARITY_URL_FILTER", DEFAULT_URL_FILTER).strip() or None
 
-    # ONE call. No dimension by default — the API's URL dimension has been
-    # observed to omit URL fields, defeating the filter. Project Clarity setup
-    # for med-escolha only tracks one domain so total = our domain.
+    # Optional seed (used only on the very first run when history is empty).
+    seed_env = os.environ.get("CLARITY_INITIAL_SESSIONS", "").strip()
+    seed_override = None
+    if seed_env:
+        try:
+            seed_override = int(seed_env)
+        except ValueError:
+            seed_override = None
+
     payload = fetch_clarity(token, num_days=3, dimensions=None)
     write_debug_payload(payload)
 
-    # Handle special responses.
+    # Special responses (rate limit, no data, network errors).
     if isinstance(payload, dict):
         code = payload.get("_http_error")
         if code == 429:
             result = {
                 "status": "rate_limited",
                 "http_status": 429,
-                "peak_sessions_3d": state["peak_sessions_3d"],
-                "last_seen_sessions_3d": state["last_seen_sessions_3d"],
+                "cumulative_estimated": state["cumulative_estimated"],
+                "last_seen_window_3d": state["last_seen_window_3d"],
+                "peak_window_3d": state["peak_window_3d"],
+                "last_milestone": state["last_milestone"],
                 "last_check": now_iso,
                 "message": "Clarity rate-limited (429). Will retry next run.",
             }
@@ -297,8 +319,10 @@ def main():
             result = {
                 "status": "no_data",
                 "http_status": code,
-                "peak_sessions_3d": state["peak_sessions_3d"],
-                "last_seen_sessions_3d": state["last_seen_sessions_3d"],
+                "cumulative_estimated": state["cumulative_estimated"],
+                "last_seen_window_3d": state["last_seen_window_3d"],
+                "peak_window_3d": state["peak_window_3d"],
+                "last_milestone": state["last_milestone"],
                 "last_check": now_iso,
                 "message": "Clarity returned no data.",
             }
@@ -315,20 +339,42 @@ def main():
             print(json.dumps(result))
             return
 
-    sessions_3d, debug = extract_session_count(payload, url_filter=url_filter)
+    window_3d, debug = extract_session_count(payload, url_filter=url_filter)
 
-    peak = max(state["peak_sessions_3d"], sessions_3d)
+    # Cumulative logic
+    is_first_run = not state["history"]
+    if is_first_run:
+        seed = seed_override if seed_override is not None else window_3d
+        cumulative = seed
+        delta = 0
+        state["seeded_at"] = today
+        state["seed_value"] = seed
+    else:
+        previous_window = state["history"][-1]["window_3d"]
+        delta = max(0, window_3d - previous_window)
+        cumulative = state["cumulative_estimated"] + delta
+
+    peak = max(state["peak_window_3d"], window_3d)
     previous_milestone = state["last_milestone"]
-    current_milestone = (peak // MILESTONE_STEP) * MILESTONE_STEP
+    current_milestone = (cumulative // MILESTONE_STEP) * MILESTONE_STEP
     crossed = current_milestone > previous_milestone and current_milestone >= MILESTONE_STEP
 
-    state["history"].append({"date": today, "sessions_3d": sessions_3d})
+    state["history"].append({
+        "date": today,
+        "window_3d": window_3d,
+        "delta": delta,
+        "cumulative": cumulative,
+    })
     state["history"] = state["history"][-60:]
 
     result = {
-        "sessions_3d_window": sessions_3d,
-        "peak_sessions_3d": peak,
-        "previous_peak": state["peak_sessions_3d"],
+        "window_3d": window_3d,
+        "cumulative_estimated": cumulative,
+        "delta_today": delta,
+        "peak_window_3d": peak,
+        "previous_cumulative": state["cumulative_estimated"],
+        "seed_value": state["seed_value"],
+        "seeded_at": state["seeded_at"],
         "url_filter_active": bool(url_filter and debug["any_url_seen"]),
         "url_filter_requested": url_filter,
         "matched_urls": debug["matched_urls"],
@@ -348,7 +394,8 @@ def main():
         report_path = write_report_skeleton(
             milestone=current_milestone,
             previous=previous_milestone,
-            sessions_3d=sessions_3d,
+            cumulative=cumulative,
+            window_3d=window_3d,
             history=state["history"],
             insights=payload,
             output_date=today,
@@ -359,8 +406,9 @@ def main():
     else:
         result["status"] = "no_milestone"
 
-    state["peak_sessions_3d"] = peak
-    state["last_seen_sessions_3d"] = sessions_3d
+    state["cumulative_estimated"] = cumulative
+    state["peak_window_3d"] = peak
+    state["last_seen_window_3d"] = window_3d
     state["last_check"] = now_iso
     save_state(state)
     write_output(result)
