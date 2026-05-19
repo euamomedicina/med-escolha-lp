@@ -6,32 +6,29 @@ Hits the Microsoft Clarity Data Export API ONCE per run with num_days=3 and
 tracks the peak 3-day window seen so far. Fires when that peak crosses a new
 1000-session multiple.
 
-Why 1 call per run: the Clarity Data Export API has a hard quota of ~10
-requests per day per project. Doing 3 calls per run (to infer daily breakdown)
-burns through the quota fast and trips 429 rate-limit errors that silently
-make the script report zero. One call per run leaves plenty of headroom for
-manual debug runs.
-
-What we lose: per-day breakdown. If you need that, open the dashboard
-directly (it's where Clarity natively exposes daily timeseries).
-
-URL filtering: only sessions whose URL contains DEFAULT_URL_FILTER (override
-via CLARITY_URL_FILTER env var) are counted, so previews/staging hits don't
-inflate the count.
+Design notes:
+- 1 call per run respects the 10-requests-per-day Clarity quota.
+- No URL dimension by default: the dimension filter has been unreliable in
+  observed responses (sometimes returns rows without URL fields, causing
+  the filter to drop every row). If the project's Clarity setup only tracks
+  one domain (ours: match.medescolha.com), filtering is unnecessary.
+- Optional URL filter still available via CLARITY_URL_FILTER env var. Falls
+  back to all sessions if the API doesn't return any URL field at all.
 
 Token loading:
   1. env CLARITY_API_TOKEN (preferred, used in CI)
   2. file ~/.config/clarity/api_token (local dev fallback)
 
 Outputs:
-  - stdout: compact JSON summary (workflow parses .status from this)
-  - <root>/clarity-output.json: full JSON payload (used by next workflow step)
+  - stdout: compact JSON summary
+  - <root>/clarity-output.json: full JSON payload (consumed by workflow)
+  - <root>/last-clarity-payload.json: raw Clarity API response (gitignored, debug)
   - <root>/reports/clarity-YYYY-MM-DD.md: skeleton report (only on milestone_hit)
 
 Status values:
-  - "no_data"      Clarity returned 5xx/empty (no traffic yet). Silent exit.
-  - "rate_limited" Clarity returned 429. Workflow should retry next run.
-  - "no_milestone" Traffic exists but peak 3-day window didn't cross a new 1000-multiple.
+  - "no_data"      Clarity returned 5xx/empty (no traffic yet).
+  - "rate_limited" Clarity returned 429. Retry next run.
+  - "no_milestone" Traffic exists but peak didn't cross a new 1000-multiple.
   - "milestone_hit" Crossed milestone. Workflow creates issue + commits report.
   - "error"        Unexpected error.
 """
@@ -42,18 +39,19 @@ import sys
 import urllib.request
 import urllib.parse
 import urllib.error
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = PROJECT_ROOT / ".clarity-state.json"
 OUTPUT_FILE = PROJECT_ROOT / "clarity-output.json"
+DEBUG_PAYLOAD_FILE = PROJECT_ROOT / "last-clarity-payload.json"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 LOCAL_TOKEN_FILE = Path.home() / ".config" / "clarity" / "api_token"
 API_BASE = "https://www.clarity.ms/export-data/api/v1/project-live-insights"
 
 MILESTONE_STEP = 1000
-DEFAULT_URL_FILTER = "match.medescolha.com"
+DEFAULT_URL_FILTER = ""  # disabled by default; set via CLARITY_URL_FILTER if needed
 
 
 def load_token() -> str:
@@ -70,26 +68,30 @@ def load_token() -> str:
 
 def load_state() -> dict:
     if not STATE_FILE.exists():
-        return {
-            "peak_sessions_3d": 0,
-            "last_seen_sessions_3d": 0,
-            "last_milestone": 0,
-            "last_check": None,
-            "last_report": None,
-            "history": [],  # rolling list of {date, sessions_3d}
-        }
+        return _empty_state()
     state = json.loads(STATE_FILE.read_text())
-    # Migrate older state shapes silently.
-    state.setdefault("peak_sessions_3d", state.get("cumulative_sessions", 0))
+    # Always present fields (with defaults for legacy state shapes).
+    state.setdefault("peak_sessions_3d", 0)
     state.setdefault("last_seen_sessions_3d", 0)
     state.setdefault("last_milestone", 0)
     state.setdefault("last_check", None)
     state.setdefault("last_report", None)
     state.setdefault("history", [])
-    # Drop legacy fields we no longer maintain.
+    # Drop legacy fields nobody reads anymore (keeps state file tidy).
     state.pop("cumulative_sessions", None)
     state.pop("daily_counts", None)
     return state
+
+
+def _empty_state():
+    return {
+        "peak_sessions_3d": 0,
+        "last_seen_sessions_3d": 0,
+        "last_milestone": 0,
+        "last_check": None,
+        "last_report": None,
+        "history": [],
+    }
 
 
 def save_state(state: dict) -> None:
@@ -100,7 +102,15 @@ def write_output(payload: dict) -> None:
     OUTPUT_FILE.write_text(json.dumps(payload, indent=2))
 
 
-def fetch_clarity(token: str, num_days: int = 1, dimensions=None):
+def write_debug_payload(payload) -> None:
+    """Always overwrite the raw payload from the most recent call (debug)."""
+    try:
+        DEBUG_PAYLOAD_FILE.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
+    except Exception:
+        pass
+
+
+def fetch_clarity(token: str, num_days: int = 3, dimensions=None):
     params = {"numOfDays": str(num_days)}
     if dimensions:
         for i, d in enumerate(dimensions[:3], start=1):
@@ -122,18 +132,56 @@ def fetch_clarity(token: str, num_days: int = 1, dimensions=None):
 
 
 def _row_url_fields(row: dict) -> list:
-    return [v for k, v in row.items() if isinstance(v, str) and k.lower() in ("url", "pageurl", "page_url")]
+    return [
+        v for k, v in row.items()
+        if isinstance(v, str) and k.lower() in ("url", "pageurl", "page_url")
+    ]
 
 
 def extract_session_count(payload, url_filter: str = None):
-    """Return (filtered_total, all_total, matched_urls, skipped_urls)."""
+    """Sum sessions from a Clarity payload.
+
+    Returns (count, debug_info). debug_info has:
+      - any_url_seen: bool, whether any row had a URL-like field
+      - matched_urls / skipped_urls: lists of URLs found
+      - rows_total / rows_counted: counts
+      - metric_names_seen: list of metricName values encountered
+
+    Filter behavior: if url_filter is set AND at least one row in the payload
+    has a URL field, we filter. If no row has a URL field (Clarity didn't
+    return URL dimension), we count everything (no filter possible).
+    """
+    debug = {
+        "any_url_seen": False,
+        "matched_urls": set(),
+        "skipped_urls": set(),
+        "rows_total": 0,
+        "rows_counted": 0,
+        "metric_names_seen": [],
+    }
     if not isinstance(payload, list):
-        return 0, 0, [], []
+        return 0, debug
 
-    filtered_total = 0
-    all_total = 0
-    matched, skipped = set(), set()
+    # First pass: detect if any row has URL fields anywhere in Traffic metric.
+    for metric in payload:
+        if not isinstance(metric, dict):
+            continue
+        name = metric.get("metricName", "")
+        if name and name not in debug["metric_names_seen"]:
+            debug["metric_names_seen"].append(name)
+        if name not in ("Traffic", "TrafficMetrics"):
+            continue
+        for row in metric.get("information", []) or []:
+            if isinstance(row, dict) and _row_url_fields(row):
+                debug["any_url_seen"] = True
+                break
+        if debug["any_url_seen"]:
+            break
 
+    can_filter = bool(url_filter) and debug["any_url_seen"]
+
+    # Second pass: count.
+    total = 0
     for metric in payload:
         if not isinstance(metric, dict):
             continue
@@ -142,6 +190,7 @@ def extract_session_count(payload, url_filter: str = None):
         for row in metric.get("information", []) or []:
             if not isinstance(row, dict):
                 continue
+            debug["rows_total"] += 1
             count = 0
             for key in ("sessionsCount", "totalSessionCount", "numOfSessions", "sessions"):
                 if key in row:
@@ -150,53 +199,26 @@ def extract_session_count(payload, url_filter: str = None):
                     except (ValueError, TypeError):
                         count = 0
                     break
-            all_total += count
-            urls = _row_url_fields(row)
-            if url_filter is None or not urls:
-                filtered_total += count
+
+            if not can_filter:
+                total += count
+                debug["rows_counted"] += 1
                 continue
+
+            urls = _row_url_fields(row)
             if any(url_filter in u for u in urls):
-                filtered_total += count
+                total += count
+                debug["rows_counted"] += 1
                 for u in urls:
                     if url_filter in u:
-                        matched.add(u)
+                        debug["matched_urls"].add(u)
             else:
                 for u in urls:
-                    skipped.add(u)
+                    debug["skipped_urls"].add(u)
 
-    return filtered_total, all_total, sorted(matched), sorted(skipped)
-
-
-def _no_data_response(payload, state, now_iso):
-    """Build a no_data result and persist state."""
-    code = payload.get("_http_error") if isinstance(payload, dict) else None
-    status = "no_data"
-    msg = "Clarity returned no data (likely zero traffic)."
-    if code == 429:
-        status = "rate_limited"
-        msg = "Clarity rate-limited (429). Will retry next run."
-    elif isinstance(payload, dict) and payload.get("_empty"):
-        msg = "Empty response from Clarity."
-    result = {
-        "status": status,
-        "http_status": code,
-        "peak_sessions_3d": state["peak_sessions_3d"],
-        "last_seen_sessions_3d": state["last_seen_sessions_3d"],
-        "last_check": now_iso,
-        "message": msg,
-    }
-    state["last_check"] = now_iso
-    save_state(state)
-    write_output(result)
-    print(json.dumps(result))
-
-
-def _error_response(err, state, now_iso):
-    result = {"status": "error", "error": err, "last_check": now_iso}
-    state["last_check"] = now_iso
-    save_state(state)
-    write_output(result)
-    print(json.dumps(result))
+    debug["matched_urls"] = sorted(debug["matched_urls"])
+    debug["skipped_urls"] = sorted(debug["skipped_urls"])
+    return total, debug
 
 
 def write_report_skeleton(milestone, previous, sessions_3d, history, insights, output_date):
@@ -245,41 +267,75 @@ def main():
     now_utc = datetime.now(timezone.utc)
     now_iso = now_utc.isoformat()
     today = now_utc.strftime("%Y-%m-%d")
-    url_filter = os.environ.get("CLARITY_URL_FILTER", DEFAULT_URL_FILTER).strip() or None
+    url_filter_raw = os.environ.get("CLARITY_URL_FILTER", DEFAULT_URL_FILTER).strip()
+    url_filter = url_filter_raw or None
 
-    # ONE call per run. num_days=3 to capture as much of a window as the API allows.
-    # Dimension=URL so we can filter by domain (skip previews/staging).
-    payload = fetch_clarity(token, num_days=3, dimensions=["URL"])
+    # ONE call. No dimension by default — the API's URL dimension has been
+    # observed to omit URL fields, defeating the filter. Project Clarity setup
+    # for med-escolha only tracks one domain so total = our domain.
+    payload = fetch_clarity(token, num_days=3, dimensions=None)
+    write_debug_payload(payload)
 
+    # Handle special responses.
     if isinstance(payload, dict):
-        if payload.get("_http_error") in (500, 404, 429) or payload.get("_empty"):
-            _no_data_response(payload, state, now_iso)
+        code = payload.get("_http_error")
+        if code == 429:
+            result = {
+                "status": "rate_limited",
+                "http_status": 429,
+                "peak_sessions_3d": state["peak_sessions_3d"],
+                "last_seen_sessions_3d": state["last_seen_sessions_3d"],
+                "last_check": now_iso,
+                "message": "Clarity rate-limited (429). Will retry next run.",
+            }
+            state["last_check"] = now_iso
+            save_state(state)
+            write_output(result)
+            print(json.dumps(result))
+            return
+        if code in (500, 404) or payload.get("_empty"):
+            result = {
+                "status": "no_data",
+                "http_status": code,
+                "peak_sessions_3d": state["peak_sessions_3d"],
+                "last_seen_sessions_3d": state["last_seen_sessions_3d"],
+                "last_check": now_iso,
+                "message": "Clarity returned no data.",
+            }
+            state["last_check"] = now_iso
+            save_state(state)
+            write_output(result)
+            print(json.dumps(result))
             return
         if "_url_error" in payload or "_error" in payload:
-            _error_response(payload, state, now_iso)
+            result = {"status": "error", "error": payload, "last_check": now_iso}
+            state["last_check"] = now_iso
+            save_state(state)
+            write_output(result)
+            print(json.dumps(result))
             return
 
-    sessions_3d, sessions_all_urls, matched_urls, skipped_urls = extract_session_count(
-        payload, url_filter=url_filter
-    )
+    sessions_3d, debug = extract_session_count(payload, url_filter=url_filter)
 
     peak = max(state["peak_sessions_3d"], sessions_3d)
     previous_milestone = state["last_milestone"]
     current_milestone = (peak // MILESTONE_STEP) * MILESTONE_STEP
     crossed = current_milestone > previous_milestone and current_milestone >= MILESTONE_STEP
 
-    # Append to history (keep last 60 entries to bound state file size).
     state["history"].append({"date": today, "sessions_3d": sessions_3d})
     state["history"] = state["history"][-60:]
 
     result = {
         "sessions_3d_window": sessions_3d,
-        "sessions_all_urls_3d": sessions_all_urls,
         "peak_sessions_3d": peak,
         "previous_peak": state["peak_sessions_3d"],
-        "url_filter": url_filter,
-        "matched_urls": matched_urls,
-        "skipped_urls": skipped_urls,
+        "url_filter_active": bool(url_filter and debug["any_url_seen"]),
+        "url_filter_requested": url_filter,
+        "matched_urls": debug["matched_urls"],
+        "skipped_urls": debug["skipped_urls"],
+        "rows_in_payload": debug["rows_total"],
+        "rows_counted": debug["rows_counted"],
+        "metric_names_seen": debug["metric_names_seen"],
         "milestone": current_milestone,
         "previous_milestone": previous_milestone,
         "last_check": now_iso,
@@ -287,8 +343,6 @@ def main():
     }
 
     if crossed:
-        # No extra Clarity call here. Re-use the same payload we already have
-        # so we don't burn another request from the daily quota.
         result["status"] = "milestone_hit"
         result["raw_insights"] = payload
         report_path = write_report_skeleton(

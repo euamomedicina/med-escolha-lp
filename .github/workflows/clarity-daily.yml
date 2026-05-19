@@ -39,9 +39,20 @@ jobs:
         run: |
           echo "## Clarity Daily Check" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Script output" >> "$GITHUB_STEP_SUMMARY"
           echo '```json' >> "$GITHUB_STEP_SUMMARY"
           cat clarity-output.json >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f last-clarity-payload.json ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "### Raw Clarity API payload (debug)" >> "$GITHUB_STEP_SUMMARY"
+            echo "<details><summary>click to expand</summary>" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            head -c 20000 last-clarity-payload.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            echo "</details>" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Create issue on milestone
         if: steps.check.outputs.status == 'milestone_hit'

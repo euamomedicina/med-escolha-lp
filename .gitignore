@@ -1,5 +1,6 @@
 # Per-run artifacts from the Clarity check (state IS committed below)
 clarity-output.json
+last-clarity-payload.json
 
 # Python
 __pycache__/
