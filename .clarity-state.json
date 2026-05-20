@@ -1,11 +1,18 @@
 {
   "cumulative_estimated": 845,
-  "history": [],
-  "last_check": null,
+  "history": [
+    {
+      "cumulative": 845,
+      "date": "2026-05-20",
+      "delta": 0,
+      "window_3d": 502
+    }
+  ],
+  "last_check": "2026-05-20T11:18:45.732078+00:00",
   "last_milestone": 0,
   "last_report": null,
-  "last_seen_window_3d": 0,
-  "peak_window_3d": 0,
+  "last_seen_window_3d": 502,
+  "peak_window_3d": 502,
   "seed_value": 845,
-  "seeded_at": "2026-05-19"
+  "seeded_at": "2026-05-20"
 }
