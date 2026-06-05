@@ -102,12 +102,18 @@
       "date": "2026-06-04",
       "delta": 6,
       "window_3d": 334
+    },
+    {
+      "cumulative": 1123,
+      "date": "2026-06-05",
+      "delta": 0,
+      "window_3d": 301
     }
   ],
-  "last_check": "2026-06-04T17:59:24.000693+00:00",
+  "last_check": "2026-06-05T17:24:00.200971+00:00",
   "last_milestone": 1000,
   "last_report": "2026-05-23",
-  "last_seen_window_3d": 334,
+  "last_seen_window_3d": 301,
   "peak_window_3d": 661,
   "seed_value": 845,
   "seeded_at": "2026-05-20"
