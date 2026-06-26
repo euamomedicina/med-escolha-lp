@@ -228,9 +228,15 @@
       "date": "2026-06-25",
       "delta": 0,
       "window_3d": 280
+    },
+    {
+      "cumulative": 1290,
+      "date": "2026-06-26",
+      "delta": 0,
+      "window_3d": 280
     }
   ],
-  "last_check": "2026-06-25T11:32:09.039641+00:00",
+  "last_check": "2026-06-26T11:38:44.337860+00:00",
   "last_milestone": 1000,
   "last_report": "2026-05-23",
   "last_seen_window_3d": 280,
