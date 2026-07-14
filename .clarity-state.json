@@ -330,9 +330,15 @@
       "date": "2026-07-13",
       "delta": 0,
       "window_3d": 17
+    },
+    {
+      "cumulative": 1333,
+      "date": "2026-07-14",
+      "delta": 0,
+      "window_3d": 17
     }
   ],
-  "last_check": "2026-07-13T11:51:23.176647+00:00",
+  "last_check": "2026-07-14T10:29:04.218491+00:00",
   "last_milestone": 1000,
   "last_report": "2026-05-23",
   "last_seen_window_3d": 17,
