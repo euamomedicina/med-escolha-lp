@@ -1,12 +1,6 @@
 {
-  "cumulative_estimated": 1485,
+  "cumulative_estimated": 1486,
   "history": [
-    {
-      "cumulative": 1290,
-      "date": "2026-06-25",
-      "delta": 0,
-      "window_3d": 280
-    },
     {
       "cumulative": 1290,
       "date": "2026-06-26",
@@ -360,12 +354,18 @@
       "date": "2026-08-24",
       "delta": 0,
       "window_3d": 27
+    },
+    {
+      "cumulative": 1486,
+      "date": "2026-08-25",
+      "delta": 1,
+      "window_3d": 28
     }
   ],
-  "last_check": "2026-08-24T09:36:14.707330+00:00",
+  "last_check": "2026-08-25T09:24:18.045604+00:00",
   "last_milestone": 1000,
   "last_report": "2026-05-23",
-  "last_seen_window_3d": 27,
+  "last_seen_window_3d": 28,
   "peak_window_3d": 661,
   "seed_value": 845,
   "seeded_at": "2026-05-20"
